@@ -7,7 +7,14 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    st: ['aaa','555','sss'],
+    sts: [{ id: '1', name: 'AnMa', age: '20' }],
+    userName:'美妙人生',
+    userImg:'我的图片',
+    member:1,
+    openid:123,
+    userUid:456
   },
   //事件处理函数
   bindViewTap: function() {
@@ -16,6 +23,14 @@ Page({
     })
   },
   onLoad: function () {
+    var that = this;
+    wx.setStorageSync('gzmd', {
+      'userName': that.data.userName,
+      'userImg': that.data.userImg,
+      'member': that.data.member,
+      'openids': that.data.openids,
+      'userUid': that.data.userUid
+    })
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,

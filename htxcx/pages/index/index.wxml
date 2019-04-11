@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+  <header id='dialog' title='我是标题' paramAtoB='{{st}}' para='{{sts}}'></header>
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
