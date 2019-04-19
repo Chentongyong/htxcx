@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我是分包1",
+  "usingComponents": {
+    "header": "/components/header/header"
+  }
+}

@@ -1,5 +1,4 @@
 {
   "component": true, 
-  "usingComponents": {},
-  "navigationBarTitleText": "公用组件弹屏"
+  "usingComponents": {}
 }

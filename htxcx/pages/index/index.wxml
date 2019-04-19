@@ -1,6 +1,9 @@
 <!--index.wxml-->
+<view>
+  <!-- <header id='dialog' title='我是标题' paramAtoB='{{st}}' para='{{sts}}'></header> -->
+  <rotation style="width:100%;height:400rpx"></rotation>
+</view>
 <view class="container">
-  <header id='dialog' title='我是标题' paramAtoB='{{st}}' para='{{sts}}'></header>
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
@@ -8,6 +11,8 @@
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
+  <view bindtap='tab1Click'>跳转1</view>
+  <view bindtap='tab2Click'>跳转2</view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>

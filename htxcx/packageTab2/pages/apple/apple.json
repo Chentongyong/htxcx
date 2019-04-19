@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "我是分包2",
+    "usingComponents": {
+      "rotation": "/components/rotation/rotation"
+    }
+}
