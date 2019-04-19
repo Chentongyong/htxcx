@@ -1,12 +1,26 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
+  "subPackages": [
+    {
+      "root": "packageTab1",
+      "pages": [
+        "pages/cat/cat"
+      ]
+    },
+    {
+      "root": "packageTab2",
+      "pages": [
+        "pages/apple/apple"
+      ]
+    }
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#0b9ad6",
     "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarTextStyle": "white"
   }
 }

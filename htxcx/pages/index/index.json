@@ -1,6 +1,6 @@
 {
   "navigationBarTitleText": "首页",
   "usingComponents": {
-    "header": "/components/header/header"
+    "rotation": "/components/rotation/rotation"
   }
 }

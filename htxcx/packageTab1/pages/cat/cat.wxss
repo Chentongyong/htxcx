@@ -1,0 +1,6 @@
+.conter{
+  padding: 0 20rpx;
+}
+image{
+  width: 100%
+}

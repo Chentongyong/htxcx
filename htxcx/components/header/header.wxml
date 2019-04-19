@@ -1,4 +1,7 @@
 <view>
+  <view>
+  <text bindtap='cancelBut'  wx:for="{{cz}}" wx:key='index' data-text='{{item}}' style='padding:20rpx 30rpx;color:red'>{{item}}</text>
+  </view>
   <view wx:if="{{you}}">{{paramAtoB}}---ssss</view>
   <view wx:for='{{sum}}' wx:key='index'>{{item}}</view>
   <view wx:for='{{sums}}' wx:key='index'>{{item.id}}----{{item.name}}----{{item.age}}</view>

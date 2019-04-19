@@ -28,7 +28,7 @@ Page({
       'userName': that.data.userName,
       'userImg': that.data.userImg,
       'member': that.data.member,
-      'openids': that.data.openids,
+      'openid': that.data.openid,
       'userUid': that.data.userUid
     })
     if (app.globalData.userInfo) {
@@ -64,6 +64,16 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
+    })
+  },
+  tab1Click:function(){
+    wx:wx.navigateTo({
+      url: '/packageTab1/pages/cat/cat'
+    })
+  },
+  tab2Click: function () {
+    wx: wx.navigateTo({
+      url: '/packageTab2/pages/apple/apple'
     })
   }
 })
