@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/hotspot/hotspot",
     "pages/index/index",
+    "pages/hotspot/hotspot",
     "pages/shop/shop",
     "pages/mine/mine",
     "pages/customer/customer"
