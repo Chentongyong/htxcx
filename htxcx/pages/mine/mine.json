@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "tabbar": "../../tabbarComponent/tabbar"
+  },
+  "navigationBarTitleText": "",
+  "navigationBarBackgroundColor": "#2994E6",
+  "navigationBarTextStyle": "white"
+}

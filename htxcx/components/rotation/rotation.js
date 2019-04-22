@@ -11,8 +11,7 @@ Component({
       {
         url: '//m.360buyimg.com/mobilecms/s750x366_jfs/t1/27681/8/10652/102294/5c885408Effcb8a99/e51b29795f0fc49f.jpg!cr_1125x549_0_72!q70.jpg.dpg'
       }
-    ],
-    list: ['我的', '你的', '他的', '她的', '它的']
+    ]
   },
   attached: function() {
   },

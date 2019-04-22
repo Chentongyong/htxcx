@@ -1,7 +1,10 @@
 {
   "pages": [
+    "pages/hotspot/hotspot",
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/shop/shop",
+    "pages/mine/mine",
+    "pages/customer/customer"
   ],
   "subPackages": [
     {
@@ -22,5 +25,34 @@
     "navigationBarBackgroundColor": "#0b9ad6",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "white"
+  },
+  "window": {
+    "navigationBarBackgroundColor": "#fdb92c",
+    "navigationBarTitleText": "tabBar"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#979795",
+    "selectedColor": "#1c1c1b",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "",
+        "iconPath": "tabbarComponent/icon/icon_home.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_home_HL.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "",
+        "iconPath": "tabbarComponent/icon/icon_home.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_home_HL.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "",
+        "iconPath": "tabbarComponent/icon/icon_mine.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_mine_HL.png"
+      }
+    ]
   }
 }

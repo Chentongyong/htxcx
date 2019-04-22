@@ -1,0 +1,9 @@
+{
+  "component": true,
+  "usingComponents": {
+    "tabbar": "../../tabbarComponent/tabbar"
+  },
+  "navigationBarTitleText": "商城",
+  "navigationBarBackgroundColor": "#2994E6",
+  "navigationBarTextStyle": "white"
+}

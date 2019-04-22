@@ -1,19 +1,123 @@
 <!--index.wxml-->
-<view>
-  <!-- <header id='dialog' title='我是标题' paramAtoB='{{st}}' para='{{sts}}'></header> -->
-  <rotation style="width:100%;height:400rpx"></rotation>
-</view>
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class='compon'>
+  <rotation></rotation>
+  <view class='com_class'>
+    <view class='classBox' wx:for='{{classList}}' wx:key="index">
+      <image src='{{item.img}}'></image>
+      <view class='classTxt'>{{item.txt}}</view>
+    </view>
+
+    <view style='padding:40rpx 0'>
+      <view class='advertising'>
+        <view class='adver_left'>
+          <image src='../../images/tz.png'></image>
+          <text>通知</text>
+        </view>
+        <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
+          <block wx:for="{{msgList}}" wx:key='index'>
+            <swiper-item>
+              <view class="swiper_item">{{item.title}}</view>
+            </swiper-item>
+          </block>
+        </swiper>
+      </view>
+    </view>
   </view>
-  <view bindtap='tab1Click'>跳转1</view>
-  <view bindtap='tab2Click'>跳转2</view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view style='margin:0'>
+    <image class="img_gg" src='../../images/ind_ggt.png'></image>
   </view>
+
+  <view class='recommend'>
+    <view class='recomTop'>
+      <view class='left'>
+        <image class='img1' src='../../images/tu_logo.png'></image>
+        <text>优质服务商推荐</text>
+      </view>
+      <view class='right'>
+        <text>更多</text>
+        <image class='img2' src='../../images/jt.png'></image>
+      </view>
+    </view>
+    <view>
+      <swiper class="swiper" indicator-dots="true">
+        <block wx:for="{{movies}}" wx:for-index="index" wx:key='index'>
+          <swiper-item>
+            <view class='itemBox'>
+              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
+              <view class='text'>宏泰工业清洗</view>
+            </view>
+            <view class='itemBox'>
+              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
+              <view class='text'>宏泰工业清洗</view>
+            </view>
+            <view class='itemBox'>
+              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
+              <view class='text'>宏泰工业清洗</view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <view class='recommend'>
+    <view class='recomTop'>
+      <view class='left'>
+        <image class='img1' src='../../images/gctj_logo.png'></image>
+        <text>推荐推荐</text>
+      </view>
+      <view class='right'>
+        <text>更多</text>
+        <image class='img2' src='../../images/jt.png'></image>
+      </view>
+    </view>
+    <view>
+      <swiper class="swiper" indicator-dots="true">
+        <block wx:for="{{movies}}" wx:for-index="index" wx:key='index'>
+          <swiper-item>
+            <view class='itemBox'>
+              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
+              <view class='text'>大型油烟机</view>
+            </view>
+            <view class='itemBox'>
+              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
+              <view class='text'>大型油烟机</view>
+            </view>
+            <view class='itemBox'>
+              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
+              <view class='text'>大型油烟机</view>
+            </view>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+  </view>
+
+  <view class='hotspot'>
+    <view class='hot_top'>
+      <view class='topZi zi_sty'>活动风采</view>
+      <view class='topZi'>热点资讯</view>
+    </view>
+    <view class='hot_but' wx:for='{{listBox}}' wx:key="index">
+      <image class='imgs1' src='{{item.imgUrl}}'></image>
+      <view class='butBox'>
+        <view class='boxZi'>
+          <view class='ziSty'>{{item.title}}</view>
+          <view class='sty_co'>{{item.ms}}</view>
+          <view class='ziFu'>
+            <text>{{item.sj}}</text>
+            <image src='../../images/jt.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class='more'>更多精选咨询 》</view>
+    <view class='terminus'>
+      <view class='left'></view>
+      <view class='centers'>我也是有底线的</view>
+      <view class='left'></view>
+    </view>
+  </view>
+
+  <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>

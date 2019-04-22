@@ -4,26 +4,66 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    st: ['aaa','555','sss'],
-    sts: [{ id: '1', name: 'AnMa', age: '20' }],
-    userName:'美妙人生',
-    userImg:'我的图片',
-    member:1,
-    openid:123,
-    userUid:456
+    classList: [{
+        'img': "../../images/ind_zbxx.png",
+        'txt': '招标信息'
+      },
+      {
+        'img': "../../images/ind_bs.png",
+        'txt': '标书制作'
+      },
+      {
+        'img': "../../images/ind_zzry.png",
+        'txt': '资质荣誉'
+      },
+      {
+        'img': "../../images/ind_gczd.png",
+        'txt': '工程指导'
+      },
+      {
+        'img': "../../images/ind_gcqd.png",
+        'txt': '工程抢单'
+      },
+      {
+        'img': "../../images/ind_pxzl.png",
+        'txt': '培训资料'
+      },
+      {
+        'img': "../../images/ind_gghz.png",
+        'txt': '广告合作'
+      },
+      {
+        'img': "../../images/ind_ppfc.png",
+        'txt': '品牌扶持'
+      }
+    ],
+    msgList: [{
+        url: "url",
+        title: "多地首套房贷利率上浮 热点城市渐迎零折扣时代多地首套房贷利率上浮 热点城市渐迎零折扣时代"
+      },
+      {
+        url: "url",
+        title: "交了20多年的国内漫游费将取消 你能省多少话费？"
+      },
+      {
+        url: "url",
+        title: "北大教工合唱团出国演出遇尴尬:被要求给他人伴唱"
+      }
+    ],
+    tabbar: {},
+    movies: ['','',''],
+    listBox:[
+      { imgUrl: '../../images/rdzx.png', title: '开学后遗症，幼儿园小男孩错把椅子', ms:'近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',sj:'09-27'},
+      { imgUrl: '../../images/rdzx.png', title: '开学后遗症，幼儿园小男孩错把椅子', ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着', sj: '09-27' },
+      { imgUrl: '../../images/rdzx.png', title: '开学后遗症，幼儿园小男孩错把椅子', ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着', sj: '09-27' },
+      { imgUrl: '../../images/rdzx.png', title: '开学后遗症，幼儿园小男孩错把椅子', ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着一个小男孩背着“书包”想着', sj: '09-27' }
+    ]
+
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
-  onLoad: function () {
+
+  onLoad: function() {
     var that = this;
+    app.editTabbar(); //引用底部导航
     wx.setStorageSync('gzmd', {
       'userName': that.data.userName,
       'userImg': that.data.userImg,
@@ -31,47 +71,14 @@ Page({
       'openid': that.data.openid,
       'userUid': that.data.userUid
     })
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse){
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
+
   },
-  getUserInfo: function(e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
-    })
-  },
-  tab1Click:function(){
-    wx:wx.navigateTo({
+  tab1Click: function() {
+    wx: wx.navigateTo({
       url: '/packageTab1/pages/cat/cat'
     })
   },
-  tab2Click: function () {
+  tab2Click: function() {
     wx: wx.navigateTo({
       url: '/packageTab2/pages/apple/apple'
     })
