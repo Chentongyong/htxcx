@@ -1,19 +1,72 @@
 <!--index.wxml-->
-<view>
-  <!-- <header id='dialog' title='我是标题' paramAtoB='{{st}}' para='{{sts}}'></header> -->
-  <rotation style="width:100%;height:400rpx"></rotation>
-</view>
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
     <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </block>
   </view>
-  <view bindtap='tab1Click'>跳转1</view>
-  <view bindtap='tab2Click'>跳转2</view>
   <view class="usermotto">
     <text class="user-motto">{{motto}}</text>
   </view>
+  <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>
+
+<view class="contact-btn">
+ 
+<view class='contact-list'>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+<contact-button size='30'></contact-button>
+ 
+</view>
+ 
+<image mode='widthFix' src="../../images/contact.png" class="user-ads-rImg"></image>
+ 
+<text class='color-white'>联系在线客服</text>
+</view>
+ 
+<!-- 
+--------------------- 
+作者：Lucky_Aimee 
+来源：CSDN 
+原文：https://blog.csdn.net/qq_39364032/article/details/79742492 
+版权声明：本文为博主原创文章，转载请附上博文链接！ -->

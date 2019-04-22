@@ -4,33 +4,17 @@ const app = getApp()
 
 Page({
   data: {
+    //tabbar
+    tabbar: {},
+
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    st: ['aaa','555','sss'],
-    sts: [{ id: '1', name: 'AnMa', age: '20' }],
-    userName:'美妙人生',
-    userImg:'我的图片',
-    member:1,
-    openid:123,
-    userUid:456
+    canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  //事件处理函数
-  bindViewTap: function() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
-  },
+  
   onLoad: function () {
-    var that = this;
-    wx.setStorageSync('gzmd', {
-      'userName': that.data.userName,
-      'userImg': that.data.userImg,
-      'member': that.data.member,
-      'openid': that.data.openid,
-      'userUid': that.data.userUid
-    })
+    app.editTabbar();
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
@@ -64,16 +48,6 @@ Page({
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
-    })
-  },
-  tab1Click:function(){
-    wx:wx.navigateTo({
-      url: '/packageTab1/pages/cat/cat'
-    })
-  },
-  tab2Click: function () {
-    wx: wx.navigateTo({
-      url: '/packageTab2/pages/apple/apple'
     })
   }
 })

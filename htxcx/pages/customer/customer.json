@@ -1,8 +1,8 @@
 {
   "usingComponents": {
-    "tabbar": "../../tabbarComponent/tabbar"
+    
   },
-  "navigationBarTitleText": "清洗吧",
+  "navigationBarTitleText": "",
   "navigationBarBackgroundColor": "#2994E6",
   "navigationBarTextStyle": "white"
 }
