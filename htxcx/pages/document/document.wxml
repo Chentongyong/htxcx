@@ -1,0 +1,59 @@
+<view>
+  <rotation></rotation>
+  <view style='padding:0 20rpx;background:#fff;'>
+    <view class='docum'>
+      <view class='docum_top'>业/务/范/围</view>
+      <text>▼</text>
+    </view>
+
+    <view class='scvBox'>
+      <view>
+        <view class="boxzi" wx:for="{{list}}" wx:key="index" data-text='{{item}}' bindtap='details'>
+          <image src='../../images/ind_pxzl.png'></image>
+          <view class='text'>{{item}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style='background:#fff;'>
+    <view class='docum' style='padding-bottom:0'>
+      <view class='docum_top'>覆/盖/行/业</view>
+      <text>▼</text>
+    </view>
+    <image src='../../images/bszzBj.png'></image>
+  </view>
+
+  <view style='background:#fff;margin-bottom:100rpx'>
+    <view class='docum'>
+      <view class='docum_top'>案/例/展/示</view>
+      <text>▼</text>
+    </view>
+    <view class='hotspot'>
+      <view class='hot_but' wx:for='{{listBox}}' wx:key="index">
+        <image class='imgs1' src='{{item.imgUrl}}'></image>
+        <view class='butBox'>
+          <view class='boxZi'>
+            <view class='ziSty'>{{item.title}}</view>
+            <view class='sty_co'>{{item.ms}}</view>
+            <view class='ziFu'>
+              <text>{{item.sj}}</text>
+              <image src='../../images/jt.png'></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='informBut'>
+    <view class='butZi'>
+      <image src='../../images/dh.png'></image>
+      <text>电话咨询</text>
+    </view>
+    <view class='butZi'>
+      <image src='../../images/kf.png'></image>
+      <text>联系客服</text>
+    </view>
+  </view>
+</view>

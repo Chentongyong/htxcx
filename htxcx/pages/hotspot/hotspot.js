@@ -4,9 +4,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    list:['热点资讯','工业清洗','活动风采']
   },
-
+  quwei: function (e) {
+    var sum = e.currentTarget.dataset.text;
+    console.log(sum)
+    wx.setNavigationBarTitle({
+      title: sum
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

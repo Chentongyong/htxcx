@@ -1,9 +1,22 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/hotspot/hotspot",
-    "pages/shop/shop",
+    "pages/support/support",
+    "pages/advertising/advertising",
+    "pages/training/training",
+    "pages/training_details/training_details",
+    "pages/recommendation/recommendation",
+    "pages/recom_details/recom_details",
+    "pages/guidance/guidance",
+    "pages/honor_book/honor_book",
+    "pages/certificate/certificate",
+    "pages/honor/honor",
+    "pages/document/document",
+    "pages/document_details/document_details",
+    "pages/shop_details/shop_details",
     "pages/mine/mine",
+    "pages/shop/shop",
+    "pages/hotspot/hotspot",
     "pages/customer/customer"
   ],
   "subPackages": [
@@ -21,13 +34,7 @@
     }
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#0b9ad6",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "white"
-  },
-  "window": {
-    "navigationBarBackgroundColor": "#fdb92c",
+    "navigationBarBackgroundColor": "#2994E6",
     "navigationBarTitleText": "tabBar"
   },
   "tabBar": {

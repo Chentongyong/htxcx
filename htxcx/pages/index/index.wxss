@@ -7,6 +7,92 @@ page {
   height: 3280rpx;
 }
 
+/* 定位，搜索，消息 */
+
+.index-top {
+  display: flex;
+  background: #2994e6;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+  height: 68rpx;
+  align-items: center;
+}
+
+.index-top .position {
+  display: flex;
+}
+
+.index-top .position image {
+  width: 32rpx;
+  height: 30rpx;
+}
+
+.index-top .position view {
+  width: 56rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  line-height: 20px;
+  margin-left: 20rpx;
+  color: #fff;
+}
+
+.index-top .search {
+  margin-left: 20rpx;
+  width: 516rpx;
+  height: 56rpx;
+  border-radius: 8rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+}
+
+.index-top .search image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 12rpx;
+}
+
+.index-top .search view {
+  width: 144rpx;
+  height: 24rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 24rpx;
+  color: #d2d2d2;
+  opacity: 1;
+  margin-left: 12rpx;
+}
+
+.index-top .news {
+  width: 48rpx;
+  height: 48rpx;
+  margin-left: 10rpx;
+  position: relative;
+}
+
+.index-top .news image {
+  width: 100%;
+  height: 100%;
+}
+
+.index-top .news .num {
+  position: absolute;
+  top: -10rpx;
+  right: -5rpx;
+  width: 26rpx;
+  height: 26rpx;
+  text-align: center;
+  background: rgba(254, 75, 75, 1);
+  border-radius: 50%;
+  font-size: 20rpx;
+  font-family: San Francisco Display;
+  line-height: 26rpx;
+  color: #fff;
+  opacity: 1;
+}
+
 .com_class {
   padding: 0 40rpx;
   display: flex;
@@ -84,13 +170,12 @@ page {
 }
 
 .recommend .recomTop {
-  width: 520rpx;
+  width: 100%;
   padding: 36rpx 0;
   display: flex;
   line-height: 48rpx;
-  justify-content: space-between;
+  justify-content: center;
   position: relative;
-  left: 222rpx;
 }
 
 .recommend .recomTop .img1 {
@@ -116,6 +201,9 @@ page {
 .recommend .recomTop .right {
   color: #9a9a9a;
   font-size: 28rpx;
+  position: absolute;
+  bottom: 36rpx;
+  right: 20rpx;
 }
 
 .recommend .recomTop .left, .recommend .recomTop .right {
@@ -272,9 +360,9 @@ page {
 .terminus .left {
   width: 100rpx;
   height: 2px;
-  background:rgba(210,210,210,1);
+  background: rgba(210, 210, 210, 1);
   position: relative;
-  top: 13rpx
+  top: 13rpx;
 }
 
 .terminus .centers {
@@ -283,5 +371,4 @@ page {
   font-family: PingFang SC;
   font-weight: 400;
   color: rgba(210, 210, 210, 1);
-
 }

@@ -11,8 +11,8 @@ page, view {
 
 page {
   height: 100%;
-  font-family: "Microsoft Yahei";
-  background: #f4f8fb;
+  font-family:PingFang SC;
+  background-color: #f4f8fb;
 }
 
 

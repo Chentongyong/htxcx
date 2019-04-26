@@ -1,4 +1,31 @@
 <view class="container">
-  <text>商城页面</text>
+  <view class='shop_top'>
+    <view class='top_input'>
+      <view class='inputBox'>
+        <image src='../../images/ind_ss.png'></image>
+        <input type='text' placeholder='请输入商品名称'></input>
+      </view>
+      <view class='top_right'>搜索</view>
+    </view>
+    <view class='top_but'>
+      <view class='butBox box_sty'>商品</view>
+      <view class='butBox'>设备租凭</view>
+    </view>
+  </view>
+
+  <view class='shop_center'>
+    <view class='cen_left'>
+      <view class='leftBox' wx:for='{{listEj}}' wx:key='index'>
+        <!-- .left_sty 改变左边背景字体颜色 -->
+        {{item}}</view>
+    </view>
+    <view class='cen_right'>
+      <view class='rightBox' wx:for='{{listSp}}' wx:key='index' bindtap='details'>
+        <image src='{{item.imgUrl}}'></image>
+        <view class='box_right'>{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
   <tabbar tabbar="{{tabbar}}"></tabbar>
 </view>

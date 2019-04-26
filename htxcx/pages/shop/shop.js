@@ -5,10 +5,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-    //tabbar
+    listEj:['电器设备','清洗设备','设备配件','防护用品'],
+    listSp:[
+      { imgUrl:'../../images/scsp.png',title:'高压清洗'},
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
+      { imgUrl: '../../images/scsp.png', title: '高压清洗' }
+    ],
     tabbar: {},
   },
-
+  details:function (){
+    wx.navigateTo({
+      url: '../shop_details/shop_details',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

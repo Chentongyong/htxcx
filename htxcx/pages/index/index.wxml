@@ -1,5 +1,21 @@
 <!--index.wxml-->
 <view class='compon'>
+
+  <view class="index-top">
+    <view class="position" bindtap='jumpPos'>
+      <image src="../../images/position.png"></image>
+      <view>全国</view>
+    </view>
+    <view class="search">
+      <image src="../../images/ind_ss.png"></image>
+      <view>请输入关键字</view>
+    </view>
+    <view class="news" bindtap='newsnav'>
+      <image src="../../images/news.png"></image>
+      <view class="num">8</view>
+    </view>
+  </view>
+
   <rotation></rotation>
   <view class='com_class'>
     <view class='classBox' wx:for='{{classList}}' wx:key="index">

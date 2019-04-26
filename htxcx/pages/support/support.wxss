@@ -1,0 +1,104 @@
+.support {
+  width: 100%;
+  background: #eee;
+}
+
+.support .sup_top .topBj {
+  width: 100%;
+  height: 100rpx;
+  background: #2994e6;
+}
+
+.support .sup_top .topBut {
+  padding: 0 24rpx;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -50rpx;
+}
+
+.support .sup_top .topBut image {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  top: 50%;
+  margin-top: -20rpx;
+}
+
+.support .sup_top .topBut .butZi {
+  width: 220rpx;
+  height: 88rpx;
+  background: #fff;
+  border-radius: 5px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.support .sup_top .topBut .butZi text {
+  display: block;
+  position: relative;
+  top: 50%;
+  margin-top: -20rpx;
+  margin-left: 20rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  color: rgba(154, 154, 154, 1);
+}
+
+.support .sup_list {
+  padding: 0 20rpx;
+}
+
+.sup_list .listBox {
+  padding: 20rpx;
+  display: flex;
+  background: #fff;
+  margin-top: 10rpx;
+}
+
+.sup_list .listBox image {
+  width: 160rpx;
+  height: 160rpx;
+}
+
+.sup_list .listBox .box_right {
+  width: 480rpx;
+  margin-left: 20rpx;
+  padding: 10rpx 0;
+}
+
+.sup_list .listBox .box_right .right_top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 24rpx;
+  font-family: San Francisco Display;
+  line-height: 12px;
+  color: rgba(210, 210, 210, 1);
+  margin-bottom: 30rpx;
+}
+
+.sup_list .listBox .box_right .right_top .text1 {
+  display: block;
+  width: 70%;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: 600;
+  color: rgba(51, 51, 51, 1);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sup_list .listBox .box_right .right_cen {
+  width: 100%;
+  height: 80rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  line-height: 40rpx;
+  color: rgba(154, 154, 154, 1);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
