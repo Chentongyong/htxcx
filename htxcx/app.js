@@ -1,10 +1,11 @@
 //app.js
+var ququ = {};
 App({
-  onLaunch: function () {
+  onLaunch: function() {
     //隐藏系统tabbar
     wx.hideTabBar({
-      fail: function () {
-        setTimeout(function () { // 做了个延时重试一次，作为保底。
+      fail: function() {
+        setTimeout(function() { // 做了个延时重试一次，作为保底。
           wx.hideTabBar()
         }, 500)
       }
@@ -39,34 +40,52 @@ App({
       }
     })
   },
-  onShow: function () {
-    //隐藏系统tabbar
-    wx.hideTabBar({
-      fail: function () {
-        setTimeout(function () { // 做了个延时重试一次，作为保底。
-          wx.hideTabBar()
-        }, 500)
-      }
-    });
+  onShow: function() {
+    var sum = [];
+    // wx.request({
+    //   url: 'https://wwwgezimd.com/Store/cityaction!main.action', //仅为示例，并非真实的接口地址
+    //   data: {
+    //     'store.city': '广州市'
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success: function(res) {
+    //     if (res.data.length != undefined) {
+    //       let sum = [];
+    //       for (let i = 0; i < res.data.length; i++) {
+    //         sum.push(res.data[i].text)
+    //       }
+    //       ququ['qys'] = sum;
+    //       wx.setStorageSync('gzmd', ququ)
+    //     }
+    //   },
+    //   fail: function() {
+
+    //   }
+    // })
+    var ss = {
+     
+    }
   },
   hidetabbar1() {
     wx.hideTabBar({
-      fail: function () {
-        setTimeout(function () { // 做了个延时重试一次，作为保底。
+      fail: function() {
+        setTimeout(function() { // 做了个延时重试一次，作为保底。
           wx.hideTabBar()
         }, 500)
       }
     });
   },
-  getSystemInfo: function () {
+  getSystemInfo: function() {
     let t = this;
     wx.getSystemInfo({
-      success: function (res) {
+      success: function(res) {
         t.globalData.systemInfo = res;
       }
     });
   },
-  editTabbar: function () {
+  editTabbar: function() {
     let tabbar = this.globalData.tabBar;
     let currentPages = getCurrentPages();
     let _this = currentPages[currentPages.length - 1];
@@ -81,14 +100,13 @@ App({
     });
   },
   globalData: {
-    systemInfo: null,//客户端设备信息
+    systemInfo: null, //客户端设备信息
     userInfo: null,
     tabBar: {
       "backgroundColor": "#ffffff",
       "color": "#808080",
       "selectedColor": "#2994E6",
-      "list": [
-        {
+      "list": [{
           "pagePath": "/pages/index/index",
           "iconPath": "../images/index.png",
           "selectedIconPath": "../images/index-selected.png",
@@ -118,7 +136,8 @@ App({
           "selectedIconPath": "../images/mine-selected.png",
           "text": "我的"
         },
-      ]
-    }
+      ], 
+      position: "bottom"
+    },
   }
 })

@@ -41,8 +41,14 @@
 }
 
 .certifiBox .cer_but .butBox text {
+  font-size: 36rpx;
   display: block;
   line-height: 88rpx;
+  font-family:PingFang SC;
+  color: #9A9A9A 
+}
+.certifiBox .cer_but .butBox text.te_sty{
+  color: #2994E6
 }
 
 /* .certifiBox .cer_but .butBox text.text_st{

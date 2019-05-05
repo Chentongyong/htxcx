@@ -1,3 +1,4 @@
+var publics = require('../../public/public.js');
 Page({
 
   /**
@@ -19,6 +20,13 @@ Page({
    */
   onLoad: function(options) {
 
+  },
+
+  phoneCall: function (e) {//电话咨询
+    publics.phones(e)
+  },
+  phoneCall2: function (e) {//联系客服
+    publics.phones(e)
   },
 
   /**

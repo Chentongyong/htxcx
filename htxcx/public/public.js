@@ -29,8 +29,35 @@ const ttps = function () {
   return ss
 }
 
+const phones = function(e){
+  wx.makePhoneCall({
+    phoneNumber: e.currentTarget.dataset.replyPhone,
+    success: function () {
+      console.log("成功拨打电话")
+    },
+  })
+}
+
+const ttpss = function () {
+  let listq = {
+    zb: '../',//招标信息
+    bs: '../document/document',//标书制作
+    zz: '../honor/honor',//资质荣誉
+    gc: '../guidance/guidance',//工程指导
+    // gcq: '../',//工程抢单
+    px: '../training/training',//培训资料
+    gg: '../advertising/advertising',//广告合作
+    pp: '../support/support'
+  }
+  // var zb = '../';//招标信息
+  return listq
+}
+
+
 module.exports = {
   funs: funs,
   ttps: ttps,
-  requestPromise: requestPromise
+  requestPromise: requestPromise,
+  ttpss,
+  phones
 }

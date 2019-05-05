@@ -43,7 +43,8 @@ Component({
             "text": "我的"
           },
         ]
-      }
+      },
+      position: "bottom"
     }
   },
 
@@ -58,12 +59,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    customer:function(e){
-      console.log(e)
-      var index = e.currentTarget.dataset.index;
-      if (index == 1){
+    // customer:function(e){
+    //   console.log(e)
+    //   var index = e.currentTarget.dataset.index;
+    //   if (index == 1){
 
-      }
-    }
+    //   }
+    // }
   }
 })

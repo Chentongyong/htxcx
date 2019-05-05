@@ -1,2 +1,3 @@
 <view>
+  <information sum="{{sum}}"></information>
 </view>

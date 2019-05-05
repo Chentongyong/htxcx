@@ -17,6 +17,10 @@ Component({
   },
   attached: function() {
     var that = this;
+    
+
+
+
     if (this.properties.para[0].id == 1) {
       this.setData({
         you: true

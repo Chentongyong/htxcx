@@ -3,9 +3,6 @@
     <view class='hon_topbj'></view>
     <view class='honTop'>
       <image src='../../images/zz_bj.png'></image>
-      <view class='topFu'>
-        <text>企业资质就是公司的符合相关行业规定的 证明自身生产等能力的相关文件、证件。 资质一般有两种：一种是经营资质，如企 业法人营业执照、税务登记证、组织机构 代码证、生产许可证等。</text>
-      </view>
     </view>
   </view>
 
@@ -13,9 +10,9 @@
     <view class='recomTop'>
       <view class='left'>
         <image class='img1' src='../../images/zz_logo.png'></image>
-        <text>优质服务商推荐</text>
+        <text>资质证书</text>
       </view>
-      <view class='right'>
+      <view class='right' bindtap='zzClick'>
         <text>更多</text>
         <image class='img2' src='../../images/jt.png'></image>
       </view>
@@ -40,9 +37,9 @@
     <view class='recomTop'>
       <view class='left'>
         <image class='img1' src='../../images/ry_logo.png'></image>
-        <text>优质服务商推荐</text>
+        <text>荣誉证书</text>
       </view>
-      <view class='right'>
+      <view class='right' bindtap='ryClick'>
         <text>更多</text>
         <image class='img2' src='../../images/jt.png'></image>
       </view>
@@ -70,7 +67,7 @@
         <text>优质服务商推荐</text>
       </view>
     </view>
-    <view class='hot_but' wx:for='{{listBox}}' wx:key="index" style='padding:36rpx 40rpx;bakcground:#fff'>
+    <view class='hot_but' wx:for='{{listBox}}' wx:key="index" style='padding:36rpx 40rpx;bakcground:#fff' bindtap='xqClick'>
       <image class='imgs1' src='{{item.imgUrl}}'></image>
       <view class='butBox'>
         <view class='boxZi'>

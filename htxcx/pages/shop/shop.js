@@ -34,10 +34,31 @@ Page({
       { imgUrl: '../../images/scsp.png', title: '高压清洗' }
     ],
     tabbar: {},
+    ind:0,
+    qh:0
+  },
+  qhClick:function(e){
+    let that = this;
+    if (e.currentTarget.dataset.text==='商品'){
+      that.setData({
+        qh:0
+      })
+    }
+    if (e.currentTarget.dataset.text==='设备租凭'){
+      that.setData({
+        qh: 1
+      })
+    }
   },
   details:function (){
     wx.navigateTo({
       url: '../shop_details/shop_details',
+    })
+  },
+  xzClick:function(e){
+    let that = this;
+    that.setData({
+      ind: e.currentTarget.dataset.index
     })
   },
   /**

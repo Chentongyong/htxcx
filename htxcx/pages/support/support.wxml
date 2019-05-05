@@ -2,23 +2,15 @@
   <view class='sup_top'>
     <view class='topBj'></view>
     <view class='topBut'>
-      <view class='butZi'>
-        <image src='../../images/mmsj.png'></image>
-        <text>门面设计</text>
-      </view>
-      <view class='butZi'>
-        <image src='../../images/cpsc.png'></image>
-        <text>产品手册</text>
-      </view>
-      <view class='butZi'>
-        <image src='../../images/yytg.png'></image>
-        <text>营运推广</text>
+      <view wx:for='{{listD}}' wx:key='index' data-index='{{index}}' class="butZi" bindtap='qhClick'>
+        <image src='{{item.imgs}}'></image>
+        <text class="{{index==ind?'te_sty':''}}">{{item.title}}</text>
       </view>
     </view>
   </view>
 
   <view class='sup_list'>
-    <view wx:for="{{list}}" wx:key='index' class='listBox'>
+    <view wx:for="{{list}}" wx:key='index' class='listBox' bindtap='qxClick'>
       <image src='{{item.img}}'></image>
       <view class='box_right'>
         <view class='right_top'>

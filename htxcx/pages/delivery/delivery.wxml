@@ -1,0 +1,19 @@
+<view class='deliBox'>
+  <view class='box_but'>
+    <view class='butBox'>
+      <view class="butZi {{s==0?'show':'hide'}}">
+        <image src='../../images/zbfb.png'></image>
+        <text>招标信息</text>
+      </view>
+      <view class="butZi {{s==0?'show':'hide'}}">
+        <image src='../../images/gcxxfb.png'></image>
+        <text>工程抢单</text>
+      </view>
+      <view class="butZi {{s==0?'hide':'show'}}">
+        <image src='../../images/gcsfb.png'></image>
+        <text>工程师</text>
+      </view>
+    </view>
+  </view>
+  <tabbar></tabbar>
+</view>

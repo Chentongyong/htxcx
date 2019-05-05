@@ -54,9 +54,15 @@ Page({
         time: '2019-08-07'
       }
     ],
-    sums:0
+    sums:0,
+    ind:0
   },
-
+  qhClick:function(e){
+    let that = this;
+    that.setData({
+      ind:e.currentTarget.dataset.index
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */

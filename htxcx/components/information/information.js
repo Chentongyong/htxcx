@@ -4,7 +4,7 @@ Component({
    * 组件的属性列表
    */
   properties: {
-
+      sum: String
   },
 
   /**
@@ -73,11 +73,18 @@ Component({
       }
     ]
   },
-
+  attached: function () {
+    var that = this;
+    console.log(this.properties.sum)
+  },
   /**
    * 组件的方法列表
    */
   methods: {
-
+    xqClick: function () {
+      wx: wx.navigateTo({
+        url: '../activi_details/activi_details'
+      })
+    },
   }
 })

@@ -38,7 +38,8 @@ Page({
       { img: '../../images/zgzs.png', title: '建筑施工证书' },
       { img: '../../images/zgzs.png', title: '建筑施工证书' },
       { img: '../../images/zgzs.png', title: '建筑施工证书' },
-    ]
+    ],
+    ind:0
   },
 
   /**
@@ -47,7 +48,17 @@ Page({
   onLoad: function(options) {
 
   },
-
+  qhClick:function(e){
+     let that = this;
+     that.setData({
+       ind: e.currentTarget.dataset.index
+     })
+  },
+  djClick: function () {
+    wx: wx.navigateTo({
+      url: '../cert_details/cert_details'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

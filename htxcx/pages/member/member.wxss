@@ -1,0 +1,152 @@
+.memberBox {
+  width: 100%;
+  background: #f5faff;
+  position: relative;
+}
+
+.memberBox .mem_bjImg {
+  width: 100%;
+  height: 360rpx;
+}
+
+.memUp {
+  width: 100%;
+  position: absolute;
+  top: 26rpx;
+  left: 0;
+}
+
+.upBox {
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.memUp image {
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-right: 40rpx;
+}
+
+.memUp .upLeft {
+  display: flex;
+}
+
+.memUp .upLeft .leftBox {
+  margin: 16rpx 0 24rpx 0;
+  color: #fff;
+  font-size: 32rpx;
+  font-family: San Francisco Display;
+  line-height: 36rpx;
+}
+
+.memUp .upLeft .leftBox .left_mem {
+  width: 70rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  background: rgba(255, 255, 255, 1);
+  opacity: 0.5;
+  border-radius: 10px;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  color: rgba(41, 148, 230, 1);
+  margin-top: 8rpx
+}
+
+.memUp .upRight {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  color: rgba(255, 255, 255, 1);
+  position: relative;
+  top: 16rpx;
+}
+
+.memList {
+  width: 100%;
+  position: absolute;
+  top: 186rpx;
+  left: 0;
+}
+
+.listBox {
+  width: 590rpx;
+  height: 740rpx;
+  background: #fff;
+  margin: 0 auto;
+  border-radius: 10px;
+  position: relative;
+}
+
+.listBox .imagBj {
+  width: 100%;
+  height: 740rpx;
+}
+
+.swiper {
+  height: 740rpx;
+  width: 100%;
+}
+
+.listBox .boxUp {
+  display: flex;
+  justify-content: center;
+  padding: 60rpx 0 40rpx 0;
+  height: 50rpx;
+  /* border-bottom: 4px solid #fea44b; */
+  font-size: 40rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  line-height: 50rpx;
+}
+
+.listBox .boxUp image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 10rpx;
+}
+
+.listBox .mem_listpb {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mem_listpb .listpbZi {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 40rpx;
+}
+
+.mem_listpb .listpbZi .ziBox {
+  width: 180rpx;
+  text-align: right;
+  margin-right: 100rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  color: rgba(51, 51, 51, 1);
+}
+
+.mem_listpb .listpbZi .xzyq {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  /* border: 1px solid #fea44b */
+}
+.mem_listpb .listpbZi .xzyq image{
+  width: 40rpx;
+  height: 40rpx
+}
+.but {
+  width: 200rpx;
+  height: 80rpx;
+  text-align: center;
+  line-height: 80rpx;
+  margin: 0 auto;
+  background: #fea44b;
+  font-size: 46rpx;
+  color: #fff;
+  border-radius: 10px;
+}

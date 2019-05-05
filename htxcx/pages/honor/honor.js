@@ -17,7 +17,21 @@ Page({
   onLoad: function (options) {
     
   },
-
+  zzClick:function(){
+    wx:wx.navigateTo({
+      url: '../certificate/certificate'
+    })
+  },
+  ryClick: function () {
+    wx: wx.navigateTo({
+      url: '../honor_book/honor_book'
+    })
+  },
+  xqClick:function(){
+    wx: wx.navigateTo({
+      url: '../training_details/training_details'
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -1,0 +1,52 @@
+<view class='issueBox' style='position: relative'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class='issueZi'>
+      <view class='ziText'>标题</view>
+      <view class='ziBox'>
+        <input value='{{btVal}}' bindinput='btClick'></input>
+        <text class="text {{inputShowed==true?'show':'hide'}}">请输入招标信息的标题</text>
+      </view>
+    </view>
+
+    <view>{{btVal}}</view>
+
+    <view class='issueZi'>
+      <view class='ziText'>工程类型</view>
+      <view class='ziBox'>
+        <input placeholder='请选择类型'></input>
+        <!-- <text class='text'>请选择类型</text> -->
+      </view>
+      <image src='../../images/jt.png'></image>
+    </view>
+    <view class='issueZi'>
+      <view class='ziText'>地区</view>
+      <view class='ziBox'>
+        <input></input>
+        <text class='text'>请选择地区</text>
+      </view>
+      <image src='../../images/jt.png'></image>
+    </view>
+    <view class='issueZi'>
+      <view class='ziText'>金额</view>
+      <view class='ziBox'>
+        <input></input>
+        <text class='text'>请输入金额</text>
+      </view>
+    </view>
+    <view class='issueZi'>
+      <view class='ziText'>招标类型</view>
+      <view class='type'>
+        <text wx:for='{{types}}' wx:key='index' data-index='{{index}}' data-text="{{item}}" class="{{sh==index?'te_back':''}}" bindtap='zsClick'>{{item}}</text>
+      </view>
+    </view>
+    <view class='msBox'>
+      <view class='ms_top'>描述</view>
+      <view class='ms_cen'>
+        <textarea wx:if="{{isShow}}"></textarea>
+        <view bindinput='soen'>请描述下您的详细内容</view>
+      </view>
+    </view>
+    <view class="fuBox {{isShow==false?'show':'hide'}}" >1555555552</view>
+  </form>
+  
+</view>

@@ -5,15 +5,12 @@ Page({
    */
   data: {
     list:[
-      { img:'../../images/rdzx.png',types:'工业清洗'},
       { img: '../../images/rdzx.png', types: '工业清洗' },
-      { img: '../../images/rdzx.png', types: '工业清洗' },
-      { img: '../../images/rdzx.png', types: '工业清洗' },
-      { img: '../../images/rdzx.png', types: '工业清洗' },
-      { img: '../../images/rdzx.png', types: '工业清洗' },
-      { img: '../../images/rdzx.png', types: '工业清洗' },
-      { img: '../../images/rdzx.png', types: '工业清洗' },
-      { img: '../../images/rdzx.png', types: '工业清洗' }
+      { img: '../../images/rdzx.png', types: '烟油清洗' },
+      { img: '../../images/rdzx.png', types: '中央空调' },
+      { img: '../../images/rdzx.png', types: '外墙清洗' },
+      { img: '../../images/rdzx.png', types: '石材护理' },
+      { img: '../../images/rdzx.png', types: '商业保洁' }
     ]
   },
 
@@ -23,9 +20,10 @@ Page({
   onLoad: function (options) {
     
   },
-  onClick:function(){
+  onClick:function(e){
+    let sum = e.currentTarget.dataset.text;
     wx.navigateTo({
-      url: '../training_details/training_details',
+      url: '../clean/clean?sum='+sum,
     })
   },
 

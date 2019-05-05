@@ -20,9 +20,10 @@
 .support .sup_top .topBut image {
   width: 40rpx;
   height: 40rpx;
-  position: relative;
+  margin-top: 24rpx;
+  /* position: relative;
   top: 50%;
-  margin-top: -20rpx;
+  margin-top: -20rpx; */
 }
 
 .support .sup_top .topBut .butZi {
@@ -37,13 +38,15 @@
 
 .support .sup_top .topBut .butZi text {
   display: block;
-  position: relative;
-  top: 50%;
-  margin-top: -20rpx;
   margin-left: 20rpx;
   font-size: 36rpx;
   font-family: PingFang SC;
   color: rgba(154, 154, 154, 1);
+  line-height: 88rpx;
+}
+
+.support .sup_top .topBut .butZi text.te_sty {
+  color: rgba(41, 148, 230, 1);
 }
 
 .support .sup_list {
@@ -73,9 +76,8 @@
   justify-content: space-between;
   font-size: 24rpx;
   font-family: San Francisco Display;
-  line-height: 12px;
   color: rgba(210, 210, 210, 1);
-  margin-bottom: 30rpx;
+  margin-bottom: 20rpx;
 }
 
 .sup_list .listBox .box_right .right_top .text1 {

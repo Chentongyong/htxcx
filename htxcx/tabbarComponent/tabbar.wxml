@@ -11,10 +11,6 @@
       <view wx:if="{{index == 1}}" class='nav1'>
         <view class="contact-list">
           <contact-button size="18" wx:for="{{10}}" wx:key='index'></contact-button>
-          <!-- <contact-button size="18"></contact-button>
-          <contact-button size="18"></contact-button>
-          <contact-button size="18"></contact-button>
-          <contact-button size="18"></contact-button> -->
         </view>
         <view class="iconImg">
           <image class="tabbar_icon" src="{{item.selected ? item.selectedIconPath : item.iconPath}}"></image>

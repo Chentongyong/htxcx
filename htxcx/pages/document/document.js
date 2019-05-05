@@ -4,7 +4,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list: ['标书制作','合同标本','工程报价','服务流程'],
+    list: [
+      { img: '../../images/bszy2.png', title: '标书制作'},
+      { img: '../../images/bszy4.png', title: '合同标本'},
+      { img: '../../images/bszy1.png', title: '工程报价'},
+      { img: '../../images/bszy3.png', title: '服务流程' }
+      ],
     listBox: [{
       imgUrl: '../../images/rdzx.png',
       title: '开学后遗症，幼儿园小男孩错把椅子',
@@ -36,6 +41,11 @@ Page({
    let sum = e.currentTarget.dataset.text;
     wx.navigateTo({
       url: '../document_details/document_details?sum=' + sum,
+    })
+  },
+  xqClick: function () {
+    wx: wx.navigateTo({
+      url: '../training_details/training_details'
     })
   },
   /**

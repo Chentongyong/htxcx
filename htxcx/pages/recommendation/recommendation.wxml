@@ -3,9 +3,9 @@
     <view style='padding:20rpx'>
       <view>
         <view class='cer_but'>
-          <view wx:for='{{listBox}}' wx:key='index' class='butBox'>
+          <view wx:for='{{listBox}}' data-index='{{index}}'  wx:key='index' class='butBox' bindtap='qhClick'>
             <image src='{{item.urlImg}}'></image>
-            <text>{{item.title}}</text>
+            <text class="{{index==ind?'te_sty':''}}">{{item.title}}</text>
           </view>
         </view>
       </view>

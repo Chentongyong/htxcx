@@ -38,6 +38,9 @@
   color:rgba(51,51,51,1);
   text-align: center
 }
+.informCen image{
+  width: 100%
+}
 .informBut{
   width: 100%;
   display: flex;

@@ -1,10 +1,22 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/member/member",
+    "pages/recharge/recharge",
+    "pages/mem_recharge/mem_recharge",
+    "pages/integral/integral",
+    "pages/mem_sm/mem_sm",
+    "pages/wxLogin/wxLogin",
+    "pages/tendering_issue/tendering_issue",
+    "pages/delivery/delivery",
+    "pages/engineering/engineering",
+    "pages/service/service",
+    "pages/activities/activities",
     "pages/support/support",
+    "pages/engin_details/engin_details",
+    "pages/cert_details/cert_details",
     "pages/advertising/advertising",
     "pages/training/training",
-    "pages/training_details/training_details",
     "pages/recommendation/recommendation",
     "pages/recom_details/recom_details",
     "pages/guidance/guidance",
@@ -17,7 +29,11 @@
     "pages/mine/mine",
     "pages/shop/shop",
     "pages/hotspot/hotspot",
-    "pages/customer/customer"
+    "pages/customer/customer",
+    "pages/training_details/training_details",
+    "pages/activi_details/activi_details",
+    "pages/service_details/service_details",
+    "pages/clean/clean"
   ],
   "subPackages": [
     {

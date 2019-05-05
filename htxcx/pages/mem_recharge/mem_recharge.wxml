@@ -1,0 +1,14 @@
+<view class='mem_rech'>
+  <view class='mem_je'>
+    <text>支付金额</text>
+    <text>￥{{money}}</text>
+  </view>
+  <view class='mem_ts'>{{texts}}</view>
+  <view class='mem_logo'>
+    <image src='../../images/wx.png'></image>
+    <image src='../../images/qr.png' class='imgs'></image>
+  </view>
+  <view class='mem_but'>
+    <button>支付</button>
+  </view>
+</view>

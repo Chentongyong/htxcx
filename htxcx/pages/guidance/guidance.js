@@ -1,3 +1,4 @@
+var publics = require('../../public/public.js');
 Page({
 
   /**
@@ -45,13 +46,36 @@ Page({
     ],
     lx:0
   },
-
+ 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
 
   },
+  onClick:function(){
+    wx:wx.navigateTo({
+      url: '../recommendation/recommendation'
+    })
+  },
+  onDetails:function(){
+    wx: wx.navigateTo({
+      url: '../recom_details/recom_details'
+    })
+  },
+  xqClick: function () {
+    wx: wx.navigateTo({
+      url: '../training_details/training_details'
+    })
+  },
+  phoneCall: function (e) {//电话咨询
+    publics.phones(e)
+  },
+  phoneCall2: function (e) {//联系客服
+    publics.phones(e)
+  },
+
+
   clicks: function (e){
     var that = this;
     var s = e.currentTarget.dataset.id;

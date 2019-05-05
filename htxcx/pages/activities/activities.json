@@ -1,6 +1,7 @@
 {
   "component": true,
   "usingComponents": {
-    "navigationBarTitleText": "热点资讯"
-  }
+    "information": "/components/information/information"
+  },
+  "navigationBarTitleText": "热点资讯"
 }

@@ -9,7 +9,7 @@
   font-family: PingFang SC;
   font-weight: bold;
   color: rgba(51, 51, 51, 1);
-  text-align: center;
+  /* text-align: center; */
   position: relative;
 }
 

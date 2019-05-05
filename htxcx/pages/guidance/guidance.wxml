@@ -6,21 +6,21 @@
         <image class='img1' src='../../images/aqm.png'></image>
         <text>工程师推荐</text>
       </view>
-      <view class='right'>
+      <view class='right' bindtap='onClick'>
         <text>更多</text>
         <image class='img2' src='../../images/jt.png'></image>
       </view>
     </view>
     <view class='recomBut'>
-      <view class='butBox'>
+      <view class='butBox' bindtap='onDetails'>
         <image src='../../images/bsht.png'></image>
         <text>周工</text>
       </view>
-      <view class='butBox'>
+      <view class='butBox' bindtap='onDetails'>
         <image src='../../images/bsht.png'></image>
         <text>周工</text>
       </view>
-      <view class='butBox'>
+      <view class='butBox' bindtap='onDetails'>
         <image src='../../images/bsht.png'></image>
         <text>周工</text>
       </view>
@@ -49,17 +49,12 @@
         <image class='img1' src='../../images/gcfw.png'></image>
         <text>服务案例</text>
       </view>
-      <view class='right'>
-        <text>更多</text>
-        <image class='img2' src='../../images/jt.png'></image>
-      </view>
     </view>
     <view class='gcfwBox'>
       <view class='gcfwTop'>
         <text wx:for='{{classList}}' wx:key='index' data-id='{{index}}' class="{{index==lx?'text_sty':''}}" bindtap='clicks'>{{item}}</text>
-        <!-- <text class='text_sty'></text> -->
       </view>
-      <view class='hot_but' wx:for='{{listBox}}' wx:key="index">
+      <view class='hot_but' wx:for='{{listBox}}' wx:key="index" bindtap='xqClick'>
         <image class='imgs1' src='{{item.imgUrl}}'></image>
         <view class='butBox'>
           <view class='boxZi'>
@@ -74,12 +69,13 @@
       </view>
     </view>
   </view>
+
   <view class='informBut'>
-    <view class='butZi'>
+    <view class='butZi' data-reply-phone="10086" bindtap="phoneCall">
       <image src='../../images/dh.png'></image>
       <text>电话咨询</text>
     </view>
-    <view class='butZi'>
+    <view class='butZi' data-reply-phone="1008611" bindtap="phoneCall2">
       <image src='../../images/kf.png'></image>
       <text>联系客服</text>
     </view>

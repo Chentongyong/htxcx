@@ -1,6 +1,6 @@
 .certifiBox {
   background-color: #eee;
-  padding-bottom: 20rpx
+  padding-bottom: 20rpx;
 }
 
 .certifiBox .cer_top {
@@ -16,9 +16,11 @@
   position: relative;
   top: 44rpx;
 }
+
 ::-webkit-scrollbar {
   display: none;
 }
+
 .certifiBox .cer_but .butBox {
   width: 200rpx;
   height: 88rpx;
@@ -45,6 +47,13 @@
 .certifiBox .cer_but .butBox text {
   display: block;
   line-height: 88rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  color: rgba(154, 154, 154, 1);
+}
+
+.certifiBox .cer_but .butBox text.te_sty {
+  color:rgba(41,148,230,1);
 }
 
 /* .certifiBox .cer_but .butBox text.text_st{

@@ -2,7 +2,7 @@
 <view class='cer_top'></view>
   <view class='cerBut'>
     <view class='boxList'>
-      <view wx:for='{{lists}}' wx:key='index' class='listBox'>
+      <view wx:for='{{lists}}' wx:key='index' class='listBox' bindtap='djClick'>
         <image src='{{item.img}}'></image>
         <text>{{item.title}}</text>
       </view>
