@@ -1,8 +1,0 @@
-<view class='centerBox'>
-  <view class='boxUp'>
-    <text>用户分为三个级别：普通、银钻、金钻</text>
-  </view>
-  <view>
-    <image src='../../images/mem_sm.png'></image>
-  </view>
-</view>

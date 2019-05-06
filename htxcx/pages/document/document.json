@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "rotation": "/components/rotation/rotation"
-  },
-  "navigationBarTitleText": "标书制作",
-  "navigationBarBackgroundColor": "#0b9ad6"
-}

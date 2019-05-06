@@ -1,6 +1,0 @@
-<view class='conter'>
-  <header id='dialog' title='我是标题' paramAtoB='{{st}}' para='{{sts}}' bind:myevent="toggleToast"></header>
-  <view bindtap='tab2Click'>点我</view>
-  <image src='../../../image/456.jpg'></image>
-  <!-- <image src='../../../packageTab2/image/123.png'></image> -->
-</view>

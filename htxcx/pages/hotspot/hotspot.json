@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "information": "/components/information/information"
-  },
-  "navigationBarBackgroundColor": "#2994E6",
-  "navigationBarTitleText": "热点资讯"
-}

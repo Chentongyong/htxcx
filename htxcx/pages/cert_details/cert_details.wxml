@@ -1,10 +1,0 @@
-<view class='certBox'>
-  <view class='box'>
-    <view class='box_up'>建筑施工证书</view>
-    <image src='../../images/zgzs.png'></image>
-    <view class='text'>
-      证书最大的作用就是证明，但是由于造假水平的提高，目前90%以上的证书都急需证明，需要一个技术平台来提高他的防伪能力，那就是“证书上网查询"一个公用的平台.最好是免费的同时也要保护个人隐私。
-    </view>
-  </view>
-
-</view>
