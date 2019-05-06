@@ -1,0 +1,92 @@
+/* pages/login/login.wxss */
+
+page {
+  background: #fff;
+}
+
+.userLogo {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 120rpx;
+}
+
+.userLogo image {
+  width: 160rpx;
+  height: 160rpx;
+  /* margin:0 auto; */
+}
+
+.lists-item {
+  width: 550rpx;
+  height: 85rpx;
+  margin: 0 auto;
+  border-bottom: 1px solid #d2d2d2;
+  display: flex;
+  align-items: center;
+  margin-top: 100rpx;
+}
+
+.lists-item:nth-child(2) {
+  margin-top: 40rpx;
+}
+
+.lists-item .num {
+  font-size: 36rpx;
+  color: #333;
+  font-family: San Francisco Display;
+}
+
+.lists-item .fenge {
+  width: 0px;
+  height: 44rpx;
+  border: 2rpx solid #d2d2d2;
+  opacity: 1;
+  margin-left: 24rpx;
+}
+
+.lists-item input {
+  margin-left: 46rpx;
+}
+
+.lists-item:nth-child(2) input {
+  /* margin-top: 40rpx; */
+  margin-left: 0;
+  width: 192rpx;
+}
+
+.search-input-placeholder {
+  color: #d2d2d2;
+  font-family: PingFang SC;
+}
+
+.search-input-placeholder {
+  color: #d2d2d2;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+}
+
+.code {
+  margin-left: 180rpx;
+  width: 132rpx;
+  height: 56rpx;
+  font-size: 24rpx;
+  line-height: 56rpx;
+  text-align: center;
+  color: #2994e6;
+  border: 1px solid #2994e6;
+  border-radius: 8rpx;
+  font-family: PingFang SC;
+}
+.loginBtn{
+  width: 510rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  margin: 0 auto;
+  background: #2994e6;
+  color:#fff;
+  font-size: 32rpx;
+  border-radius:8rpx; 
+  margin-top:100rpx;
+}

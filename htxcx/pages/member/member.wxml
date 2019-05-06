@@ -1,0 +1,58 @@
+<view class='memberBox'>
+  <view>
+    <image class='mem_bjImg' src='../../images/hys.png'></image>
+    <view class='memUp'>
+      <view class='upBox'>
+        <view class='upLeft'>
+          <image src='../../images/gcs.png'></image>
+          <view class='leftBox'>
+            <text>18356425689</text>
+            <view class='left_mem'>{{level}}</view>
+          </view>
+        </view>
+        <view class='upRight' bindtap='smClixk'>
+          <text>会员等级说明</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class='memList'>
+    <swiper class="swiper" indicator-dots="true" indicator-color="#ccc" indicator-active-color="#2994E6" bindchange="changeswiper">
+      <block wx:for="{{list}}" wx:for-index="index" wx:key='index'>
+        <swiper-item>
+          <view class='listBox'>
+            <image class='imagBj' src='{{item.imgBj}}'></image>
+            <view class='mem_listpb'>
+              <view class='boxUp'>
+                <image src='{{item.img}}'></image>
+                <text>{{item.title}}</text>
+              </view>
+              <view style='margin-top:96rpx'>
+                <view class='listpbZi'>
+                  <view class='ziBox'>{{item.monthly}}元/月</view>
+                  <view data-index='{{item.monthly}}' data-text='{{item.title}}:{{item.monthly}}元/月' data-id='0' bindtap='onclick' class='xzyq' style="border: 1px solid {{item.colors}}">
+                    <image src="{{spie==0?item.xz:''}}"></image>
+                  </view>
+                </view>
+                <view class='listpbZi'>
+                  <view class='ziBox'>{{item.quarter}}元/季</view>
+                  <view data-index='{{item.quarter}}' data-text='{{item.title}}:{{item.monthly}}元/月' data-id='1' bindtap='onclick' class='xzyq' style="border: 1px solid {{item.colors}}">
+                    <image src="{{spie==1?item.xz:''}}"></image>
+                  </view>
+                </view>
+                <view class='listpbZi'>
+                  <view class='ziBox'>{{item.year}}元/年</view>
+                  <view data-index='{{item.year}}' data-text='{{item.title}}:{{item.monthly}}元/月' data-id='2' bindtap='onclick' class='xzyq' style="border: 1px solid {{item.colors}}">
+                    <image  src="{{spie==2?item.xz:''}}"></image>
+                  </view>
+                </view>
+                <view class='but' bindtap='czClick' style="background:{{item.colors}}">{{level=='金钻'?'续费':'升级'}}</view>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+</view>

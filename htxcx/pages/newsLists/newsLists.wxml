@@ -1,0 +1,20 @@
+<!--pages/newsLists/newsLists.wxml-->
+<!-- <text>pages/newsLists/newsLists.wxml</text> -->
+<view class="container">
+  <view class="newsLists-box">
+    <view class="news-item" wx:for="{{10}}" wx:key="" bindtap='newsDetails'>
+      <view class="news-left">
+        <image src="../../images/information-icon.png"></image>
+      </view>
+      <view class="news-right">
+      <view class="news-top">
+        <view>系统消息</view>
+        <view>2019-03-27 10:25</view>
+      </view>
+      <view class="news-bottom">
+        尊敬的晓晓，欢迎您加入我们清洗吧，成为...
+      </view>
+      </view>
+    </view>
+  </view>
+</view>

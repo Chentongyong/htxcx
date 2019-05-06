@@ -1,0 +1,109 @@
+/* pages/tendering/tendering.wxss */
+
+/* 搜索 */
+page {
+  background: #eee;
+}
+.tender-top {
+  width: 100%;
+  height: 68rpx;
+  display: flex;
+  align-items: center;
+  background: #fff;
+  justify-content: space-around;
+  position: fixed;
+  z-index: 99;
+  top: 0;
+}
+
+.tender-top .active{
+  /* width:50%; */
+  color:#2994e6;
+  text-align: center;
+  font-size: 32rpx;
+}
+.tender-top .history{
+  width:50%;
+  color:#333333;
+  text-align: center;
+  font-size: 28rpx;
+}
+.tender-lists {
+  width: 100%;
+  margin-top: 75rpx;
+}
+
+.tender-item {
+  background: #fff;
+  margin-top: 10rpx;
+  padding: 20rpx;
+  border-radius: 4rpx;
+  position: relative;
+  /* height:152rpx; */
+}
+
+.tender-item .label {
+  position: absolute;
+  width: 108rpx;
+  height: 108rpx;
+  top: 38rpx;
+  right: 184rpx;
+}
+
+.tender-item .label image {
+  width: 100%;
+  height: 100%;
+}
+
+.tender-item view:nth-child(1) {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tender-item .classType {
+  margin-top: 20rpx;
+}
+
+.tender-item .date {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tender-item .date .type {
+  padding: 0 10rpx;
+  height: 36rpx;
+  display: flex;
+  align-items: center;
+  background: #2994e6;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 4rpx;
+}
+
+.tender-item .date .time {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  color: rgba(154, 154, 154, 1);
+}
+
+.tender-item view:nth-child(2) {
+  display: flex;
+  /* margin-top:8rpx; */
+  align-items: center;
+  height: 28rpx;
+  line-height: 28rpx;
+}
+
+.tender-item view:nth-child(2) view {
+  padding: 0 10rpx;
+  border: 1px solid #eee;
+  font-size: 24rpx;
+  height: 28rpx;
+  margin-right: 16rpx;
+}
+

@@ -1,0 +1,6 @@
+<view>
+<!-- <view wx:for = '{{list}}' wx:key='index' data-text='{{item}}' bindtap='quwei'>
+{{item}}
+</view> -->
+  <information></information>
+</view>

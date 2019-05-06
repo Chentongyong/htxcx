@@ -1,0 +1,16 @@
+<view>
+  <view class='adverBox'>
+    <image src='../../images/gg_bj.png'></image>
+  </view>
+
+  <view class='informBut'>
+    <view class='butZi' data-reply-phone="10086" bindtap="phoneCall">
+      <image src='../../images/dh.png'></image>
+      <text>电话咨询</text>
+    </view>
+    <view class='butZi' data-reply-phone="1008611" bindtap="phoneCall2">
+      <image src='../../images/kf.png'></image>
+      <text>联系客服</text>
+    </view>
+  </view>
+</view>

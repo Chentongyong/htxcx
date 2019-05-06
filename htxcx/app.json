@@ -1,0 +1,96 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/member/member",
+    "pages/recharge/recharge",
+    "pages/mem_recharge/mem_recharge",
+    "pages/integral/integral",
+    "pages/mem_sm/mem_sm",
+    "pages/wxLogin/wxLogin",
+    "pages/delivery/delivery",
+    "pages/engineering/engineering",
+    "pages/service/service",
+    "pages/activities/activities",
+    "pages/support/support",
+    "pages/engin_details/engin_details",
+    "pages/cert_details/cert_details",
+    "pages/advertising/advertising",
+    "pages/training/training",
+    "pages/recommendation/recommendation",
+    "pages/recom_details/recom_details",
+    "pages/guidance/guidance",
+    "pages/honor_book/honor_book",
+    "pages/certificate/certificate",
+    "pages/honor/honor",
+    "pages/document/document",
+    "pages/document_details/document_details",
+    "pages/shop_details/shop_details",
+    "pages/shop/shop",
+    "pages/hotspot/hotspot",
+    "pages/customer/customer",
+    "pages/training_details/training_details",
+    "pages/activi_details/activi_details",
+    "pages/service_details/service_details",
+    "pages/clean/clean",
+
+    "pages/feedback/feedback",
+    "pages/myset/myset",
+    "pages/projectRelease/projectRelease",
+    "pages/tenderRelease/tenderRelease",
+    "pages/engineerRelease/engineerRelease",
+    "pages/search/search",
+    "pages/mine/mine",
+    "pages/collection/collection",
+    "pages/grabSheet/grabSheet",
+    "pages/tenderDetails/tenderDetails",
+    "pages/tendering/tendering",
+    "pages/newsDetails/newsDetails",
+    "pages/newsLists/newsLists",
+    "pages/role/role",
+    "pages/login/login",
+    "pages/city/city"
+  ],
+  "subPackages": [
+    {
+      "root": "packageTab1",
+      "pages": [
+        "pages/cat/cat"
+      ]
+    },
+    {
+      "root": "packageTab2",
+      "pages": [
+        "pages/apple/apple"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#2994E6",
+    "navigationBarTitleText": "tabBar"
+  },
+  "tabBar": {
+    "backgroundColor": "#ffffff",
+    "color": "#979795",
+    "selectedColor": "#1c1c1b",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "",
+        "iconPath": "tabbarComponent/icon/icon_home.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_home_HL.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "",
+        "iconPath": "tabbarComponent/icon/icon_home.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_home_HL.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "",
+        "iconPath": "tabbarComponent/icon/icon_mine.png",
+        "selectedIconPath": "tabbarComponent/icon/icon_mine_HL.png"
+      }
+    ]
+  }
+}

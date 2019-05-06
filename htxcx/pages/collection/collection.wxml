@@ -1,0 +1,34 @@
+<!--pages/tendering/tendering.wxml-->
+<scroll-view scroll-y="true" class="container">
+  <view class="tender-top" wx:if="{{type==3}}">
+    <view class="active">购买记录</view>
+    <view>历史记录</view>
+  </view>
+  <view class="tender-top" wx:if="{{type==2}}">
+    <view class="active">普通工程</view>
+    <view class="">银钻工程</view>
+    <view class="">金钻工程</view>
+  </view>
+  <view class="tender-top" wx:if="{{type==1}}">
+    <view class="active">招标信息</view>
+    <view class="">工程抢单</view>
+  </view>
+  <view class="{{type!=4?'tender-lists':''}}">
+    <view class="tender-item" wx:for="{{10}}" wx:key="" bindtap='grabSheetDes'>
+      <view>顺义区张镇铁路西侧树木绿地养护工程公开招标公告</view>
+      <view class="classType">
+        <view style="border:1px solid #2994E6;color:#2994E6">北京市</view>
+        <view style="border:1px solid #27D28C;color:#27D28C">清洁服务</view>
+        <view style="border:1px solid #FE4B4B;color:#FE4B4B">75万元</view>
+      </view>
+      <view class="date">
+        <view class="time">
+          发布时间：2018年9月15日
+        </view>
+        <view class="type">
+          普通招标
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>

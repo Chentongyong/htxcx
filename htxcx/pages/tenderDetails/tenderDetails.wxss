@@ -1,0 +1,217 @@
+/* pages/tenderDetails/tenderDetails.wxss */
+
+page {
+  background: #eee;
+}
+.tender-box{
+  margin-bottom:92rpx; 
+}
+.tender-container {
+  padding: 20rpx 40rpx 40rpx 40rpx;
+  background: #fff;
+  text-align: right;
+}
+
+.tender-container>image {
+  width: 48rpx;
+  height: 48rpx;
+  text-align: right;
+}
+
+.tender-container .tender-title {
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+}
+
+.title-bottom {
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-bottom .left {
+  display: flex;
+}
+
+.title-bottom .left view {
+  padding: 0 6rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  line-height: 40rpx;
+  color: rgba(255, 255, 255, 1);
+  border-radius: 5px;
+}
+
+.title-bottom .right {
+  display: flex;
+  align-items: center;
+}
+
+.title-bottom .right image {
+  margin-right: 8rpx;
+}
+
+.title-bottom .right image {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.title-bottom .right .time {
+  font-size: 20rpx;
+  font-family: San Francisco Display;
+  color: rgba(154, 154, 154, 1);
+}
+
+.pic {
+  width: 100%;
+  margin-top: 28rpx;
+}
+
+.pic image {
+  width: 100%;
+  height: 360rpx;
+}
+
+.tender-destext {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  line-height: 48rpx;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 8rpx;
+  margin-top: 20rpx;
+  text-indent: 80rpx;
+}
+
+.destext-bottom {
+  display: flex;
+}
+
+.destext-bottom view {
+  padding: 0 18rpx;
+  height: 40rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  line-height: 40rpx;
+  color: rgba(154, 154, 154, 1);
+  border: 1px solid #9a9a9a;
+  margin-right: 20rpx;
+  margin-top: 26rpx;
+}
+
+.num {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.num .left, .num .right {
+  display: flex;
+  align-items: center;
+}
+
+.num .left image, .right image {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+/* 相关推荐 */
+.relevant{
+  margin-top:8rpx;
+  /* padding:0 40rpx; */
+  /* background: #fff; */
+}
+.relevant .relevant-title{
+  width: 100%;
+  background: #fff;
+  text-indent: 20rpx;
+  height: 84rpx;
+  line-height: 84rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+}
+.tender-lists .tender-item {
+  background: #fff;
+  margin-top: 4rpx;
+  padding: 20rpx 40rpx;
+  border-radius:4rpx;
+  /* height:152rpx; */
+}
+
+.tender-lists .tender-item view:nth-child(1) {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+}
+
+.tender-lists .tender-item .classType {
+  margin-top: 20rpx;
+}
+
+.tender-lists .tender-item .date {
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.tender-lists .tender-item .date .type {
+  padding: 0 10rpx;
+  height: 36rpx;
+  display: flex;
+  align-items: center;
+  background: #2994e6;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius:4rpx;
+}
+
+.tender-lists .tender-item .date .time {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  color: rgba(154, 154, 154, 1);
+}
+
+.tender-lists .tender-item view:nth-child(2) {
+  display: flex;
+  /* margin-top:8rpx; */
+  align-items: center;
+  height: 28rpx;
+  line-height: 28rpx;
+}
+
+.tender-lists .tender-item view:nth-child(2) view {
+  padding: 0 10rpx;
+  border: 1px solid #eee;
+  font-size: 24rpx;
+  height: 28rpx;
+  margin-right: 16rpx;
+}
+/* 电话咨询 */
+.contact{
+  width: 100%;
+  position: fixed;
+  bottom:0;
+  display: flex;
+  justify-content: space-between;
+}
+.contact .tel,.customer{
+  display: flex;
+  width:50%;
+  height: 96rpx;
+  align-items: center;
+  justify-content: center;
+  /* opacity:0.5; */
+}
+.contact .tel image,.customer image{
+  width: 48rpx;
+  height: 48rpx;
+}
+.contact .tel view,.customer view{
+  font-size: 32rpx;
+  color:#fff;
+}
+/* 
+.width:375px;
+height:1510px;
+background:rgba(238,238,238,1);
+opacity:1; */

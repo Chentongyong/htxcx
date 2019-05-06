@@ -1,0 +1,30 @@
+<!--pages/login/login.wxml-->
+<!-- <text>pages/login/login.wxml</text> -->
+<view class="container">
+  <view class="userLogo">
+    <image src="../../images/mine-selected.png"></image>
+  </view>
+  <view class="telBox">
+    <!-- 输入电话号码 -->
+    <view class="lists-item">
+      <view class="num">
+        +86
+      </view>
+      <view class="fenge"></view>
+      <input placeholder='请输入手机号码' type='number' placeholder-class='search-input-placeholder'></input>
+    </view>
+    <!-- 验证码 -->
+    <view class="lists-item">
+      <input placeholder='请输入验证码' type='number' placeholder-class='search-input-placeholder'></input>
+      <view class="code">
+        <text>获取验证码</text>
+      </view>
+    </view>
+    <!-- 验证码结束 -->
+    <!-- 登录按钮 -->
+    <view class="loginBtn">
+      <text>登录</text>
+    </view>
+    <!-- 登录按钮结束 -->
+  </view>
+</view>

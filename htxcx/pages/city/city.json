@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {},
+  "navigationBarTitleText": "城市定位",
+  "navigationBarBackgroundColor": "#2994E6",
+  "navigationBarTextStyle": "white"
+}

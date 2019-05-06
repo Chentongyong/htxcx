@@ -1,0 +1,9 @@
+<view class='training'>
+  <view wx:for='{{list}}' wx:key='index' data-text='{{item.types}}' class='trainBox' bindtap='onClick'>
+    <image src='{{item.img}}'></image>
+    <view class='boxRight'>
+      <text>{{item.types}}</text>
+      <image src='../../images/jts.png'></image>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,235 @@
+.centerBox {
+  background: #eee;
+}
+
+.hon_topbj {
+  height: 60rpx;
+  width: 100%;
+  background: #2994e6;
+}
+
+.honTop {
+  margin-top: -60rpx;
+  padding: 0 40rpx;
+  position: relative;
+}
+
+.honTop image {
+  width: 100%;
+  /* height: 600rpx */
+}
+
+.honTop .topFu {
+  width: 580rpx;
+  position: absolute;
+  top: 60rpx;
+  left: 50%;
+  margin-left: -280rpx;
+}
+
+.honTop .topFu text {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  line-height: 48rpx;
+  color: rgba(51, 51, 51, 1);
+}
+
+.recommend {
+  height: 404rpx;
+  background-color: #fff;
+  margin-bottom: 10rpx;
+}
+
+.recommend .recomTop {
+  width: 100%;
+  padding: 36rpx 0;
+  display: flex;
+  line-height: 48rpx;
+  justify-content: center;
+  position: relative;
+}
+
+.recommend .recomTop .img1 {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 8rpx;
+}
+
+.recommend .recomTop .img2 {
+  width: 20rpx;
+  height: 20rpx;
+  position: relative;
+  top: 14rpx;
+  margin-left: 10rpx;
+}
+
+.recommend .recomTop .left {
+  font-weight: 600;
+  color: #333;
+  font-size: 36rpx;
+}
+
+.recommend .recomTop .right {
+  color: #9a9a9a;
+  font-size: 28rpx;
+  position: absolute;
+  bottom: 36rpx;
+  right: 20rpx;
+}
+
+.recommend .recomTop .left, .recommend .recomTop .right {
+  display: flex;
+}
+
+.recom_but {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 40rpx;
+}
+
+.recom_but .butBox {
+  width: 210rpx;
+}
+
+.recom_but image {
+  width: 210rpx;
+  height: 150rpx;
+  display: block;
+}
+
+.recom_but .butBox text {
+  width: 100%;
+  display: block;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  line-height: 40rpx;
+  color: rgba(51, 51, 51, 1);
+  text-align: center;
+  margin-top: 28rpx;
+}
+
+.hot_but {
+  display: flex;
+  justify-content: space-between;
+  padding: 32rpx 0 36rpx 0;
+  border-bottom: 2px solid #eee;
+}
+
+.hot_but .imgs1 {
+  width: 30%;
+  height: 160rpx;
+}
+
+.hot_but .butBox {
+  width: 70%;
+}
+
+.hot_but .butBox .boxZi {
+  margin-left: 20rpx;
+  height: 160rpx;
+  position: relative;
+}
+
+.hot_but .butBox .boxZi image {
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 20rpx;
+}
+
+.hot_but .butBox .boxZi .ziSty {
+  font-size: 32rpx;
+  line-height: 40rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot_but .butBox .boxZi .sty_co {
+  width: 85%;
+  height: 68rpx;
+  line-height: 34rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 28rpx;
+  color: #9a9a9a;
+  margin: 10rpx 0 5rpx 0;
+}
+
+.hot_but .butBox .boxZi .ziFu {
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 5rpx;
+  right: 0;
+  color: #9a9a9a;
+  line-height: 28rpx;
+}
+
+.more {
+  width: 100%;
+  padding: 18rpx 0;
+  color: rgba(41, 148, 230, 1);
+  font-size: 24rpx;
+  text-align: center;
+  border-bottom: 2px solid #eee;
+}
+
+.terminus {
+  margin: 0 auto;
+  padding: 18rpx 0;
+  border-top: 2rpx solid #eee;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  border-bottom: 2px solid #eee;
+}
+
+.terminus .left {
+  width: 100rpx;
+  height: 2px;
+  background: rgba(210, 210, 210, 1);
+  position: relative;
+  top: 13rpx;
+}
+
+.terminus .centers {
+  width: 170rpx;
+  font-size: 24rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  color: rgba(210, 210, 210, 1);
+}
+
+.informBut{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background:rgba(41,148,230,1);
+  box-shadow:0px -5px 30px rgba(238,238,238,1);
+}
+.informBut .butZi:nth-child(1){
+  background:rgba(41,148,230,1);
+}
+.informBut .butZi{
+  width: 50%;
+  text-align: center;
+  padding: 24rpx 0;
+  background:rgba(39,210,140,1);
+  display: flex;
+  justify-content: center;
+}
+.informBut .butZi image{
+  width: 48rpx;
+  height: 48rpx
+}
+.informBut .butZi text{
+  display: block;
+  line-height: 48rpx;
+  color: #fff;
+  margin-left: 20rpx
+}

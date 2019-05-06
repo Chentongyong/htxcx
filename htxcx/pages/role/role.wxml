@@ -1,0 +1,25 @@
+<!--pages/role/role.wxml-->
+<!-- <text>pages/role/role.wxml</text> -->
+<view class="container">
+  <view class="role-title">首次使用，请选择您的角色</view>
+  <!-- 服务方 -->
+  <view class="server">
+    <view class="server-left">
+      <view class="server-title">服务方</view>
+      <view class="eng">The service side</view>
+    </view>
+    <view class="server-right">
+      <image src="../../images/server.png"></image>
+    </view>
+  </view>
+  <!-- 业主方 -->
+  <view class="owner">
+    <view class="server-left">
+      <view class="server-title">业主方</view>
+      <view class="eng">The owner party</view>
+    </view>
+    <view class="server-right">
+      <image src="../../images/owner.png"></image>
+    </view>
+  </view>
+</view>

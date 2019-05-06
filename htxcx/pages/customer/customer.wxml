@@ -1,0 +1,4 @@
+<view class="container">
+  <text>客服</text>
+  <tabbar tabbar="{{tabbar}}"></tabbar>
+</view>

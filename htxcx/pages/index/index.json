@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "rotation": "/components/rotation/rotation",
+    "tabbar": "../../tabbarComponent/tabbar"
+  },
+  "navigationBarTitleText": "清洗吧",
+  "navigationBarBackgroundColor": "#2994E6",
+  "navigationBarTextStyle": "white"
+}

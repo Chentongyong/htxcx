@@ -1,0 +1,95 @@
+/* pages/search/search.wxss */
+
+page {
+  background: #eee;
+}
+
+.tender-top {
+  width: 100%;
+  /* height: 116rpx; */
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+  /* background: #2994e6; */
+  position: fixed;
+  top: 10rpx;
+}
+
+.tender-top .search-box {
+  width: 594rpx;
+  height: 56rpx;
+  background: rgba(255, 255, 255, 1);
+  display: flex;
+  align-items: center;
+  border-radius: 4px;
+  margin-left: 40rpx;
+}
+
+.search-box image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 20rpx;
+}
+
+.key-placeholder {
+  color: #d2d2d2;
+  font-size: 24rpx;
+  /* margin-left: 20rpx; */
+}
+
+.search-box .keyword {
+  /* color: #d2d2d2; */
+  font-size: 24rpx;
+  margin-left: 20rpx;
+}
+
+.sousuo {
+  margin-left: 20rpx;
+  width: 56rpx;
+  height: 40rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  color: #9a9a9a;
+  opacity: 1;
+}
+
+.history {
+  padding: 0 40rpx;
+  display: flex;
+  margin-top: 90rpx;
+  justify-content: space-between;
+}
+
+.history view {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  line-height: 40rpx;
+  color: rgba(154, 154, 154, 1);
+}
+
+.history image {
+  width: 32rpx;
+  height: 32rpx;
+}
+.history-box{
+  padding:0 40rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+.history-box .history-item{
+  padding:0 20rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background: #fff;
+  margin-right: 20rpx;
+  margin-top:20rpx;
+  color:#9A9A9A;
+}
+.hotSearch{
+  padding: 0 40rpx;
+  margin-top: 30rpx;
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  line-height: 40rpx;
+  color: rgba(154, 154, 154, 1);
+}

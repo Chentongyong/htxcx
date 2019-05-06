@@ -1,0 +1,178 @@
+/* pages/mine/mine.wxss */
+
+.bgPic {
+  width: 100%;
+  height: 300rpx;
+  position: relative;
+}
+
+.bgPic .portrait {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  display: block;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  margin-left: -60rpx;
+  /* transform: translate(-60rpx) */
+}
+
+.bgPic .set {
+  position: absolute;
+  right: 40rpx;
+  top: 0;
+  color: #fff;
+  font-size: 28rpx;
+}
+.welcome{
+  position: absolute;
+  top:0;
+  font-size: 36rpx;
+  width: 154rpx;
+  left:44rpx;
+  color:#fff;
+  line-height: 42rpx;
+
+}
+.clickLogin{
+  position: absolute;
+  top:140rpx;
+  width: 140rpx;
+  height: 48rpx;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+  background: #fff;
+  line-height: 48rpx;
+  color: #2994E6;
+  font-size: 28rpx;
+  align-items: center;
+  border-radius: 32rpx;
+}
+.bgPic .bos {
+  display: flex;
+  justify-content: center;
+  margin-top: -170rpx;
+  color: #fff;
+  font-size: 32rpx;
+  align-items: center;
+}
+.phone{
+  font-size: 32rpx;
+}
+.bgPic .bos .type {
+  padding: 0 10rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 7px;
+  font-size: 20rpx;
+  margin-left: 16rpx;
+}
+
+/* 积分 */
+
+.coin {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  top: -80rpx;
+  z-index: 99;
+  width: 670rpx;
+  margin: 0 auto;
+  height: 160rpx;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0px 1px 2px rgba(238, 238, 238, 1);
+  border-radius: 4px;
+}
+
+.coin .left {
+  margin-top: 28rpx;
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  /* line-height: 160rpx; */
+}
+
+.coin .right {
+  margin-top: 28rpx;
+  height: 160rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.coin .money, .coin .integral {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  color: rgba(154, 154, 154, 1);
+}
+
+.coin .num {
+  margin-top: 14rpx;
+  font-size: 36rpx;
+  font-family: San Francisco Display;
+  color: rgba(51, 51, 51, 1);
+}
+
+.line {
+  width: 0px;
+  height: 60rpx;
+  border: 1px solid rgba(210, 210, 210, 1);
+  margin-top: 38rpx;
+}
+
+.recharge {
+  width: 136rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 1px 2px rgba(238, 238, 238, 1);
+  border-radius: 32px;
+  height: 56rpx;
+  background: #2994e6;
+  color: #fff;
+  font-size: 32rpx;
+  flex-direction: row;
+  position: absolute;
+  bottom: -30rpx;
+}
+
+.recharge image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 4rpx;
+}
+
+.mine-lists {
+  padding: 0 40rpx;
+}
+
+.lists-item {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+  border-bottom: 1px solid #eee;
+  justify-content: space-between;
+}
+
+.lists-item .left {
+  display: flex;
+  align-items: center;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+}
+
+.lists-item .left image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 16rpx;
+}
+
+.lists-item .right image {
+  width: 32rpx;
+  height: 32rpx;
+}

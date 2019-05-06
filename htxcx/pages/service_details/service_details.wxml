@@ -1,0 +1,54 @@
+<view class='service_det'>
+  <view class='det_top'>
+    <view class='topBox'>
+      <image src='../../images/zsg.png'></image>
+      <text>服务商简介</text>
+    </view>
+    <view class='det_cen'>
+      <text>广东宏泰节能环保工程有限公司</text>
+      <view class='cenBox'>
+        <text class='text1'>企业地址：</text>
+        <text class='text2'>广州市天河区大观中路95号科汇园A115</text>
+      </view>
+      <view class='cenBox'>
+        <text class='text1'>联系方式：</text>
+        <text class='text2'>020-82960135</text>
+      </view>
+      <view class='cenBox'>
+        <text class='text1'>主营业务：</text>
+        <text class='text2'>清洗加盟，工业设备清洗，工业清洗，外 墙石材养护，锅炉清洗</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='hotspot'>
+    <view class='butBoxs'>
+      <image src='../../images/gcnls.png'></image>
+      <text>工程案例</text>
+    </view>
+    <view class='hot_but' wx:for='{{listBox}}' wx:key="index" bindtap='xqClick'>
+      <image class='imgs1' src='{{item.imgUrl}}'></image>
+      <view class='butBox'>
+        <view class='boxZi'>
+          <view class='ziSty'>{{item.title}}</view>
+          <view class='sty_co'>{{item.ms}}</view>
+          <view class='ziFu'>
+            <text>{{item.sj}}</text>
+            <image src='../../images/jt.png'></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  
+  <view class='informBut'>
+    <view class='butZi' data-reply-phone="10086" bindtap="phoneCall">
+      <image src='../../images/dh.png'></image>
+      <text>电话咨询</text>
+    </view>
+    <view class='butZi' data-reply-phone="1008611" bindtap="phoneCall2">
+      <image src='../../images/kf.png'></image>
+      <text>联系客服</text>
+    </view>
+  </view>
+</view>

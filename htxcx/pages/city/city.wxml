@@ -1,0 +1,38 @@
+<!--pages/demo/city.wxml-->
+<view class="searchBox">
+<view class="search-box">
+  <image src="../../images/search-pos.png"></image>
+  <input placeholder="搜索" class='search-input' bindinput='bindSarchInput' placeholder-class='search-input-placeholder' />
+</view>
+</view>
+
+<view class="currentCityTitle">
+  <view class="city-title">
+    <image src="../../images/position-pos.png"></image>
+    <view class="city-name">广州</view>
+  </view>
+  <view class="current-pos">
+    当前定位
+  </view>
+</view>
+<!-- 热门城市
+ -->
+<view class='city-item-A-Z' data-cityname='{{item.cityName}}'>热门城市}</view>
+<view class="hotCities">
+  <view class="city-box" wx:for="{{hotCities}}" wx:key='index' bindtap='onClick' data-cityname='{{item.cityName}}'>
+    <view class='box-zi' data-index='{{index}}'>
+      {{item.cityName}}
+    </view>
+  </view>
+</view>
+<view class='a-z'>
+  <view wx:for="{{cityAZ}}" wx:key="unique">
+    <view data-id='{{item.cityName}}' bindtap='bindAZ'>{{item.cityName}}</view>
+  </view>
+</view>
+<view class='city-item-content'>
+  <view wx:for="{{cityResults}}" wx:key="unique" class="lists-city">
+    <view wx:if="{{item.cityPinYin.length > 1}}" class='city-item' data-cityname='{{item.cityName}}' bindtap='citySelected'>{{item.cityName}}</view>
+    <view wx:else class='city-item-A-Z' data-cityname='{{item.cityName}}'>{{item.cityName}}</view>
+  </view>
+</view>

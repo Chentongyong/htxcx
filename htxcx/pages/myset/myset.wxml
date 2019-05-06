@@ -1,0 +1,36 @@
+<view class='issueBox' style='position: relative'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <!-- 头像 -->
+    <view class='issueZi'>
+      <view class='ziText'>头像</view>
+      <view class='ziBox'>
+        <view class="box"></view>
+        <image src="../../images/more.png" style="width:32rpx;height:32rpx;"></image>
+      </view>
+    </view>
+    <!-- 昵称 -->
+    <view class="issueZi">
+      <view class='ziText'>昵称</view>
+      <view class='ziBox'>
+        <input value='{{btVal}}' bindinput='btClick' placeholder='晓晓' placeholder-style="color:#D2D2D2"></input>
+        <image src="../../images/more.png" style="width:32rpx;height:32rpx;"></image>
+      </view>
+    </view>
+    <!-- 性别 -->
+    <!-- 招标类型 -->
+    <view class='issueZi'>
+      <view class='ziText'>性别</view>
+      <view class='type'>
+        <text wx:for='{{sex}}' wx:key='index' data-index='{{index}}' data-text="{{item}}" class="{{clickIndex==index?'te_back':''}}" bindtap='sexClick'>{{item}}</text>
+      </view>
+    </view>
+  </form>
+  <view class="tiBtn">退出登录</view>
+  <view class="cover">
+    <view class="title-box">
+      <view class="title">确认退出登录</view>
+      <view class="confirm">退出登录</view>
+    </view>
+    <view class="cancel">取消</view>
+  </view>
+</view>

@@ -1,0 +1,15 @@
+<view class='hotspot'>
+  <view class='hot_but' wx:for='{{listBox}}' wx:key="index" bindtap='xqClick'>
+    <image class='imgs1' src='{{item.imgUrl}}'></image>
+    <view class='butBox'>
+      <view class='boxZi'>
+        <view class='ziSty'>{{item.title}}</view>
+        <view class='sty_co'>{{item.ms}}</view>
+        <view class='ziFu'>
+          <text>{{item.sj}}</text>
+          <image src='../../images/jt.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

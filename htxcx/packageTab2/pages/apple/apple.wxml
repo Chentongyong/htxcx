@@ -1,0 +1,5 @@
+<view>
+  <rotation style='width:100%'></rotation>
+  <!-- <image src='../../image/123.png'></image> -->
+  <image src='../../../image/456.jpg'></image>
+</view>

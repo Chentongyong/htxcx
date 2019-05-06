@@ -1,0 +1,92 @@
+.certifiBox {
+  background-color: #eee;
+  padding-bottom: 20rpx;
+}
+
+.certifiBox .cer_top {
+  width: 100%;
+  height: 100rpx;
+  background-color: #2994e6;
+}
+
+.certifiBox .cer_but {
+  width: 1400rpx;
+  display: flex;
+  z-index: 300;
+  position: relative;
+  top: 44rpx;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+.certifiBox .cer_but .butBox {
+  width: 200rpx;
+  height: 88rpx;
+  background-color: #fff;
+  margin: 0 20rpx;
+  text-align: center;
+  border-radius: 20rpx;
+  box-shadow: 0px 0px 20rpx #ccc;
+  display: flex;
+  justify-content: center;
+}
+
+.certifiBox .cer_but .butBox:nth-child(1) {
+  margin-left: 0;
+}
+
+.certifiBox .cer_but .butBox image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-top: 24rpx;
+  margin-right: 10rpx;
+}
+
+.certifiBox .cer_but .butBox text {
+  display: block;
+  line-height: 88rpx;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  color: rgba(154, 154, 154, 1);
+}
+
+.certifiBox .cer_but .butBox text.te_sty {
+  color:rgba(41,148,230,1);
+}
+
+/* .certifiBox .cer_but .butBox text.text_st{
+  color: rgba(41, 148, 230, 1);
+} */
+
+.certifiBox .cerBut {
+  padding: 0 20rpx;
+  margin-top: 88rpx;
+}
+
+.certifiBox .cerBut .boxList {
+  display: flex;
+  justify-content: space-between;
+  flex-flow: wrap;
+  padding: 40rpx;
+  background-color: #fff;
+}
+
+.certifiBox .cerBut .boxList .listBox {
+  width: 280rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+}
+
+.certifiBox .cerBut image {
+  width: 100%;
+  height: 340rpx;
+  margin-bottom: 20rpx;
+}
+
+.certifiBox .cerBut text {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  color: rgba(51, 51, 51, 1);
+}

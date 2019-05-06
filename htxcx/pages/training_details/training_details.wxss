@@ -1,0 +1,107 @@
+.train_det {
+  padding: 0 40rpx;
+  background: #fff;
+}
+
+.det_top {
+  padding: 40rpx 0 82rpx 0;
+  font-size: 36rpx;
+  font-family: PingFang SC;
+  font-weight: bold;
+  color: rgba(51, 51, 51, 1);
+  /* text-align: center; */
+  position: relative;
+}
+
+.det_top .topBut {
+  display: flex;
+  position: absolute;
+  bottom: 28rpx;
+  right: 0;
+}
+
+.det_top .topBut .butZi {
+  font-family: San Francisco Display;
+  font-weight: 400;
+  font-size: 24rpx;
+  color: rgba(154, 154, 154, 1);
+  margin-right: 20rpx;
+}
+
+.det_top image {
+  width: 24rpx;
+  height: 24rpx;
+  margin-right: 10rpx;
+  position: relative;
+  top: 4rpx;
+}
+
+.detBut {
+  padding-bottom: 114rpx;
+  position: relative;
+  margin-bottom:80rpx
+}
+
+.detBut image {
+  display: block;
+  width: 100%;
+  height: 360rpx;
+  margin-bottom: 20rpx;
+}
+
+.detBut text {
+  display: block;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  font-weight: 400;
+  line-height: 48rpx;
+  color: rgba(51, 51, 51, 1);
+  letter-spacing: 4rpx;
+  text-indent: 68rpx;
+}
+
+.detBut .fuBox {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  color: rgba(154, 154, 154, 1);
+  position: absolute;
+  bottom: 60rpx;
+  right: 0;
+}
+
+.informBut {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  background: rgba(41, 148, 230, 1);
+  box-shadow: 0px -5px 30px rgba(238, 238, 238, 1);
+  /* opacity: 0.5 */
+}
+
+.informBut .butZi {
+  width: 50%;
+  text-align: center;
+  padding: 24rpx 0;
+  background: rgba(39, 210, 140, 1);
+  display: flex;
+  justify-content: center;
+}
+
+.informBut .butZi:nth-child(1) {
+  background: rgba(41, 148, 230, 1);
+}
+
+.informBut .butZi image {
+  width: 48rpx;
+  height: 48rpx;
+}
+
+.informBut .butZi text {
+  display: block;
+  line-height: 48rpx;
+  color: #fff;
+  margin-left: 20rpx;
+}

@@ -1,0 +1,97 @@
+<!--pages/tendering/tendering.wxml-->
+<scroll-view scroll-y="true" class="container">
+  <view class="tender-top">
+    <view class="search-box">
+      <image src="../../images/tender-search.png"></image>
+      <view class="keyword">
+        <input placeholder='请输入关键字' placeholder-class='key-placeholder'></input>
+      </view>
+    </view>
+    <view class="sousuo">搜索</view>
+  </view>
+  <view class="grace-filter" id="grace-filter-header">
+    <view class="items" bindtap='showOptions1'>{{orderList[orderIndex]}}
+      <!-- <text class="grace-iconfont icon-arrow-down"></text> -->
+    </view>
+    <view class="items" bindtap='showOptions2'>
+      普通招标
+      <!-- 待确定 -->
+      <!-- <text class="grace-iconfont icon-arrow-down"></text> -->
+    </view>
+    <view class="items" bindtap='showOptions2'>
+      银钻招标
+    </view>
+    <view class="items" bindtap='showOptions2'>
+      金钻招标
+    </view>
+    <view class="items" bindtap='showOptions99'>筛选
+      <view class="block"></view>
+    </view>
+    <!-- <view class="block"></view> -->
+    <!-- 第一个选项 -->
+    <view class='grace-filter-options' wx:if="{{showingIndex == 1}}">
+      <view class="option {{index ==  orderIndex ? 'current' : ''}}" wx:for="{{orderList}}" bindtap='changeOrder' data-itemid='{{index}}' wx:key="">
+        {{item}}
+        <text class="grace-iconfont icon-right" wx:if="{{index ==  orderIndex}}"></text>
+      </view>
+    </view>
+    <!-- 筛选 start -->
+    <view class='grace-filter-options' wx:if="{{showingIndex == 99}}">
+      <form bindsubmit='formsubmit' bindreset='formReset'>
+        <scroll-view scroll-y="true" style="width:96%; padding:20rpx 1% 0 3%; height:{{filterHeight + 'px'}}">
+          <!-- 当前定位 -->
+          <view>位置</view>
+          <!-- 当前定位结束 -->
+          <view class="money">金额</view>
+          <view class="money-lists">
+            <!-- <view wx:for="{{10}}"> -->
+            <view class="money-items" wx:for="{{10}}" wx:key="">
+              <view class="items">10-50万</view>
+              <view class="icon">
+                <image src="../../images/right.png"></image>
+              </view>
+            </view>
+            <!-- </view> -->
+          </view>
+        </scroll-view>
+        <!-- 按钮  -->
+        <view class='grace-filter-buttons'>
+          <view>
+            重置
+            <button form-type='reset'>重置</button>
+          </view>
+          <view>
+            完成
+            <button form-type='submit'>完成</button>
+          </view>
+        </view>
+      </form>
+    </view>
+    <!-- 筛选 end -->
+  </view>
+  <!-- 遮罩层 -->
+  <view class="cover"></view>
+  <view class="tender-lists">
+    <view class="tender-item" wx:for="{{10}}" wx:key="" bindtap='grabSheetDes'>
+      <view>顺义区张镇铁路西侧树木绿地养护工程公开招标公告</view>
+      <view class="classType">
+        <view style="border:1px solid #2994E6;color:#2994E6">北京市</view>
+        <view style="border:1px solid #27D28C;color:#27D28C">清洁服务</view>
+        <view style="border:1px solid #FE4B4B;color:#FE4B4B">75万元</view>
+      </view>
+      <view class="date">
+        <view class="time">
+          发布时间：2018年9月15日
+        </view>
+        <view class="type">
+          普通招标
+        </view>
+      </view>
+      <!-- 已被抢标签 -->
+      <view class="label">
+        <image src="../../images/label.png"></image>
+      </view>
+      <!-- 已被抢标签 -->
+    </view>
+  </view>
+</scroll-view>

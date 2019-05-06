@@ -1,0 +1,18 @@
+<view class='service'>
+  <view wx:for='{{lists}}' wx:key='index' class='service_top' bindtap='onClick'>
+    <view>
+      <image src='{{item.img}}'></image>
+    </view>
+    <view style='width:100%'>
+      <view class='servUp'>{{item.title}}</view>
+      <view class='serv_cen'>{{item.types}}</view>
+      <view class='serv_but'>
+        <view class='text1'>{{item.qy}}</view>
+        <view>
+          <image src='../../images/yys.png'></image>
+          <text class='text2'>{{item.clicks}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

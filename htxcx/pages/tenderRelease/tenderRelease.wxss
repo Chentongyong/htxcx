@@ -1,0 +1,210 @@
+/* pages/tenderRelease/tenderRelease.wxss */
+page{
+  background: #eee;
+}
+.issueBox {
+  background: #eee;
+  margin-bottom: 120rpx;
+}
+
+.issueBox .issueZi {
+  padding: 28rpx 40rpx;
+  background: #fff;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #eee;
+}
+
+.issueBox .issueZi .ziText {
+  display: block;
+  width: 180rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  color: rgba(51, 51, 51, 1);
+  line-height: 50rpx;
+  height: 50rpx;
+}
+
+.issueBox .issueZi .ziBox .text {
+  line-height: 50rpx;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  color: rgba(210, 210, 210, 1);
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.issueBox .issueZi image {
+  width: 32rpx;
+  height: 32rpx;
+  margin-left: 8rpx;
+  position: relative;
+  /* top: 11rpx; */
+}
+
+.issueBox .issueZi .ziBox {
+  width: 500rpx;
+  position: relative;
+  height: 50rpx;
+}
+
+.issueBox .issueZi .ziBox input {
+  font-size: 32rpx;
+}
+
+.type {
+  display: flex;
+  justify-content: space-between;
+}
+
+.type text {
+  display: block;
+  width: 84rpx;
+  height: 46rpx;
+  line-height: 46rpx;
+  background: #fff;
+  border: 2rpx solid #2994e6;
+  color: #2994e6;
+  text-align: center;
+  border-radius: 3px;
+  margin-right: 20rpx;
+}
+
+.type text.te_back {
+  color: #fff;
+  background: #2994e6;
+}
+
+/* .msBox{
+  background: #fff
+} */
+
+.placeholderClass {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  color: #eee;
+}
+
+/* 所在地 */
+
+.picker {
+  color: #333;
+  font-size: 32rpx;
+  display: flex;
+  align-items: center;
+}
+
+/* 上传照片 */
+
+.Upload {
+  width: 100%;
+  margin: 0 auto;
+  /* margin-top:20rpx; *//* margin-left:20rpx; */
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  display: hidden;
+}
+
+.Upload>image {
+  /* margin-left:20rpx;  */
+}
+
+.Upload>image:nth-child(5) {
+  /* margin-right: 20rpx; */
+}
+
+.photoBox {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 8rpx;
+  position: relative;
+  background: #fff;
+  margin-top: 32rpx;
+}
+
+.photoBox1 {
+  display: none;
+}
+
+.photoBox>image {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* 个人照片 */
+
+.photo-box {
+  /* padding: 28rpx 40rpx; */
+  padding:28rpx 40rpx 28rpx 40rpx;
+}
+
+.photo-box .photoTitle {
+  font-size: 32rpx;
+}
+/* 提交发布 */
+.tiBtn{
+  width: 670rpx;
+  text-align: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 36rpx;
+  color:#fff;
+  background: #2994E6;
+  margin:0 40rpx;
+  margin-top:60rpx;
+  border-radius: 8rpx;
+}
+.ziBox input {
+  text-align: right;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+}
+
+.msBox .ms_top {
+  padding: 20rpx 40rpx;
+  background: #eee;
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  color: rgba(51, 51, 51, 1);
+}
+
+.msBox .ms_cen {
+  padding: 20rpx 40rpx;
+  height: 400rpx;
+  background: #fff;
+  position: relative;
+}
+
+.msBox .ms_cen textarea {
+  width: 100%;
+  height: 100%;
+}
+
+.msBox .ms_cen view {
+  font-size: 32rpx;
+  font-family: PingFang SC;
+  color: rgba(210, 210, 210, 1);
+  position: absolute;
+  top: 20rpx;
+  left: 40rpx;
+}
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.fuBox {
+  position: fixed;
+  width: 100%;
+  height: 1000rpx;
+  background: #f0f;
+  bottom: 0;
+}

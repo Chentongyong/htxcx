@@ -1,0 +1,35 @@
+<!--pages/search/search.wxml-->
+<!-- <text>pages/search/search.wxml</text> -->
+<view class="container">
+  <view class="tender-top">
+    <view class="search-box">
+      <image src="../../images/tender-search.png"></image>
+      <view class="keyword">
+        <input placeholder='请输入关键字' placeholder-class='key-placeholder'></input>
+      </view>
+    </view>
+    <view class="sousuo">搜索</view>
+  </view>
+  <view class="history">
+    <view>搜索历史</view>
+    <image src="../../images/delet.png"></image>
+  </view>
+  <!-- 搜索历史列表 -->
+<view class="history-box">
+  <view class="history-item" wx:for="{{9}}" wx:key="">
+    广东宏泰
+  </view>
+</view>
+<!-- 热门搜索 -->
+<view class="hotSearch">
+热门搜索
+   
+    <!-- <image src="../../images/delet.png"></image> -->
+  </view>
+  <!-- 搜索历史列表 -->
+<view class="history-box">
+  <view class="history-item" wx:for="{{10}}" wx:key="">
+    杀菌灭藻剂
+  </view>
+</view>
+</view>
