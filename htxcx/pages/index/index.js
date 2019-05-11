@@ -1,13 +1,8 @@
 //index.js
 //获取应用实例
 const app = getApp()
+let page = 1;
 var publics = require('../../public/public.js');
-var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
-console.log(QQMapWX)
-// 实例化API核心类
-var demo = new QQMapWX({
-  key: 'XYHBZ-Y67CX-EN64R-TVI7L-M4URH-KXBO3' // 必填
-});
 Page({
   data: {
     classList: [{
@@ -43,102 +38,83 @@ Page({
         'txt': '品牌扶持'
       }
     ],
-    msgList: [{
-        url: "url",
-        title: "多地首套房贷利率上浮 热点城市渐迎零折扣时代多地首套房贷利率上浮 热点城市渐迎零折扣时代"
-      },
-      {
-        url: "url",
-        title: "交了20多年的国内漫游费将取消 你能省多少话费？"
-      },
-      {
-        url: "url",
-        title: "北大教工合唱团出国演出遇尴尬:被要求给他人伴唱"
-      }
-    ],
-    movies: ['', '', ''],
-    listBox: [{
-        imgUrl: '../../images/rdzx.png',
-        title: '开学后遗症，幼儿园小男孩错把椅子',
-        ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-        sj: '09-27'
-      },
-      {
-        imgUrl: '../../images/rdzx.png',
-        title: '开学后遗症，幼儿园小男孩错把椅子',
-        ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-        sj: '09-27'
-      },
-      {
-        imgUrl: '../../images/rdzx.png',
-        title: '开学后遗症，幼儿园小男孩错把椅子',
-        ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-        sj: '09-27'
-      },
-      {
-        imgUrl: '../../images/rdzx.png',
-        title: '开学后遗症，幼儿园小男孩错把椅子',
-        ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着一个小男孩背着“书包”想着',
-        sj: '09-27'
-      }
-    ],
+    msgList: [],
     tabbar: {},
     hr: true,
     sn: 0, //判断跳转
+    movies1: [],//优质服务
+    movies2: [],//工程推荐
+    listBox: [],
+    listBox1: [], //活动风采
+    listBox2: [], //热点资讯
+    tabbar: {},
+    hr: true,
+    sn: '活动风采', //判断跳转
   },
-  onShow:function(){
-    var that = this;
-    var cityName = wx.getStorageSync('cityName');
-    console.log(cityName)
-    if (cityName == '' || cityName == undefined || cityName == null){
-      wx.getLocation({
-        type: 'gcj02',
-        success(res) {
-          console.log(res)
-          // 调用接口转换成具体位置
-          demo.reverseGeocoder({
-            location: {
-              latitude: res.latitude,
-              longitude: res.longitude
-            },
-            success: function (res) {
-              console.log(res.result);
-              console.log(res.result.address_component.city)
-              wx: wx.setStorageSync('cityName', res.result.address_component.city)
-              that.setData({
-                cityName: res.result.address_component.city
-              })
-            },
-            fail: function (res) {
-              console.log(res);
-            },
-          })
-        }
-      })
 
-    }else{
-      that.setData({
-        cityName
-      })
-    }
-    wx.getSetting({
-      success: res => {
-        if (!res.authSetting['scope.userInfo']) {
-          //console.log('未授权');
-          wx.redirectTo({
-            url: "../wxLogin/wxLogin"
-          })
-        }
-      }
-    })
-    console.log(cityName)
-  },
   onLoad: function() {
     var that = this;
     app.editTabbar(); //引用底部导航
-    var userInfo = wx.getStorageSync('userInfo')
-    console.log(userInfo)
+  },
+  onShow: function() {
+    let that = this;
+    wx.request({
+      url: publics.ttpss().httpst + '/wx/home/index',
+      data: {},
+      header: {
+        'content-type': 'application/json'
+      },
+      success: function(res) {
+        let list1 = [];
+        let list2 = [];
+        // let sum = [];
+        var yzfws = res.data.data.facilitatorList.length;
+        var gctjs = res.data.data.enginList.length;
+        var totalPage1 = yzfws % 3 != 0 ? parseInt(yzfws / 3) + 1 : yzfws / 3; //计算优质服务商模块
+        var totalPage2 = gctjs % 3 != 0 ? parseInt(gctjs / 3) + 1 : gctjs / 3; //计算工程推荐模块
 
+        that.qu(list1, totalPage1, res.data.data.facilitatorList)
+        that.qu(list2, totalPage2, res.data.data.enginList)
+
+        let sy = res.data.data.bannerList;
+        // sy.forEach((item, index, arr) => {
+        //   sum.push(arr[index].url)
+        // })
+        that.setData({
+          movies1: list1,
+          movies2: list2,
+          listBox: res.data.data.activityList,
+          listBox1: res.data.data.activityList,
+          listBox2: res.data.data.newsList,
+          msgList: res.data.data.announcementList
+
+        })
+        console.log(res)
+      }
+    })
+  },
+  qu: function(list2, sum, e) { //服务商、工程推荐
+    let that = this;
+    for (let i = 0; i < sum; i++) {
+      let yzfw = {
+        movList: []
+      };
+      list2.push(yzfw)
+    }
+    for (let j = 0; j < e.length; j++) {
+      if (j < 3) {
+        list2[0].movList.push(e[j])
+      }
+      if (j >= 3 && j < 6) {
+        list2[1].movList.push(e[j])
+      }
+      if (j >= 6 && j < 9) {
+        list2[2].movList.push(e[j])
+      }
+      if (j >= 9 && j < 12) {
+        list2[3].movList.push(e[j])
+      }
+    }
   },
   hrxg: function(e) { //点击切换选中模块（活动风采、热点资讯）
     var that = this;
@@ -146,13 +122,15 @@ Page({
     if (s == '0') {
       that.setData({
         hr: true,
-        sn: e.currentTarget.dataset.text
+        sn: e.currentTarget.dataset.text,
+        listBox: that.data.listBox1
       })
     }
     if (s == '1') {
       that.setData({
         hr: false,
-        sn: e.currentTarget.dataset.text
+        sn: e.currentTarget.dataset.text,
+        listBox: that.data.listBox2
       })
     }
   },
@@ -166,7 +144,7 @@ Page({
       url: '/packageTab2/pages/apple/apple'
     })
   },
-  flClixk: function(e) {//跳转招标、标书、资质、工程、培训、广告、品牌
+  flClixk: function(e) { //跳转招标、标书、资质、工程、培训、广告、品牌
     let sum = e.currentTarget.dataset.text;
     switch (sum) {
       case sum = '招标信息':
@@ -213,17 +191,17 @@ Page({
     }
 
   },
-  xtClick: function(){//跳转系统消息
+  xtClick: function() { //跳转系统消息
     wx.navigateTo({
       url: '../newsLists/newsLists'
     })
   },
-  mapClick: function(){//跳转城市定位
+  mapClick: function() { //跳转城市定位
     wx.navigateTo({
       url: '../city/city',
     })
   },
-  ssClick: function () {//跳转搜索
+  ssClick: function() { //跳转搜索
     wx: wx.navigateTo({
       url: '../search/search',
     })
@@ -254,9 +232,10 @@ Page({
       url: '../activities/activities?sum=' + that.data.sn
     })
   },
-  hrxqClick: function() { //活动风采、热点资讯详情
+  hrxqClick: function(e) { //活动风采、热点资讯详情
+    var that = this;
     wx: wx.navigateTo({
-      url: '../activi_details/activi_details'
+      url: '../activi_details/activi_details?sum=' + that.data.sn + '&sid=' + e.currentTarget.dataset.id
     })
   }
 })

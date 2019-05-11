@@ -5,90 +5,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classList: ['中央空调', '工业', '油烟','其他'],
+    classList: [],
     msgList: [{
-        url: "url",
-        title: "多地首套房贷利率上浮 热点城市渐迎零折扣时代多地首套房贷利率上浮 热点城市渐迎零折扣时代"
+        id: 111,
+        title: '大家好才是真的好，广州好迪',
+        url: ''
       },
       {
-        url: "url",
-        title: "交了20多年的国内漫游费将取消 你能省多少话费？"
+        id: 111,
+        title: '大家好才是真的好，广州好迪',
+        url: ''
       },
       {
-        url: "url",
-        title: "北大教工合唱团出国演出遇尴尬:被要求给他人伴唱"
+        id: 111,
+        title: '大家好才是真的好，广州好迪',
+        url: ''
+      },
+      {
+        id: 111,
+        title: '大家好才是真的好，广州好迪',
+        url: ''
       }
     ],
-    listBox: [{
-        imgUrl: '../../images/rdzx.png',
-        title: '开学后遗症，幼儿园小男孩错把椅子',
-        ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-        sj: '09-27'
-      },
-      {
-        imgUrl: '../../images/rdzx.png',
-        title: '开学后遗症，幼儿园小男孩错把椅子',
-        ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-        sj: '09-27'
-      },
-      {
-        imgUrl: '../../images/rdzx.png',
-        title: '开学后遗症，幼儿园小男孩错把椅子',
-        ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-        sj: '09-27'
-      },
-      {
-        imgUrl: '../../images/rdzx.png',
-        title: '开学后遗症，幼儿园小男孩错把椅子',
-        ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着一个小男孩背着“书包”想着',
-        sj: '09-27'
-      }
-    ],
-    lx:0
+    listBox: [],
+    lists:[],
+    lx: 0,
+    sid:''
   },
- 
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-  },
-  onClick:function(){
-    wx:wx.navigateTo({
-      url: '../recommendation/recommendation'
-    })
-  },
-  onDetails:function(){
-    wx: wx.navigateTo({
-      url: '../recom_details/recom_details'
-    })
-  },
-  xqClick: function () {
-    wx: wx.navigateTo({
-      url: '../training_details/training_details'
-    })
-  },
-  phoneCall: function (e) {//电话咨询
-    publics.phones(e)
-  },
-  phoneCall2: function (e) {//联系客服
-    publics.phones(e)
-  },
-
-
-  clicks: function (e){
-    var that = this;
-    var s = e.currentTarget.dataset.id;
-    that.setData({
-      lx:s
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
+    let that = this;
+    that.guidance();
   },
 
   /**
@@ -97,35 +47,78 @@ Page({
   onShow: function() {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
+  onClick: function() {
+    wx: wx.navigateTo({
+      url: '../recommendation/recommendation'
+    })
+  },
+  onDetails: function(e) {
+    wx: wx.navigateTo({
+      url: '../recom_details/recom_details?sid=' + e.currentTarget.dataset.id
+    })
+  },
+  xqClick: function(e) {//跳转详情
+    let sum = '服务案例';
+    wx: wx.navigateTo({
+      url: '../training_details/training_details?sum=' + sum + '&sid=' + e.currentTarget.dataset.id
+    })
+  },
+  phoneCall: function(e) { //电话咨询
+    publics.phones(e)
+  },
+  phoneCall2: function(e) { //联系客服
+    publics.phones(e)
+  },
+  guidance: function() { //加载数据
+    let that = this;
+    wx: wx.request({
+      url: publics.ttpss().httpst +'/wx/enginguide/index',
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        that.setData({
+          classList: res.data.data.categoryList,
+          lists: res.data.data.engineers,
+          sid: res.data.data.categoryList[0].id
+        })
+        that.listFu()
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
+  clicks: function(e) {
+    var that = this;
+    that.setData({
+      lx: e.currentTarget.dataset.index,
+      sid: e.currentTarget.dataset.id
+    })
+    that.listFu()
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
+  listFu: function(){
+    var that = this;
+    wx: wx.request({
+      url: publics.ttpss().httpst +'/wx/enginguide/list',
+      data: {
+        "enginCategoryId": that.data.sid
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function (res) {
+        that.setData({
+          listBox: res.data.data.enginGuideList
+        })
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
   /**
    * 用户点击右上角分享
    */

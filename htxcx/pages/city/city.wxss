@@ -152,10 +152,10 @@ page {
 
 /* 选中后的样式 */
 
-/* .city-box:nth-child(3) .box-zi {
+.city-box:nth-child(3) .box-zi {
   border: 2rpx solid #2994e6;
   color: #2994e6;
-} */
+}
 
 /* 默认样式 */
 
@@ -168,15 +168,7 @@ page {
   text-align: center;
   color: #333;
 }
-.city-box .activeBoxzi {
-  height: 48rpx;
-  line-height: 48rpx;
-  width: 120rpx;
-  margin: 0 auto;
-  text-align: center;
-   border: 2rpx solid #2994e6;
-  color: #2994e6;
-}
+
 .cities-item {
   width: 120rpx;
   height: 48rpx;

@@ -1,5 +1,5 @@
 <view>
-  <rotation></rotation>
+  <rotation qf='2'></rotation>
   <view style='padding:0 20rpx;background:#fff;'>
     <view class='docum'>
       <view class='docum_top'>业/务/范/围</view>
@@ -8,7 +8,7 @@
 
     <view class='scvBox'>
       <!-- <view style='dis'> -->
-        <view class="boxzi" wx:for="{{list}}" wx:key="index" data-text='{{item}}' bindtap='details'>
+        <view class="boxzi" wx:for="{{list}}" wx:key="index" data-text='{{item.title}}' bindtap='details'>
           <image src='{{item.img}}'></image>
           <view class='text'>{{item.title}}</view>
         </view>
@@ -30,14 +30,14 @@
       <text>▼</text>
     </view>
     <view class='hotspot'>
-      <view class='hot_but' wx:for='{{listBox}}' wx:key="index" bindtap='xqClick'>
-        <image class='imgs1' src='{{item.imgUrl}}'></image>
+      <view class='hot_but' wx:for='{{listBox}}' wx:key="index" data-id='{{item.id}}' bindtap='xqClick'>
+        <image class='imgs1' src='{{item.path}}'></image>
         <view class='butBox'>
           <view class='boxZi'>
             <view class='ziSty'>{{item.title}}</view>
-            <view class='sty_co'>{{item.ms}}</view>
+            <view class='sty_co'>{{item.content}}</view>
             <view class='ziFu'>
-              <text>{{item.sj}}</text>
+              <text>{{item.addTime}}</text>
               <image src='../../images/jt.png'></image>
             </view>
           </view>

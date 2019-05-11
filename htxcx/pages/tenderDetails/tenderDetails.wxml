@@ -2,41 +2,41 @@
 <!-- <text>pages/tenderDetails/tenderDetails.wxml</text> -->
 <view class="tender-box">
 <view class="tender-container">
-  <image src="{{src}}" bindtap='collect'></image>
+  <image src="../../images/collection.png"></image>
   <view class="tender-title">
-    {{concentDes.title}}
+    顺义区张镇铁路西侧树木绿地养护工程公开招标公告
   </view>
   <view class="title-bottom">
     <view class="left">
-      <view style="background:#2994E6;margin-right:22rpx" wx:if="{{concentDes.bidLevel == 0}}">普通招标</view>
-      <view style="background:#2994E6;margin-right:22rpx" wx:elif="{{concentDes.bidLevel == 1}}">银钻招标</view>
-      <view style="background:#2994E6;margin-right:22rpx" wx:elif="{{concentDes.bidLevel == 2}}">金钻招标</view>
-      <view style="background:#FE4B4B">{{concentDes.price}}万元</view>
+      <view style="background:#2994E6;margin-right:22rpx">普通招标</view>
+      <view style="background:#FE4B4B">13.66万元</view>
     </view>
     <view class="right">
       <image src="../../images/time.png"></image>
-      <view class="time">{{concentDes.addTime}}</view>
+      <view class="time">2018-09-15</view>
     </view>
   </view>
   <view class="pic">
     <image src="../../images/pic.png"></image>
   </view>
   <view class="tender-destext">
-    {{concentDes.content}}
+    中央空调运行中风机盘管清洗 中央空调的风机盘管清洗是中央空调主机末端设备的一部分，在之前约克风机盘管，舒适的选择一文中中央空调风机盘管清洗的 意义 1、清除送、回风系统中细菌、灰尘，改善室内空气质量； 2、降低变风量空调机组的风阻，提高热交换效率增加送风量3、降低运行成本，提升资产价值； 4、定期对风机盘管系统维护，延长机组使用寿命中央空调风机盘管清洗准备 1、施工条件：查看现场是否具有施工场地，需要保证水源及排水通畅。 2、清洗设备：翅片清洗机、风箱清洗机。 3.主要材料 ：翅片清洗剂、空调专用消毒剂。 中央空调风机盘管清洗的方法 中央空调风机盘管清洗方法一般分为干式清洗法和湿式清洗法：干式清洗法主要通过吸尘清洗来维护风机盘管的清洁，清洗的周中央空调风机盘管清洗流程 1、回风口过滤网的清洗杀菌消毒 2、送风系统杀菌消毒。 3、风机盘管表冷器，用专用中央空调清洗剂进 4、对盘管风机叶轮、蜗壳、马达积尘的 5、对接水盘、过滤器进行除去污泥、杂物 6、进出风栅的清洁卫生。
+    
+    3、降低运行成本，提升资产价值； 4、定期对风机盘管系统维护，延长机组使用寿命中央空调风机盘管清洗准备 1、施工条件：查看现场是否具有施工场地，需要保证水源及排水通畅。 2、清洗设备：翅片清洗机、风箱清洗机。 3.主要材料 ：翅片清洗剂、空调专用消毒剂。 中央空调风机盘管清洗的方法 中央空调风机盘管清洗方法一般分为干式清洗法和湿式清洗法：干式清洗法主要通过吸尘清洗来维护风机盘管的清洁，清洗的周中央空调风机盘管清洗流程 1、回风口过滤网的清洗杀菌消毒 2、送风系统杀菌消毒。 3、风机盘管表冷器，用专用中央空调清洗剂进 4、对盘管风机叶轮、蜗壳、马达积尘的 5、对接水盘、过滤器进行除去污泥、杂物 6、进出风栅的清洁卫生。
   </view>
   <view class="destext-bottom">
-    <view>{{concentDes.city}}</view>
-    <view>{{concentDes.enginCategoryName}}</view>
+    <view>北京市</view>
+    <view>环保服务</view>
   </view>
   <view class="num">
     <view class="left" style="margin-right:12rpx">
       <image src="../../images/browse.png" style="margin-right:10rpx"></image>
-      <view>{{concentDes.pageView}}</view>
+      <view>235</view>
     </view>
-    <!-- <view class="right">
+    <view class="right">
       <image src="../../images/fabulous.png" style="margin-right:10rpx"></image>
       <view>139</view>
-    </view> -->
+    </view>
   </view>
 </view>
 <!-- 相关推荐 -->
@@ -44,25 +44,19 @@
     <view class="relevant-title">相关推荐</view>
     <!-- 相关推荐列表 -->
     <view class="tender-lists">
-    <view class="tender-item" wx:for="{{relativeData}}" wx:key="">
-      <view>{{item.title}}</view>
+    <view class="tender-item" wx:for="{{5}}" wx:key="">
+      <view>顺义区张镇铁路西侧树木绿地养护工程公开招标公告</view>
       <view class="classType">
-        <view style="border:1px solid #2994E6;color:#2994E6">{{item.city}}</view>
-        <view style="border:1px solid #27D28C;color:#27D28C">{{item.enginCategoryName}}</view>
-        <view style="border:1px solid #FE4B4B;color:#FE4B4B">{{item.price}}万元</view>
+        <view style="border:1px solid #2994E6;color:#2994E6">北京市</view>
+        <view style="border:1px solid #27D28C;color:#27D28C">清洁服务</view>
+        <view style="border:1px solid #FE4B4B;color:#FE4B4B">75万元</view>
       </view>
       <view class="date">
         <view class="time">
-          发布时间：{{item.addTime}}
+          发布时间：2018年9月15日
         </view>
-        <view class="type" wx:if="{{item.bidLevel == 0}}">
+        <view class="type">
           普通招标
-        </view>
-        <view class="type" wx:elif="{{item.bidLevel == 1}}">
-          银钻招标
-        </view>
-        <view class="type" wx:if="{{item.bidLevel == 2}}">
-          金钻招标
         </view>
       </view>
     </view>

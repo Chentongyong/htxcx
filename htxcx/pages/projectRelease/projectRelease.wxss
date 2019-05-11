@@ -12,8 +12,6 @@ page{
   padding: 28rpx 40rpx;
   background: #fff;
   display: flex;
-  align-items: center;
-  font-size: 32rpx;
   justify-content: space-between;
   border-bottom: 1px solid #eee;
 }

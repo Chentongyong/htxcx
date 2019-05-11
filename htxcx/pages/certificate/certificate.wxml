@@ -3,9 +3,9 @@
     <view style='padding-left:40rpx'>
       <view style='overflow: scroll;padding-bottom:44rpx'>
         <view class='cer_but'>
-          <view wx:for='{{listBox}}' wx:key='index' data-index='{{index}}' class='butBox' bindtap='qhClick'>
-            <image src='{{item.urlImg}}'></image>
-            <text class="{{index==ind?'te_sty':''}}">{{item.title}}</text>
+          <view wx:for='{{listBox}}' wx:key='index' data-index='{{index}}' data-id='{{item.id}}' class='butBox' bindtap='qhClick'>
+            <image src='{{item.iconUrl}}'></image>
+            <text class="{{index==ind?'te_sty':''}}">{{item.name}}</text>
           </view>
         </view>
       </view>
@@ -14,9 +14,9 @@
 
   <view class='cerBut'>
     <view class='boxList'>
-      <view wx:for='{{lists}}' wx:key='index' class='listBox' bindtap='djClick'>
-        <image src='{{item.img}}'></image>
-        <text>{{item.title}}</text>
+      <view wx:for='{{lists}}' wx:key='index' class='listBox'>
+        <image bindtap='zyDetails' data-url='{{item.path}}'  src='{{item.path}}'></image>
+        <text>{{item.name}}</text>
       </view>
     </view>
   </view>

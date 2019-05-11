@@ -50,17 +50,17 @@ page{
   /* position: relative; */
   height: 50rpx;
   display: flex;
-  align-items: center; 
+  align-items: center;
 }
 
 .issueBox .issueZi .ziBox input {
   font-size: 32rpx;
 }
 .box{
-  width:180rpx;
-  height: 180rpx;
-  /* border-radius: 50%;
-  background: #2994E6; */
+  width:80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #2994E6;
 }
 .type {
   display: flex;

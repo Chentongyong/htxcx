@@ -1,16 +1,12 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/myset/myset",
-    "pages/city/city",
-    "pages/tendering/tendering",
-    "pages/grabSheet/grabSheet",
-    "pages/wxLogin/wxLogin",
     "pages/member/member",
     "pages/recharge/recharge",
     "pages/mem_recharge/mem_recharge",
     "pages/integral/integral",
     "pages/mem_sm/mem_sm",
+    "pages/wxLogin/wxLogin",
     "pages/delivery/delivery",
     "pages/engineering/engineering",
     "pages/service/service",
@@ -37,17 +33,22 @@
     "pages/service_details/service_details",
     "pages/clean/clean",
     "pages/feedback/feedback",
+    "pages/myset/myset",
     "pages/projectRelease/projectRelease",
     "pages/tenderRelease/tenderRelease",
     "pages/engineerRelease/engineerRelease",
     "pages/search/search",
     "pages/mine/mine",
     "pages/collection/collection",
+    "pages/grabSheet/grabSheet",
     "pages/tenderDetails/tenderDetails",
+    "pages/tendering/tendering",
     "pages/newsDetails/newsDetails",
     "pages/newsLists/newsLists",
     "pages/role/role",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/mineEngineer/mineEngineer",
+    "pages/city/city"
   ],
   "subPackages": [
     {
@@ -63,16 +64,10 @@
       ]
     }
   ],
-  "permission": {
-    "scope.userLocation": {
-      "desc": "需要获取到您的位置信息"
-    }
-  },
   "window": {
     "navigationBarBackgroundColor": "#2994E6",
     "navigationBarTitleText": "tabBar"
   },
-
   "tabBar": {
     "backgroundColor": "#ffffff",
     "color": "#979795",

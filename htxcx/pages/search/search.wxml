@@ -5,31 +5,35 @@
     <view class="search-box">
       <image src="../../images/tender-search.png"></image>
       <view class="keyword">
-        <input placeholder='请输入关键字' placeholder-class='key-placeholder'></input>
+        <input placeholder='{{tips}}' placeholder-class='key-placeholder' value='{{inpVal}}' bindinput='onInp'></input>
       </view>
     </view>
-    <view class="sousuo">搜索</view>
+    <view class="sousuo" bindtap='determine'>搜索</view>
   </view>
   <view class="history">
     <view>搜索历史</view>
-    <image src="../../images/delet.png"></image>
+    <image src="../../images/delet.png" bindtap='delete'></image>
   </view>
   <!-- 搜索历史列表 -->
-<view class="history-box">
-  <view class="history-item" wx:for="{{9}}" wx:key="">
-    广东宏泰
+  <view class="history-box">
+    <view class="history-item" wx:for="{{history}}" wx:key="" data-name='{{item.keyword}}' bindtap='onClick'>
+      {{item.keyword}}
+    </view>
   </view>
-</view>
-<!-- 热门搜索 -->
-<view class="hotSearch">
-热门搜索
-   
-    <!-- <image src="../../images/delet.png"></image> -->
+  <!-- 热门搜索 -->
+  <view class="hotSearch">
+    热门搜索
   </view>
   <!-- 搜索历史列表 -->
-<view class="history-box">
-  <view class="history-item" wx:for="{{10}}" wx:key="">
-    杀菌灭藻剂
+  <view class="history-box">
+    <view class="history-item" wx:for="{{popular}}" wx:key="index" data-name='{{item.keyword}}' bindtap='onClick'>
+      {{item.keyword}}
+    </view>
   </view>
-</view>
+
+  <view class='searchBox' wx:if='{{indexes}}'>
+    <view wx:for='{{list}}' wx:key='{{index}}' data-id='{{item.id}}' data-name='{{item.code}}' class='searchs' bindtap='xqClick'>
+    {{item.title}}
+    </view>
+  </view>
 </view>

@@ -5,18 +5,19 @@ page {
 }
 
 .container {
-  padding: 0 40rpx;
+  /* padding: 0 40rpx; */
   background: #fff;
 }
 
 .news-item {
-  width: 100%;
-  padding: 20rpx 0 40rpx 0;
+  /* width: 100%; */
+  padding: 20rpx 40rpx 40rpx 40rpx;
   display: flex;
   margin-bottom: 8rpx;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  border-bottom: 8rpx solid #eee
 }
 
 .news-item:last-child {

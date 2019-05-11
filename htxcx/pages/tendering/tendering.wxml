@@ -1,65 +1,54 @@
 <!--pages/tendering/tendering.wxml-->
-<scroll-view scroll-y="true" class="container" data-scindex="{{newsIndex}}" bindscrolltolower="scrollend">
+<scroll-view scroll-y="true" class="container">
   <view class="tender-top">
     <view class="search-box">
       <image src="../../images/tender-search.png"></image>
       <view class="keyword">
-        <input placeholder='请输入关键字' placeholder-class='key-placeholder' bindinput='searchValue'></input>
+        <input placeholder='请输入关键字' placeholder-class='key-placeholder'></input>
       </view>
     </view>
-    <view class="sousuo" bindtap='searchResult'>搜索</view>
+    <view class="sousuo">搜索</view>
   </view>
   <view class="grace-filter" id="grace-filter-header">
-    <view class="{{selection?'itemsA':'items'}}" bindtap='showOptions1'>{{orderList[orderIndex].name}}
+    <view class="items" bindtap='showOptions1'>{{orderList[orderIndex]}}
       <!-- <text class="grace-iconfont icon-arrow-down"></text> -->
     </view>
-    <view class="{{ordinary?'itemsB':'items'}}" bindtap='showOptions2'>
+    <view class="items" bindtap='showOptions2'>
       普通招标
       <!-- 待确定 -->
       <!-- <text class="grace-iconfont icon-arrow-down"></text> -->
     </view>
-    <view class="{{silver?'itemsB':'items'}}" bindtap='showOptions3'>
+    <view class="items" bindtap='showOptions2'>
       银钻招标
     </view>
-    <view class="{{gold?'itemsB':'items'}}" bindtap='showOptions4'>
+    <view class="items" bindtap='showOptions2'>
       金钻招标
     </view>
-    <view class="{{screen?'itemsA':'items'}}" bindtap='showOptions99'>筛选
+    <view class="items" bindtap='showOptions99'>筛选
       <view class="block"></view>
     </view>
     <!-- <view class="block"></view> -->
     <!-- 第一个选项 -->
-    <scroll-view scroll-y="true" style="height:{{filterHeight + 'rpx'}}" class='grace-filter-options' wx:if="{{showingIndex == 1}}">
-      <view class="option {{index ==  orderIndex ? 'current' : ''}}" wx:for="{{orderList}}" bindtap='changeOrder' data-itemid='{{index}}' data-concent="{{item}}">
-        {{item.name}}
-        <!-- <text class="grace-iconfont icon-right" wx:if="{{index ==  orderIndex}}"></text> -->
-        <image src="../../images/select.png" style="width:24rpx;height:24rpx" wx:if="{{index ==  orderIndex}}"></image>
+    <view class='grace-filter-options' wx:if="{{showingIndex == 1}}">
+      <view class="option {{index ==  orderIndex ? 'current' : ''}}" wx:for="{{orderList}}" bindtap='changeOrder' data-itemid='{{index}}'>
+        {{item}}
+        <text class="grace-iconfont icon-right" wx:if="{{index ==  orderIndex}}"></text>
       </view>
-    </scroll-view>
+    </view>
     <!-- 筛选 start -->
     <view class='grace-filter-options' wx:if="{{showingIndex == 99}}">
       <form bindsubmit='formsubmit' bindreset='formReset'>
-        <scroll-view scroll-y="true" style="width:96%; padding:20rpx 1% 0 3%; height:{{filterHeight-40 + 'rpx'}}">
+        <scroll-view scroll-y="true" style="width:96%; padding:20rpx 1% 0 3%; height:{{filterHeight + 'px'}}">
           <!-- 当前定位 -->
-          <view>地区</view>
-          <view style='width:100%;height:400rpx;padding:40rpx 0'>
-            <view style='padding:0 40rpx;height:400rpx;color:#fff;display: flex;font-size:24rpx;text-align:center'>
-              <view style='width:240rpx;height:400rpx;;overflow: scroll;background:#eee;margin-right:80rpx;border-radius:4px;'>
-                <view class="{{index==currentPIndex?'colorCurrent:':'colorDefult'}}" data-index="{{index}}" wx:for='{{regionList}}' wx:key='index' bindtap='clickTap' data-provice="{{item}}">{{item.name}}</view>
-              </view>
-              <view style='width:240rpx;height:400rpx;;overflow: scroll;background:#eee;border-radius:4px;'>
-                <view wx:for='{{cityData}}' wx:key='index' font-size:24rpx' bindtap='cityTap' class="{{index==currentCIndex?'colorCurrent':'colorDefult'}}" data-city="{{item}}" data-index="{{index}}">{{item.name}}</view>
-              </view>
-            </view>
-          </view>
+          <view>位置</view>
           <!-- 当前定位结束 -->
           <view class="money">金额</view>
           <view class="money-lists">
             <!-- <view wx:for="{{10}}"> -->
-            <view class="money-items" wx:for="{{priceArray}}" wx:key="">
-              <view class="{{currentIndex == index?'itemsM':'items'}}" bindtap='selectMoney' data-id="{{item.id}}" data-index="{{index}}">{{item.title}}</view>
+            <view class="money-items" wx:for="{{10}}" wx:key="">
+              <view class="items">10-50万</view>
               <view class="icon">
-                <image src="../../images/right.png" wx:if="{{currentIndex == index}}"></image>
+                <image src="../../images/right.png"></image>
               </view>
             </view>
             <!-- </view> -->
@@ -81,24 +70,23 @@
     <!-- 筛选 end -->
   </view>
   <!-- 遮罩层 -->
-  <view class="cover" wx:if="{{cover}}"></view>
+  <view class="cover"></view>
   <view class="tender-lists">
-    <view class="tender-item" wx:for="{{bidList}}" wx:key="index" bindtap='xqClick' data-order="{{item}}">
-      <view>{{item.title}}</view>
+    <view class="tender-item" wx:for="{{10}}" wx:key="index" bindtap='xqClick'>
+      <view>顺义区张镇铁路西侧树木绿地养护工程公开招标公告</view>
       <view class="classType">
-        <view style="border:1px solid #2994E6;color:#2994E6">{{item.city}}</view>
-        <view style="border:1px solid #27D28C;color:#27D28C">{{item.enginCategoryName}}</view>
-        <view style="border:1px solid #FE4B4B;color:#FE4B4B">{{item.price}}万元</view>
+        <view style="border:1px solid #2994E6;color:#2994E6">北京市</view>
+        <view style="border:1px solid #27D28C;color:#27D28C">清洁服务</view>
+        <view style="border:1px solid #FE4B4B;color:#FE4B4B">75万元</view>
       </view>
       <view class="date">
         <view class="time">
-          发布时间：{{item.addTime}}
+          发布时间：2018年9月15日
         </view>
         <view class="type">
-          {{item.bidType}}
+          普通招标
         </view>
       </view>
     </view>
   </view>
 </scroll-view>
-<view class="hasMore" wx:if="{{hasMore == false}}">没有更多数据啦~~</view>

@@ -1,3 +1,4 @@
+var publics = require('../../public/public.js');
 Page({
 
   /**
@@ -6,36 +7,33 @@ Page({
   data: {
     list: [
       { img: '../../images/bszy2.png', title: '标书制作'},
-      { img: '../../images/bszy4.png', title: '合同标本'},
+      { img: '../../images/bszy4.png', title: '合同范本'},
       { img: '../../images/bszy1.png', title: '工程报价'},
       { img: '../../images/bszy3.png', title: '服务流程' }
       ],
-    listBox: [{
-      imgUrl: '../../images/rdzx.png',
-      title: '开学后遗症，幼儿园小男孩错把椅子',
-      ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-      sj: '09-27'
-    },
-    {
-      imgUrl: '../../images/rdzx.png',
-      title: '开学后遗症，幼儿园小男孩错把椅子',
-      ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-      sj: '09-27'
-    },
-    {
-      imgUrl: '../../images/rdzx.png',
-      title: '开学后遗症，幼儿园小男孩错把椅子',
-      ms: '近日一家幼儿园发生一件特别好笑的事情，一个小男孩背着“书包”想着',
-      sj: '09-27'
-    }
-    ]
+    listBox: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    let that = this;
+    wx:wx.request({
+      url: publics.ttpss().httpst +'/wx/bidmake/list',
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        that.setData({
+          listBox: res.data.data.bidMakeList
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
   details: function (e) {
    let sum = e.currentTarget.dataset.text;
@@ -43,9 +41,9 @@ Page({
       url: '../document_details/document_details?sum=' + sum,
     })
   },
-  xqClick: function () {
+  xqClick: function (e) {
     wx: wx.navigateTo({
-      url: '../training_details/training_details'
+      url: '../training_details/training_details?sum=' + '标书&sid=' + e.currentTarget.dataset.id
     })
   },
   /**
@@ -68,7 +66,6 @@ Page({
   onHide: function () {
     
   },
-
   /**
    * 生命周期函数--监听页面卸载
    */

@@ -1,11 +1,10 @@
 <view class='issueBox' style='position: relative'>
   <form bindsubmit="formSubmit" bindreset="formReset">
     <!-- 头像 -->
-    <view class='issueZi' bindtap='upImage'>
+    <view class='issueZi'>
       <view class='ziText'>头像</view>
       <view class='ziBox'>
-        <!-- <view class="box" bindtap='upImage'></view> -->
-        <image src="{{pic[0]}}" style="width:80rpx;height:80rpx;border-radius:50%"></image>
+        <view class="box"></view>
         <image src="../../images/more.png" style="width:32rpx;height:32rpx;"></image>
       </view>
     </view>
@@ -26,12 +25,12 @@
       </view>
     </view>
   </form>
-  <view class="tiBtn" bindtap='loginOut'>退出登录</view>
-  <view class="cover" wx:if="{{loginOut == true}}">
+  <view class="tiBtn">退出登录</view>
+  <view class="cover">
     <view class="title-box">
       <view class="title">确认退出登录</view>
-      <view class="confirm" bindtap='confirm'>退出登录</view>
+      <view class="confirm">退出登录</view>
     </view>
-    <view class="cancel" bindtap='cancel'>取消</view>
+    <view class="cancel">取消</view>
   </view>
 </view>

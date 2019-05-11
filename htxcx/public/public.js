@@ -48,8 +48,19 @@ const ttpss = function () {
     px: '../training/training',//培训资料
     gg: '../advertising/advertising',//广告合作
     pp: '../support/support',
-
-    httpst: 'http://192.168.1.193:8082'
+    httpst: 'http://192.168.1.193:8082',
+    // index: 'http://192.168.1.193:8082/wx/home/index',//首页
+    // search: 'http://192.168.1.193:8082/wx/search/index',//首页获取历史记录、热门搜索
+    // sea: 'http://192.168.1.193:8082/wx/search/search',//首页搜索
+    // activi1: 'http://192.168.1.193:8082/wx/activity/list',//活动风采
+    // activi1_xq: 'http://192.168.1.193:8082/wx/activity/detail?id=',//活动风采详情
+    // activi2:'http://192.168.1.193:8082/wx/news/list',//热点资讯
+    // activi2_xq: 'http://192.168.1.193:8082/wx/activity/detail?id',//热点资讯详情
+    // guidance: 'http://192.168.1.193:8082/wx/enginguide/index',//工程指导
+    // guianli: 'http://192.168.1.193:8082/wx/enginguide/list',//工程指导(服务案例按需查询)
+    // // gcsList: 'http://192.168.1.193:8082/wx/engineer/categorylist',//工程师列表(类型)
+    // gcsLists: 'http://192.168.1.193:8082/wx/engineer/list',//工程师列表
+    // guigcs: 'http://192.168.1.193:8082/wx/engineer/detail',//工程指导(工程师详情)
   }
   // var zb = '../';//招标信息
   return listq

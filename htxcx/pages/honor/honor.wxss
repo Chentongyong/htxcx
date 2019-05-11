@@ -89,6 +89,9 @@
 
 .recom_but .butBox {
   width: 210rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .recom_but image {
@@ -111,8 +114,9 @@
 .hot_but {
   display: flex;
   justify-content: space-between;
-  padding: 32rpx 0 36rpx 0;
   border-bottom: 2px solid #eee;
+  padding:36rpx 40rpx;
+  background:#fff
 }
 
 .hot_but .imgs1 {
@@ -122,6 +126,15 @@
 
 .hot_but .butBox {
   width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.hot_but .butBox text{
+  width: 70%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hot_but .butBox .boxZi {

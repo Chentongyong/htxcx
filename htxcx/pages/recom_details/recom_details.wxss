@@ -19,7 +19,7 @@
 
 .recomBox .recomTop .right {
   width: 402rpx;
-  height: 280rpx;
+  /* height: 280rpx; */
   border: 2px dashed #2994e6;
   border-radius: 5px;
 }
@@ -50,6 +50,9 @@
   font-weight: 600;
 }
 
+/* .recomBox .recomTop .right .right_top .topTexts{
+
+} */
 .recomBox .recomTop .right .right_top .text1 {
   font-size: 24rpx;
   font-weight: 400;

@@ -1,0 +1,84 @@
+
+.recoBox {
+  width: 100%;
+  height: 100%;
+  background: #eee
+}
+
+.recoBox .box {
+  display: flex;
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 20rpx;
+  overflow: hidden;
+}
+
+.recoBox .box .boxRight image {
+  width: 140rpx;
+  height: 160rpx;
+  margin-right: 40rpx;
+}
+
+.recoBox .box .boxLeft {
+  width: 16rpx;
+  height: 100%;
+  background: #2994e6;
+  margin-right: 24rpx;
+}
+.recoBox .box .boxLeft.left {
+  background-color: #ff861d;
+}
+
+.recoBox .box .boxRight {
+  width: 100%;
+  padding: 24rpx 40rpx;
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.recoBox .box .boxRight .rightZi {
+  width: 440rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.recoBox .box .boxRight .right_top {
+  width: 440rpx;
+  display: flex;
+  justify-content: space-between;
+}
+
+.recoBox .box .boxRight .right_top .text1 {
+  font-size: 32rpx;
+  font-size: 16px;
+  font-family: PingFang SC;
+  color: rgba(41, 148, 230, 1);
+  margin-right: 20rpx;
+}
+
+.recoBox .box .boxRight .right_top .text2 {
+  font-size: 24rpx;
+  font-family: PingFang SC;
+}
+
+.recoBox .box .boxRight .rightCen {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  color: #333;
+  margin: 18rpx 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.recoBox .box .boxRight .rightBut {
+  font-size: 28rpx;
+  font-family: PingFang SC;
+  color: #9a9a9a;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

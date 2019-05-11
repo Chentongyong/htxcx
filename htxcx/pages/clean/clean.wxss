@@ -1,0 +1,61 @@
+.hotspot {
+  background: #fff;
+}
+.hot_but {
+  display: flex;
+  justify-content: space-between;
+  padding: 32rpx 40rpx 36rpx 40rpx;
+  border-bottom: 4px solid #eee;
+}
+
+.hot_but .imgs1 {
+  width: 30%;
+  height: 160rpx;
+}
+
+.hot_but .butBox {
+  width: 70%;
+}
+
+.hot_but .butBox .boxZi {
+  margin-left: 20rpx;
+  height: 160rpx;
+  position: relative;
+}
+
+.hot_but .butBox .boxZi image {
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 20rpx;
+}
+
+.hot_but .butBox .boxZi .ziSty {
+  font-size: 32rpx;
+  line-height: 40rpx;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.hot_but .butBox .boxZi .sty_co {
+  width: 85%;
+  height: 68rpx;
+  line-height: 34rpx;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 28rpx;
+  color: #9a9a9a;
+  margin: 10rpx 0 5rpx 0;
+}
+
+.hot_but .butBox .boxZi .ziFu {
+  font-size: 24rpx;
+  position: absolute;
+  bottom: 5rpx;
+  right: 0;
+  color: #9a9a9a;
+  line-height: 28rpx;
+}

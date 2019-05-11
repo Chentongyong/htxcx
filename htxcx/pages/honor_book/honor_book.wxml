@@ -3,8 +3,8 @@
   <view class='cerBut'>
     <view class='boxList'>
       <view wx:for='{{lists}}' wx:key='index' class='listBox' bindtap='djClick'>
-        <image src='{{item.img}}'></image>
-        <text>{{item.title}}</text>
+        <image bindtap='zyDetails' data-url='{{item.path}}' src='{{item.path}}'></image>
+        <text>{{item.name}}</text>
       </view>
     </view>
   </view>

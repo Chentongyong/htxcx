@@ -2,23 +2,24 @@
   <view class='sup_top'>
     <view class='topBj'></view>
     <view class='topBut'>
-      <view wx:for='{{listD}}' wx:key='index' data-index='{{index}}' class="butZi" bindtap='qhClick'>
-        <image src='{{item.imgs}}'></image>
-        <text class="{{index==ind?'te_sty':''}}">{{item.title}}</text>
+      <view wx:for='{{listD}}' wx:key='index' data-index='{{index}}' data-id='{{item.id}}' class="butZi" bindtap='qhClick'>
+        <image src='{{item.iconUrl}}'></image>
+        <text class="{{index==ind?'te_sty':''}}">{{item.name}}</text>
       </view>
     </view>
   </view>
 
   <view class='sup_list'>
-    <view wx:for="{{list}}" wx:key='index' class='listBox' bindtap='qxClick'>
-      <image src='{{item.img}}'></image>
+    <view wx:for="{{list}}" wx:key='index' data-id='{{item.id}}' class='listBox' bindtap='qxClick'>
+      <image src='{{item.path}}'></image>
       <view class='box_right'>
         <view class='right_top'>
-          <text class='text1'>{{item.title}}</text>
-          <text>{{item.itme}}</text>
+          <text class='text1'>{{item.name}}</text>
+          <text>{{item.addTime}}</text>
         </view>
-        <view class='right_cen'>{{item.ms}}</view>
+        <view class='right_cen'>{{item.desc}}</view>
       </view>
     </view>
   </view>
+  <view style='line-height:80rpx;text-align:center' wx:if='{{show}}'>没有更多数据了~~</view>
 </view>

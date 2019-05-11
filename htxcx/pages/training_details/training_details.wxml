@@ -1,25 +1,23 @@
 <view class='train_det'>
   <view class='det_top'>
-    <text>{{cade.title}}</text>
+    <text>{{title}}</text>
     <view class='topBut'>
       <view class='butZi'>
         <image src='../../images/nzs.png'></image>
-        <text>{{cade.itme}}</text>
+        <text>{{datas.addTime}}</text>
       </view>
       <view class='butZi'>
         <image src='../../images/yys.png'></image>
-        <text>{{cade.quantity}}</text>
+        <text>{{datas.pageView}}</text>
       </view>
     </view>
   </view>
-  <view class='detBut'>
-    <image src='{{cade.img}}'></image>
-    <view>
-      <text>{{cade.ms}}</text>
+  <view class='detBut' style='overflow: hidden'>
+      <view style='width:100%'>
+        <rich-text nodes="{{myrich}}"></rich-text>
     </view>
-    <view class='fuBox'>{{cade.gs}}</view>
   </view>
-  
+
   <view class='informBut'>
     <view class='butZi' data-reply-phone="10086" bindtap="phoneCall">
       <image src='../../images/dh.png'></image>

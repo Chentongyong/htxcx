@@ -4,7 +4,7 @@
   <view class="index-top">
     <view class="position" bindtap='mapClick'>
       <image src="../../images/position.png"></image>
-      <view>{{cityName}}</view>
+      <view>全国</view>
     </view>
     <view class="search" bindtap='ssClick'>
       <image src="../../images/ind_ss.png"></image>
@@ -16,7 +16,7 @@
     </view>
   </view>
 
-  <rotation></rotation>
+  <rotation qf="0"></rotation>
 
   <view class='com_class'>
     <view class='classBox' wx:for='{{classList}}' wx:key="index" data-text='{{item.txt}}' bindtap='flClixk'>
@@ -33,7 +33,7 @@
         <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
           <block wx:for="{{msgList}}" wx:key='index'>
             <swiper-item>
-              <view class="swiper_item">{{item.title}}</view>
+              <view class="swiper_item">{{item.content}}</view>
             </swiper-item>
           </block>
         </swiper>
@@ -57,19 +57,11 @@
     </view>
     <view>
       <swiper class="swiper" indicator-dots="true" indicator-color="#ccc" indicator-active-color="#2994E6">
-        <block wx:for="{{movies}}" wx:for-index="index" wx:key='index'>
+        <block wx:for="{{movies1}}" wx:for-index="index" wx:key='index'>
           <swiper-item>
-            <view class='itemBox' bindtap='yzxqClick'>
-              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
-              <view class='text'>宏泰工业清洗</view>
-            </view>
-            <view class='itemBox' bindtap='yzxqClick'>
-              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
-              <view class='text'>宏泰工业清洗</view>
-            </view>
-            <view class='itemBox' bindtap='yzxqClick'>
-              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
-              <view class='text'>宏泰工业清洗</view>
+            <view class='itemBox' bindtap='yzxqClick' wx:for='{{item.movList}}' wx:key='index' data-id='{{index}}'>
+              <image src="{{item.avatar}}" class="slide-image" mode="aspectFill" />
+              <view class='text'>{{item.username}}</view>
             </view>
           </swiper-item>
         </block>
@@ -90,19 +82,11 @@
     </view>
     <view>
       <swiper class="swiper" indicator-dots="true" indicator-color="#D2D2D2" indicator-active-color="#2994E6">
-        <block wx:for="{{movies}}" wx:for-index="index" wx:key='index'>
+        <block wx:for="{{movies2}}" wx:for-index="index" wx:key='index'>
           <swiper-item>
-            <view class='itemBox' bindtap='gcxqClick'>
-              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
-              <view class='text'>大型油烟机</view>
-            </view>
-            <view class='itemBox' bindtap='gcxqClick'>
-              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
-              <view class='text'>大型油烟机</view>
-            </view>
-            <view class='itemBox' bindtap='gcxqClick'>
-              <image src="../../images/yzfw.png" class="slide-image" mode="aspectFill" />
-              <view class='text'>大型油烟机</view>
+            <view class='itemBox' bindtap='gcxqClick' wx:for='{{item.movList}}' wx:key='index' data-id='{{index}}'>
+              <image src="{{item.path}}" class="slide-image" mode="aspectFill" />
+              <view class='text'>{{item.name}}</view>
             </view>
           </swiper-item>
         </block>
@@ -110,19 +94,19 @@
     </view>
   </view>
 
-  <view class='hotspot'>
+<view class='hotspot'>
     <view class='hot_top'>
       <view data-text='活动风采' data-index='0' class="topZi {{hr==true?'zi_sty':''}}" bindtap='hrxg'>活动风采</view>
       <view data-text='热点资讯' data-index='1' class="topZi {{hr==false?'zi_sty':''}}" bindtap='hrxg'>热点资讯</view>
     </view>
-    <view class='hot_but' wx:for='{{listBox}}' wx:key="index" bindtap='hrxqClick'>
-      <image class='imgs1' src='{{item.imgUrl}}'></image>
+    <view class='hot_but' wx:for='{{listBox}}' wx:key="index" data-id='{{item.id}}' bindtap='hrxqClick'>
+      <image class='imgs1' src='{{item.path}}'></image>
       <view class='butBox'>
         <view class='boxZi'>
           <view class='ziSty'>{{item.title}}</view>
-          <view class='sty_co'>{{item.ms}}</view>
+          <view class='sty_co'>{{item.content}}</view>
           <view class='ziFu'>
-            <text>{{item.sj}}</text>
+            <text>{{item.addTime}}</text>
             <image src='../../images/jt.png'></image>
           </view>
         </view>

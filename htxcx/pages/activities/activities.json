@@ -1,7 +1,5 @@
 {
   "component": true,
-  "usingComponents": {
-    "information": "/components/information/information"
-  },
-  "navigationBarTitleText": "热点资讯"
+  "navigationBarTitleText": "",
+  "onReachBottomDistance": 10
 }

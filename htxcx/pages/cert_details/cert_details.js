@@ -1,65 +1,111 @@
+var publics = require('../../public/public.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    s: '',
+    datas: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function(options) {
+    //  console.log(options)
+    if (options.sum == '资质') {
+      this.setData({
+        s: 0
+      })
+      console.log(options.sid)
+      wx: wx.request({
+        url: publics.ttpss().httpst + '/wx/qualificationhonor/qualificationdetail',
+        data: {
+          "id": options.sid
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          this.setData({
+            datas: res.data.data
+          })
+          console.log(res.data.data)
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
+    if (options.sum == '荣誉') {
+      this.setData({
+        s: 1
+      })
+      wx: wx.request({
+        url: publics.ttpss().httpst + '/wx/bidmake/detail',
+        data: {
+          "id": options.sid
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: (res) => {
+          console.log(res)
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-    
+  onReady: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
+  onShow: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-    
+  onHide: function() {
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-    
+  onUnload: function() {
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-    
+  onPullDownRefresh: function() {
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-    
+  onReachBottom: function() {
+
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   }
 })

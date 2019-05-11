@@ -3,9 +3,9 @@
     <view style='padding:20rpx'>
       <view>
         <view class='cer_but'>
-          <view wx:for='{{listBox}}' data-index='{{index}}'  wx:key='index' class='butBox' bindtap='qhClick'>
-            <image src='{{item.urlImg}}'></image>
-            <text class="{{index==ind?'te_sty':''}}">{{item.title}}</text>
+          <view wx:for='{{listBox}}' data-index='{{index}}' data-id='{{item.id}}' wx:key='index' class='butBox' bindtap='qhClick'>
+            <image src='{{item.iconUrl}}'></image>
+            <text class="{{index==ind?'te_sty':''}}">{{item.name}}</text>
           </view>
         </view>
       </view>
@@ -13,20 +13,20 @@
   </view>
 
   <view class='recoBox'>
-    <view wx:for="{{dataList}}" wx:key="index" class='box' data-index='{{index}}' bindtap='details'>
+    <view wx:for="{{dataList}}" wx:key="index" class='box' data-index='{{index}}' data-id='{{item.id}}' bindtap='details'>
       <view data-id='{{index}}' class="boxLeft {{index%2==1?'left':''}}" ></view>
       <view class='boxRight'>
-        <image src='{{item.imgs}}'></image>
+        <image src='{{item.avatar}}'></image>
         <view class='rightZi'>
           <view class='right_top'>
             <view>
-              <text class='text1'>{{item.title}}</text>
+              <text class='text1'>{{item.name}}</text>
               <text class='text2'>{{item.gender}}</text>
             </view>
-            <text class='text2' style='margin-top:18rpx'>{{item.time}}</text>
+            <text class='text2' style='margin-top:18rpx'>{{item.addTime}}</text>
           </view>
-          <view class='rightCen'>{{item.types}}</view>
-          <view class='rightBut'>{{item.gs}}</view>
+          <view class='rightCen'>{{item.engineerCategoryName}}</view>
+          <view class='rightBut'>{{item.companyName}}</view>
         </view>
       </view>
     </view>

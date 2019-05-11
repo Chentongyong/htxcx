@@ -1,9 +1,16 @@
+var publics = require('../../public/public.js');
+let list = [];
+let page = 0;
+let limit = 10;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    sid: '',
+    listBox:[],
+    show: false,
 
   },
 
@@ -11,55 +18,68 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var sum = options.sum; 
-      wx.setNavigationBarTitle({
-        title: options.sum
-      })
-  
+    var sum = options.sum;
+    wx.setNavigationBarTitle({
+      title: options.sum
+    })
+    this.setData({
+      sid: options.sid
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function() {
-
+    let that = this;
+    list = [];
+    this.onReachBottom()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function() {
-
+    let that = this;
+    wx.showLoading({
+      title: '玩命加载中',
+    })
+    wx: wx.request({
+      url: publics.ttpss().httpst + '/wx/train/list',
+      data: {
+        "page": page,
+        "limit": limit,
+        "trainCategoryId": that.data.sid
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        if (res.data.data.totalPages > page) {
+          page = page + 1;
+          res.data.data.trainMaterialsList.forEach((item, index, arr) => {
+            list.push(arr[index])
+          })
+          that.setData({
+            listBox: list
+          })
+        } else {
+          that.setData({
+            show: true
+          })
+        }
+        if (res.data.data.totalPages ==0) {
+          that.setData({
+            show: false
+          })
+        }
+        wx.hideLoading();
+      },
+      fail: function(res) {
+        wx.hideLoading();
+      },
+      complete: function(res) {},
+    })
   },
-
+  onClick:function(e){
+    wx:wx.navigateTo({
+      url: '../activi_details/activi_details?sum=' +'清洗&sid='+e.currentTarget.dataset.id,
+    })
+  },
   /**
    * 用户点击右上角分享
    */

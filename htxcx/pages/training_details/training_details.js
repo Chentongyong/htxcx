@@ -5,27 +5,127 @@ Page({
    * 页面的初始数据
    */
   data: {
-    cade: {
-      title: '如何进行空调清洗',
-      itme: '2019-03-27',
-      quantity: 120,
-      img: '../../images/zz_bj.png',
-      ms: '我是来自宣威的杨，毕业于昆明高级技工学校机电一体化专业。我热爱我的家乡，因为从小我受到了宣威火腿这一品牌效应的影响，有了自己的人生认知。我觉得做人也得树立自己的品牌这样才会有自己的人生市场。在学校我选择了机电一体化这个专业，在学的过程中我深深的了解了这个专业作为女生，在这个专业我看到了作为应该女生在这方面的发展的局限性。但是，我不怕，我热爱这个专业，我坚信我可以做好。这个专业对于我来说更有挑战性，他人可以做的事我同样可以，我认为只是方式问题。 通过这几年的在校学习，我刻苦研读了“维修电工”“电子技术”等专业课程，并熟练掌握了其技术操作，特别是多种常用电动机控制线路安装，室内配线及其PLC编程等。我知道我的技术在有一定欠缺，我的经验不足，我的学历不够。但是，我还年轻',
-      gs:'广东宏泰节能环保工程有限公司 '
-    }
+    datas: {},
+    myrich: '',
+    title: ''
+
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    let that = this;
+    console.log(options.sid)
+    console.log(options.sum)
+    if (options.sum == '扶持') { //品牌扶持
+      wx: wx.request({
+        url: publics.ttpss().httpst + '/wx/brand/detail',
+        data: {
+          "id": options.sid,
+          // "userId": ''
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
+          res.data.data.brand.detail = res.data.data.brand.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
+          var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          that.setData({
+            datas: res.data.data.brand,
+            title: res.data.data.brand.name,
+            myrich: res.data.data.brand.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
+          })
+          console.log(res.data.data.brand)
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
+    if (options.sum == '服务案例') { //培训资料详情
+      wx: wx.request({
+        url: publics.ttpss().httpst + '/wx/enginguide/detail',
+        data: {
+          "id": options.sid,
+          // "userId": ''
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
+          res.data.data.enginGuide.detail = res.data.data.enginGuide.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
+          var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          that.setData({
+            datas: res.data.data.enginGuide,
+            title: res.data.data.enginGuide.title,
+            myrich: res.data.data.enginGuide.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
+          })
+          console.log(res.data.data.enginGuide)
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
+    if (options.sum == '标书') { //标书制作
+      wx: wx.request({
+        url: publics.ttpss().httpst + '/wx/bidmake/detail',
+        data: {
+          "id": options.sid,
+          // "userId": ''
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
+          res.data.data.bidMake.detail = res.data.data.bidMake.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
+          var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          that.setData({
+            datas: res.data.data.bidMake,
+            title: res.data.data.bidMake.title,
+            myrich: res.data.data.bidMake.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
+          })
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
+    if (options.sum == '资质') { //标书制作
+      wx: wx.request({
+        url: publics.ttpss().httpst + '/wx/qualificationhonor/detail',
+        data: {
+          "id": options.sid,
+          // "userId": ''
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function (res) {
+          var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
+          res.data.data.qualificationHonor.detail = res.data.data.qualificationHonor.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
+          var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          that.setData({
+            datas: res.data.data.qualificationHonor,
+            title: res.data.data.qualificationHonor.title,
+            myrich: res.data.data.qualificationHonor.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
+          })
+        },
+        fail: function (res) { },
+        complete: function (res) { },
+      })
+    }
   },
 
-  phoneCall: function (e) {//电话咨询
+  phoneCall: function(e) { //电话咨询
     publics.phones(e)
   },
-  phoneCall2: function (e) {//联系客服
+  phoneCall2: function(e) { //联系客服
     publics.phones(e)
   },
 

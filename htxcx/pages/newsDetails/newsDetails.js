@@ -1,35 +1,23 @@
 // pages/newsDetails/newsDetails.js
-Page({
-  data:{},
-  onLoad:function(options){
-    var that =this;
-    wx.request({
-      url: getApp().data.serviceUrl + '/wx/sysMessage/detail',
-      method: "GET",
-      header: {
-        'content-type': 'application/json'
-      },
-      data: {
-        // userId: options.userId,
-        id: options.newsId
-      },
-      success: function (res) {
-        console.log(res)
-        var concentList = res.data.data;
-        that.setData({
-          date: concentList.addTime,
-          content: concentList.content
-        })
+Component({
+  /**
+   * 组件的属性列表
+   */
+  properties: {
 
-      },
-      fail: function (e) {
-        wx.showToast({
-          title: '网络断开，稍后重试',
-          icon: 'none',
-          duration: 2000
-        })
-      }
-    })
-    console.log(options)
+  },
+
+  /**
+   * 组件的初始数据
+   */
+  data: {
+
+  },
+
+  /**
+   * 组件的方法列表
+   */
+  methods: {
+
   }
 })

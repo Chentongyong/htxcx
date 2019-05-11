@@ -1,124 +1,106 @@
+var publics = require('../../public/public.js');
+let lists = [];
+let limit = 10;
+let page = 1;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listD:[
-      { imgs: '../../images/mmsj.png', title: '门面设计' },
-      { imgs: '../../images/cpsc.png', title: '产品手册' },
-      { imgs: '../../images/yytg.png', title: '营运推广' }
-    ],
-    list: [{
-        img: '../../images/cpts.png',
-        title: '店铺门面设计店铺门面设计店铺门面设计',
-      ms: '店面设计是店面给人的整体感觉，能够 体现店面的档次和个性。体现店面的档次和个性。',
-        itme: '2019-03-27'
-      },
-      {
-        img: '../../images/cpts.png',
-        title: '店铺门面设计',
-        ms: '店面设计是店面给人的整体感觉，能够 体现店面的档次和个性。体现店面的档次和个性。',
-        itme: '2019-03-27'
-      },
-      {
-        img: '../../images/cpts.png',
-        title: '店铺门面设计',
-        ms: '店面设计是店面给人的整体感觉，能够 体现店面的档次和个性。体现店面的档次和个性。',
-        itme: '2019-03-27'
-      },
-      {
-        img: '../../images/cpts.png',
-        title: '店铺门面设计',
-        ms: '店面设计是店面给人的整体感觉，能够 体现店面的档次和个性。体现店面的档次和个性。',
-        itme: '2019-03-27'
-      }, {
-        img: '../../images/cpts.png',
-        title: '店铺门面设计',
-        ms: '店面设计是店面给人的整体感觉，能够 体现店面的档次和个性。体现店面的档次和个性。',
-        itme: '2019-03-27'
-      },
-      {
-        img: '../../images/cpts.png',
-        title: '店铺门面设计',
-        ms: '店面设计是店面给人的整体感觉，能够 体现店面的档次和个性。体现店面的档次和个性。',
-        itme: '2019-03-27'
-      },
-      {
-        img: '../../images/cpts.png',
-        title: '店铺门面设计',
-        ms: '店面设计是店面给人的整体感觉，能够 体现店面的档次和个性。体现店面的档次和个性。',
-        itme: '2019-03-27'
-      },
-      {
-        img: '../../images/cpts.png',
-        title: '店铺门面设计',
-        ms: '店面设计是店面给人的整体感觉，能够 体现店面的档次和个性。体现店面的档次和个性。',
-        itme: '2019-03-27'
-      }
-    ],
-    ind:0
+    listD: [],
+    list: [],
+    ind: 0,
+    sid: '',
+    show: false,
+    types:'扶持'
   },
-  
-  qhClick:function(e){
+  onShow: function() {
+    lists = [];
+    page = 1;
+    let that = this;
+    wx: wx.request({
+      url: publics.ttpss().httpst + '/wx/brand/categorylist',
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        that.setData({
+          listD: res.data.data,
+          sid: res.data.data[0].id
+        })
+        that.datas(res.data.data[0].id)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  qhClick: function(e) {
+    lists = [];
+    page = 1;
     let that = this;
     that.setData({
-      ind: e.currentTarget.dataset.index
+      ind: e.currentTarget.dataset.index,
+      sid: e.currentTarget.dataset.id
     })
-    console.log(that.data.ind)
+    that.datas(that.data.sid)
   },
-  qxClick:function(){
-    wx:wx.navigateTo({
-      url: '../training_details/training_details'
+  qxClick: function(e) {
+    let that = this;
+    // let id = e.currentTarget.dataset.id;
+    wx: wx.navigateTo({
+      url: '../training_details/training_details?sid=' + e.currentTarget.dataset.id +'&sum='+that.data.types
     })
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function() {
-
+    let that = this;
+    that.datas(that.data.sid);
+  },
+  datas: function(sid) {
+    let that = this;
+    wx.showLoading({
+      title: '玩命加载中',
+    })
+    wx: wx.request({
+      url: publics.ttpss().httpst + '/wx/brand/list',
+      data: {
+        "brandCategoryId": sid,
+        "page": page,
+        "limit": limit
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        if (res.data.data.totalPages >= page) {
+          page = page + 1;
+          res.data.data.brandList.forEach((item, index, arr) => {
+            lists.push(arr[index])
+          })
+          that.setData({
+            list: lists
+          })
+        } else {
+          that.setData({
+            show: true
+          })
+        }
+        if (res.data.data.totalPages == 0) {
+          that.setData({
+            show: false
+          })
+        }
+        wx.hideLoading();
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
 
   /**

@@ -1,3 +1,16 @@
-<view>
-  <information sum="{{sum}}"></information>
+<view class='hotspot'>
+  <view class='hot_but' wx:for='{{listBox}}' wx:key="index" data-id='{{item.id}}' bindtap='xqClick'>
+    <image class='imgs1' src='{{item.path}}'></image>
+    <view class='butBox'>
+      <view class='boxZi'>
+        <view class='ziSty'>{{item.title}}</view>
+        <view class='sty_co'>{{item.content}}</view>
+        <view class='ziFu'>
+          <text>{{item.updateTime}}</text>
+          <image src='../../images/jt.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view style='line-height:80rpx;text-align:center' wx:if='{{show}}'>没有更多数据了~~</view>
 </view>

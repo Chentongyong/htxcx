@@ -1,5 +1,5 @@
 <view>
-  <rotation></rotation>
+  <rotation qf='1'></rotation>
   <view class='recommend'>
     <view class='recomTop'>
       <view class='left'>
@@ -12,17 +12,9 @@
       </view>
     </view>
     <view class='recomBut'>
-      <view class='butBox' bindtap='onDetails'>
-        <image src='../../images/bsht.png'></image>
-        <text>周工</text>
-      </view>
-      <view class='butBox' bindtap='onDetails'>
-        <image src='../../images/bsht.png'></image>
-        <text>周工</text>
-      </view>
-      <view class='butBox' bindtap='onDetails'>
-        <image src='../../images/bsht.png'></image>
-        <text>周工</text>
+      <view class='butBox' wx:for='{{lists}}' wx:key='index' data-id="{{item.id}}" bindtap='onDetails'>
+        <image src='{{item.avatar}}'></image>
+        <text>{{item.name}}</text>
       </view>
     </view>
 
@@ -52,16 +44,16 @@
     </view>
     <view class='gcfwBox'>
       <view class='gcfwTop'>
-        <text wx:for='{{classList}}' wx:key='index' data-id='{{index}}' class="{{index==lx?'text_sty':''}}" bindtap='clicks'>{{item}}</text>
+        <text wx:for='{{classList}}' wx:key='index' data-id='{{item.id}}' data-index='{{index}}' class="{{index==lx?'text_sty':''}}" bindtap='clicks'>{{item.name}}</text>
       </view>
-      <view class='hot_but' wx:for='{{listBox}}' wx:key="index" bindtap='xqClick'>
-        <image class='imgs1' src='{{item.imgUrl}}'></image>
+      <view class='hot_but' wx:for='{{listBox}}' wx:key="index" data-id='{{item.id}}' bindtap='xqClick'>
+        <image class='imgs1' src='{{item.path}}'></image>
         <view class='butBox'>
           <view class='boxZi'>
             <view class='ziSty'>{{item.title}}</view>
-            <view class='sty_co'>{{item.ms}}</view>
+            <view class='sty_co'>{{item.content}}</view>
             <view class='ziFu'>
-              <text>{{item.sj}}</text>
+              <text>{{item.updateTime}}</text>
               <image src='../../images/jt.png'></image>
             </view>
           </view>

@@ -5,7 +5,7 @@
 .bsBox {
   padding:40rpx 0;
   background: #fff;
-  display: none
+  /* display: none */
 }
 .bsBox.bs_boxs{
   display: block

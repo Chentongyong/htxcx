@@ -1,30 +1,29 @@
 <view class='recomBox'>
   <view class='recomTop'>
-    <image src="{{datas.imgs}}"></image>
+    <image src="{{datas.avatar}}"></image>
     <view class="right {{sum==0?'':'right_st'}}">
       <image class='img1' src="{{sum==0?'../../images/td.png':'../../images/td2.png'}}"></image>
       <view class='right_top'>
-        <text style="{{}}">{{datas.title}}</text>
+        <text style="{{}}">{{datas.name}}</text>
         <text class='text1'>{{datas.gender}}</text>
       </view>
       <view class='rightList'>
         <text>职位：</text>
-        <text class='text2'>{{datas.types}}</text>
+        <text class='text2'>{{datas.job}}</text>
       </view>
       <view class='rightList'>
-        <text>地址：</text>
-        <text class='text2'>{{datas.map}}</text>
+        <text>地址：{{datas.address}}</text>
       </view>
       <view class='rightList'>
         <text>公司：</text>
-        <text class='text2'>{{datas.gsmap}}</text>
+        <text class='text2'>{{datas.companyName}}</text>
       </view>
     </view>
   </view>
   <view class='titBox' style='margin-bottom:80rpx'>
     <view class='title'>阅历详情</view>
     <view>
-      {{datas.yl}}
+      {{datas.description}}
     </view>
   </view>
 

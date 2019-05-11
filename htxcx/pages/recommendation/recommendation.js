@@ -1,124 +1,74 @@
+var publics = require('../../public/public.js');
+let sum = [];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listBox: [{
-        title: '空调',
-        urlImg: '../../images/kt.png'
-      },
-      {
-        title: '工业',
-        urlImg: '../../images/gy.png'
-      },
-      {
-        title: '油烟',
-        urlImg: '../../images/yy.png'
-      },
-      {
-        title: '其他',
-        urlImg: '../../images/qts.png'
-      }
-    ],
-    dataList: [{
-        imgs: '../../images/gcs.png',
-        title: '张三',
-        gender: '男',
-        types: '空调清洗工程师',
-        gs: '广东宏泰节能环保工程有限',
-        time: '2019-08-07'
-      },
-      {
-        imgs: '../../images/gcs.png',
-        title: '张三',
-        gender: '男',
-        types: '空调清洗工程师广东宏泰节能环保工程有限广东宏泰节能环保工程有限',
-        gs: '广东宏泰节能环保工程有限广东宏泰节能环保工程有限广东宏泰节能环保工程有限',
-        time: '2019-08-07'
-      },
-      {
-        imgs: '../../images/gcs.png',
-        title: '张三',
-        gender: '男',
-        types: '空调清洗工程师',
-        gs: '广东宏泰节能环保工程有限',
-        time: '2019-08-07'
-      },
-      {
-        imgs: '../../images/gcs.png',
-        title: '张三',
-        gender: '男',
-        types: '空调清洗工程师',
-        gs: '广东宏泰节能环保工程有限',
-        time: '2019-08-07'
-      }
-    ],
-    sums:0,
-    ind:0
+    listBox: [],
+    dataList: [],
+    sums: 0,
+    ind: 0,
+    sid: 1
   },
-  qhClick:function(e){
-    let that = this;
-    that.setData({
-      ind:e.currentTarget.dataset.index
-    })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    // this.idClick()
-  },
-
-  details: (e)=> {//跳转详情
-    var sum = e.currentTarget.dataset.index;
-    wx.navigateTo({
-      url: '../recom_details/recom_details?sum='+sum,
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function() {
-
+    sum = [];
+    const that = this;
+    that.recom()
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
+  qhClick: function(e) {
+    let that = this;
+    sum = [];
+    that.setData({
+      ind: e.currentTarget.dataset.index,
+      sid: e.currentTarget.dataset.id
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
+  recom: function() {
+    const that = this;
+    wx: wx.request({
+      url: publics.ttpss().httpst +'/wx/engineer/list',
+      data: {
+        "engineerCategoryId": that.data.sid
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        res.data.data.engineerCategoryList.forEach((item, index, arr) => {//分类
+          // arr[index].name = arr[index].name.substr(0, 2);
+          sum.push(arr[index])
+        })
+        res.data.data.engineerList.forEach((item, index, arr) => {//按需查询数据
+          if (arr[index].gender == 1) {
+            arr[index].gender = '男'
+          }
+          if (arr[index].gender == 2) {
+            arr[index].gender = '女'
+          }
+        })
+        that.setData({
+          listBox: sum,
+          sid: sum[0].id,
+          dataList: res.data.data.engineerList
+        })
+        // console.log(res)
+      },
+      fail: function(res) {},
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
+  details: (e) => { //跳转详情
+    var sum = e.currentTarget.dataset.index;
+    // console.log(e.currentTarget.dataset.sid)
+    wx.navigateTo({
+      url: '../recom_details/recom_details?sid=' + e.currentTarget.dataset.id,
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
+  onReachBottom: function(){
+    console.log(123)
   },
-
   /**
    * 用户点击右上角分享
    */

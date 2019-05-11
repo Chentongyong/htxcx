@@ -1,3 +1,4 @@
 {
-    "navigationBarTitleText": "工程师推荐"
+  "onReachBottomDistance": 10,
+  "navigationBarTitleText": "工程师推荐"
 }

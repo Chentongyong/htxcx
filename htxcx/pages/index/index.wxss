@@ -16,7 +16,6 @@ page {
   padding-right: 20rpx;
   height: 68rpx;
   align-items: center;
-  justify-content: space-around
 }
 
 .index-top .position {
@@ -32,7 +31,7 @@ page {
 }
 
 .index-top .position view {
-  /* width: 116rpx; */
+  width: 56rpx;
   font-size: 28rpx;
   font-family: PingFang SC;
   line-height: 56rpx;
@@ -41,8 +40,8 @@ page {
 }
 
 .index-top .search {
-  margin-left: 10rpx;
-  width: 470rpx;
+  margin-left: 20rpx;
+  width: 516rpx;
   height: 56rpx;
   border-radius: 8rpx;
   background: rgba(255, 255, 255, 1);
@@ -220,7 +219,7 @@ page {
 .recommend .swiper swiper-item {
   /* width: 100%; */
   display: flex;
-  justify-content: space-around;
+  /* justify-content: space-around; */
 }
 
 .recommend .swiper swiper-item .itemBox {
@@ -254,6 +253,7 @@ page {
   text-overflow: ellipsis;
   white-space: nowrap;
   margin: 0 auto;
+  text-align: center
 }
 
 .hotspot {

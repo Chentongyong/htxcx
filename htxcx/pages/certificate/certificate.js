@@ -1,106 +1,106 @@
+var publics = require('../../public/public.js');
+let page = 1;
+let limit = 10;
+let list = [];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    listBox: [{
-        title: '空调资质',
-        urlImg: '../../images/kt.png'
-      },
-      {
-        title: '生物防治',
-        urlImg: '../../images/zy.png'
-      },
-      {
-        title: '保洁资质',
-        urlImg: '../../images/bj.png'
-      },
-      {
-        title: '工业资质',
-        urlImg: '../../images/gy.png'
-      },
-      {
-        title: '外墙资质',
-        urlImg: '../../images/wq.png'
-      },
-      {
-        title: '油烟资质',
-        urlImg: '../../images/yy.png'
-      }
-    ],
-    lists:[
-      { img: '../../images/zgzs.png', title: '建筑施工证书'},
-      { img: '../../images/zgzs.png', title: '建筑施工证书' },
-      { img: '../../images/zgzs.png', title: '建筑施工证书' },
-      { img: '../../images/zgzs.png', title: '建筑施工证书' },
-      { img: '../../images/zgzs.png', title: '建筑施工证书' },
-      { img: '../../images/zgzs.png', title: '建筑施工证书' },
-      { img: '../../images/zgzs.png', title: '建筑施工证书' },
-      { img: '../../images/zgzs.png', title: '建筑施工证书' },
-    ],
-    ind:0
+    listBox: [],
+    lists: [],
+    ind: 0,
+    sid: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    page = 1;
+    wx: wx.request({
+      url: publics.ttpss().httpst + '/wx/qualificationhonor/category',
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        this.setData({
+          listBox: res.data.data,
+          sid: res.data.data[0].id
+        })
+        this.datas()
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
 
   },
-  qhClick:function(e){
-     let that = this;
-     that.setData({
-       ind: e.currentTarget.dataset.index
-     })
+  qhClick: function(e) {
+    list = [];
+    page = 1;
+    let that = this;
+    that.setData({
+      ind: e.currentTarget.dataset.index,
+      sid: e.currentTarget.dataset.id
+    })
+    this.datas()
   },
-  djClick: function () {
-    wx: wx.navigateTo({
-      url: '../cert_details/cert_details'
+  // djClick: function () {
+  //   wx: wx.navigateTo({
+  //     url: '../cert_details/cert_details'
+  //   })
+  // },
+  zyDetails: (e) => {
+    let url = e.currentTarget.dataset.url;
+    let imgList = [];
+    imgList.push(url)
+    wx.previewImage({
+      current: url,
+      urls: imgList
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function() {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
   onReachBottom: function() {
-
+    this.datas()
   },
-
+  datas: function() {
+    let that = this;
+    wx: wx.request({
+      url: publics.ttpss().httpst + '/wx/qualificationhonor/qualificationlist',
+      data: {
+        "page": page,
+        "limit": limit,
+        "qualificationCategoryId": this.data.sid
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        console.log(res.data.data.qualificationList)
+        if (res.data.data.totalPages >= page) {
+          res.data.data.qualificationList.forEach((item, index, arr) => {
+            list.push(arr[index])
+          })
+          that.setData({
+            lists: list
+          })
+          page = page + 1
+          console.log(that.data.lists)
+        }else{
+          that.setData({
+            lists: list
+          })
+        }
+        console.log(list)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 用户点击右上角分享
    */

@@ -1,65 +1,96 @@
+var publics = require('../../public/public.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    
+    datas:{},
+    myrich: [],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function(options) {
+    let that = this;
+    console.log(options)
+    if (options.sum == '活动风采') {//活动风采详情
+      wx: wx.request({
+        url: publics.ttpss().httpst + '/wx/activity/detail',
+        data: {
+          "id": options.sid
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi");
+          res.data.data.detail = res.data.data.detail.replace(regex1, "$2 style=\"\"$3");
+          var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi");
+          that.setData({
+            datas:res.data.data,
+            myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
+          })
+        },
+        fail: function(res) {},
+      })
+    }
+    if (options.sum == '热点资讯') {//热点资讯详情
+    console.log(111)
+      wx: wx.request({
+        url: publics.ttpss().httpst +'/wx/news/detail',
+        data: {
+          "id": options.sid
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi");
+          res.data.data.detail = res.data.data.detail.replace(regex1, "$2 style=\"\"$3");
+          var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi");
+          that.setData({
+            datas: res.data.data,
+            myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3"),
+          })
+          console.log(res)
+        },
+        fail: function(res) {},
+      })
+    }
+    if (options.sum == '清洗') { //培训资料详情
+      wx: wx.request({
+        url: publics.ttpss().httpst + '/wx/train/detail',
+        data: {
+          "id": options.sid,
+          // "userId": ''
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi");//匹配所有带style 的<img src=''/>标签
+          res.data.data.detail = res.data.data.detail.replace(regex1, "$2 style=\"\"$3");//给没有带style的<img src='' />添加 style
+          var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi");//
+          that.setData({
+            datas: res.data.data,
+            myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
+          })
+          console.log(res)
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   }
 })

@@ -3,5 +3,6 @@
   "usingComponents": {
     "information2": "/components/information2/information2"
   },
-  "navigationBarTitleText": "工业清洗"
+  "navigationBarTitleText": "工业清洗",
+  "onReachBottomDistance": 10
 }

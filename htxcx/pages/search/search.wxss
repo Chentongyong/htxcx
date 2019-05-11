@@ -93,3 +93,19 @@ page {
   line-height: 40rpx;
   color: rgba(154, 154, 154, 1);
 }
+.searchBox{
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  position: fixed;
+  top: 80rpx;
+  left: 0;
+  z-index: 300;
+}
+.searchs{
+  padding: 20rpx 40rpx;
+  border-top: 1px solid #eee;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
