@@ -75,6 +75,7 @@ Page({
         indexes: true
       })
     }
+    // this.sea(e.detail.value)
   },
   determine:function(){
     let that = this;
@@ -98,7 +99,6 @@ Page({
         console.log(res)
         res.data.data.bidList.forEach((item, index, arr) => {
           sums.push(arr[index])
-          console.log(arr[index])
         })
         res.data.data.enginGrabList.forEach((item, index, arr) => {
           sums.push(arr[index])

@@ -8,6 +8,7 @@ Page({
     qualifications: [],
     honor: [],
     listBox: [],
+    imgUrl:''
   },
 
   /**
@@ -24,6 +25,7 @@ Page({
       success: (res) => {
         console.log(res.data.data)
         this.setData({
+          imgUrl: res.data.data.picUrl,
           qualifications: res.data.data.honorList,
           honor: res.data.data.qualificationList,
           listBox: res.data.data.qualificationHonorList

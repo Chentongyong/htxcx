@@ -66,5 +66,5 @@
       </view>
     </view>
   </form>
-  <view class="tiBtn">提交发布</view>
+  <button class="tiBtn" form-type="submit">提交发布</button>
 </view>

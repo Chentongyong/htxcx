@@ -33,6 +33,7 @@ Page({
           var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
           res.data.data.brand.detail = res.data.data.brand.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
           var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          res.data.data.brand.addTime = res.data.data.brand.addTime.replace(/([^\s]+)\s.*/, "$1")
           that.setData({
             datas: res.data.data.brand,
             title: res.data.data.brand.name,
@@ -59,6 +60,7 @@ Page({
           var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
           res.data.data.enginGuide.detail = res.data.data.enginGuide.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
           var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          res.data.data.enginGuide.addTime = res.data.data.enginGuide.addTime.replace(/([^\s]+)\s.*/, "$1")
           that.setData({
             datas: res.data.data.enginGuide,
             title: res.data.data.enginGuide.title,
@@ -85,6 +87,7 @@ Page({
           var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
           res.data.data.bidMake.detail = res.data.data.bidMake.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
           var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          res.data.data.bidMake.addTime = res.data.data.bidMake.addTime.replace(/([^\s]+)\s.*/, "$1")
           that.setData({
             datas: res.data.data.bidMake,
             title: res.data.data.bidMake.title,
@@ -110,6 +113,7 @@ Page({
           var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
           res.data.data.qualificationHonor.detail = res.data.data.qualificationHonor.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
           var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          res.data.data.qualificationHonor.addTime = res.data.data.qualificationHonor.addTime.replace(/([^\s]+)\s.*/, "$1")
           that.setData({
             datas: res.data.data.qualificationHonor,
             title: res.data.data.qualificationHonor.title,

@@ -6,6 +6,7 @@
   height: 60rpx;
   width: 100%;
   background: #2994e6;
+  box-sizing: border-box
 }
 
 .honTop {
@@ -16,7 +17,7 @@
 
 .honTop image {
   width: 100%;
-  /* height: 600rpx */
+  height: 400rpx
 }
 
 .honTop .topFu {

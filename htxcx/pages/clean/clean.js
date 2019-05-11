@@ -52,7 +52,8 @@ Page({
         if (res.data.data.totalPages > page) {
           page = page + 1;
           res.data.data.trainMaterialsList.forEach((item, index, arr) => {
-            list.push(arr[index])
+            list.push(arr[index]);
+            arr[index].addTime = arr[index].addTime.replace(/([^\s]+)\s.*/, "$1")//切割日期时间
           })
           that.setData({
             listBox: list

@@ -27,7 +27,7 @@
         <swiper class="swiper_container" vertical="true" autoplay="true" circular="true" interval="2000">
           <block wx:for="{{msgList}}" wx:key='index'>
             <swiper-item>
-              <view class="swiper_item">{{item.title}}</view>
+              <view class="swiper_item">{{item.content}}</view>
             </swiper-item>
           </block>
         </swiper>
@@ -53,7 +53,7 @@
             <view class='ziSty'>{{item.title}}</view>
             <view class='sty_co'>{{item.content}}</view>
             <view class='ziFu'>
-              <text>{{item.updateTime}}</text>
+              <text>{{item.addTime}}</text>
               <image src='../../images/jt.png'></image>
             </view>
           </view>

@@ -6,15 +6,15 @@ Page({
   data: {
     lists: [
       {
-        img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司',money: '100万', qy: '广东省广州市', clicks: '2222', itme:'2019-04-26' },
-      { img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gcs.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' }
+        img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司',money: '100万', qy: '广东省广州市', clicks: '2222', itme:'2019-04-26' },
+      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
+      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
+      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
+      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
+      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
+      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
+      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
+      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' }
     ]
   },
 

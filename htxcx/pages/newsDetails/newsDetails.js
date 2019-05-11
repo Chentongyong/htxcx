@@ -1,23 +1,40 @@
-// pages/newsDetails/newsDetails.js
-Component({
-  /**
-   * 组件的属性列表
-   */
-  properties: {
-
-  },
+var publics = require('../../public/public.js');
+Page({
 
   /**
-   * 组件的初始数据
+   * 页面的初始数据
    */
   data: {
-
+    datas:{}
   },
 
   /**
-   * 组件的方法列表
+   * 生命周期函数--监听页面加载
    */
-  methods: {
-
+  onLoad: function (options) {
+    wx:wx.request({
+      url: publics.ttpss().httpst + '/wx/sysMessage/detail',
+      data: {
+        "id": options.newsId
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        res.data.data.addTime = res.data.data.addTime.replace(/([^\s]+)\s.*/, "$1")
+        this.setData({
+          datas: res.data.data
+        })
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+    
   }
 })

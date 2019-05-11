@@ -35,6 +35,7 @@ Page({
         if (res.data.data.gender == 2) {
           res.data.data.gender = '女'
         }
+        
         that.setData({
           datas: res.data.data
         })

@@ -9,7 +9,7 @@
 <view class="currentCityTitle">
   <view class="city-title">
     <image src="../../images/position-pos.png"></image>
-    <view class="city-name">广州</view>
+    <view class="city-name">{{currcentCity}}</view>
   </view>
   <view class="current-pos">
     当前定位
@@ -19,8 +19,8 @@
  -->
 <view class='city-item-A-Z' data-cityname='{{item.cityName}}'>热门城市}</view>
 <view class="hotCities">
-  <view class="city-box" wx:for="{{hotCities}}" wx:key='index' bindtap='onClick' data-cityname='{{item.cityName}}'>
-    <view class='box-zi' data-index='{{index}}'>
+  <view class="city-box" wx:for="{{hotCities}}" wx:key='index'>
+    <view bindtap='onClick' data-cityname='{{item.cityName}}' data-index='{{index}}' class="{{index == currentIndex?'activeBoxzi':'box-zi'}}">
       {{item.cityName}}
     </view>
   </view>

@@ -2,7 +2,7 @@
   <view>
     <view class='hon_topbj'></view>
     <view class='honTop'>
-      <image src='../../images/zz_bj.png'></image>
+      <image src='{{imgUrl}}'></image>
     </view>
   </view>
 

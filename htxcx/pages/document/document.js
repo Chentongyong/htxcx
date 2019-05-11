@@ -27,6 +27,9 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
+        res.data.data.bidMakeList.forEach((item,index,arr) =>{
+          arr[index].addTime = arr[index].addTime.replace(/([^\s]+)\s.*/, "$1")
+        })
         that.setData({
           listBox: res.data.data.bidMakeList
         })

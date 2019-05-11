@@ -6,27 +6,7 @@ Page({
    */
   data: {
     classList: [],
-    msgList: [{
-        id: 111,
-        title: '大家好才是真的好，广州好迪',
-        url: ''
-      },
-      {
-        id: 111,
-        title: '大家好才是真的好，广州好迪',
-        url: ''
-      },
-      {
-        id: 111,
-        title: '大家好才是真的好，广州好迪',
-        url: ''
-      },
-      {
-        id: 111,
-        title: '大家好才是真的好，广州好迪',
-        url: ''
-      }
-    ],
+    msgList: [],
     listBox: [],
     lists:[],
     lx: 0,
@@ -79,10 +59,12 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
+        console.log(res.data.data)
         that.setData({
           classList: res.data.data.categoryList,
           lists: res.data.data.engineers,
-          sid: res.data.data.categoryList[0].id
+          sid: res.data.data.categoryList[0].id,
+          msgList: res.data.data.announcementList
         })
         that.listFu()
       },
@@ -111,6 +93,9 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function (res) {
+        res.data.data.enginGuideList.forEach((item, index, arr) => {
+          arr[index].addTime = arr[index].addTime.replace(/([^\s]+)\s.*/, "$1")//切割日期时间
+        })
         that.setData({
           listBox: res.data.data.enginGuideList
         })

@@ -1,102 +1,13 @@
 const app = getApp()
 Page({
-  onLoad: function(options) {
-    if (this.data.cityResults == null) {
-      this.setData({
-        cityResults: this.data.citys
-      })
-    }
-  },
-  bindAZ: function(e) {
-    var currentCityName = e.currentTarget.dataset.id
-    var that = this;
-    //放入A-Z的scrollTop参数
-    if (that.data.scrollAZ == null) {
-      wx.createSelectorQuery().selectAll('.city-item-A-Z').fields({
-        dataset: true,
-        size: true,
-        rect: true
-      }, function(res) {
-        res.forEach(function(re) {
-          if (currentCityName == re.dataset.cityname) {
-            wx.pageScrollTo({
-              scrollTop: re.top + that.data.scrollNow - 55.5,
-              duration: 0
-            })
-          }
-        })
-      }).exec();
-    } else {
-      this.data.scrollAZ.forEach(function(re) {
-        if (currentCityName == re.dataset.cityname) {
-          wx.pageScrollTo({
-            scrollTop: re.top + that.data.scrollNow - 55.5,
-            duration: 0
-          })
-        }
-      })
-    }
-  },
-  onPageScroll: function(e) { // 获取滚动条当前位置
-    this.setData({
-      scrollNow: e.scrollTop
-    });
-  },
-  onClick: function() { //热门城市
-    var cityName = e.currentTarget.dataset.cityname;
-    wx.switchTab({
-      url: '../index/index?cityName=' + cityName
-    })
-  },
-  citySelected: function(e) {
-    var cityName = e.currentTarget.dataset.cityname;
-    wx.switchTab({
-      url: '../index/index?cityName=' + cityName
-    })
-  },
-  bindSarchInput: function(e) {
-    wx.pageScrollTo({
-      scrollTop: 0,
-      duration: 0
-    });
-    var inputVal = e.detail.value;
-    var cityResultsTemp = new Array()
-    var citys = this.data.citys;
-    if (inputVal == null || inputVal.trim() == '') {
-      this.setData({
-        cityResults: citys
-      })
-      return;
-    }
-    for (var i = 0; i < citys.length; i++) {
-      if (citys[i].cityName.indexOf(inputVal) == 0 || citys[i].cityPY.indexOf(inputVal.toLowerCase()) == 0 || citys[i].cityPinYin.indexOf(inputVal.toLowerCase()) == 0) {
-        //去除热门城市
-        if (citys[i].cityPY.indexOf("#") != -1) {
-          continue;
-        }
-        var ifHas = false;
-        for (var j = 0; j < cityResultsTemp.length; j++) {
-          if (cityResultsTemp[j] == citys[i]) {
-            ifHas = true;
-            break;
-          }
-        }
-        if (!ifHas) {
-          cityResultsTemp.push(citys[i]);
-        }
-      }
-    }
-    this.setData({
-      cityResults: cityResultsTemp
-    })
-  },
   /**
-   * 页面的初始数据
-   */
+ * 页面的初始数据
+ */
   data: {
     scrollAZ: null,
     scrollNow: 0,
     cityResults: null,
+    // currentIndex:0,
     cityAZ: [{
       cityName: ''
     }, {
@@ -143,7 +54,7 @@ Page({
       cityName: 'Y'
     }, {
       cityName: 'Z'
-    }, ],
+    },],
     hotCities: [{
       cityName: '上海',
       cityPinYin: '##',
@@ -164,7 +75,7 @@ Page({
       cityName: '杭州',
       cityPinYin: '##',
       cityPY: '##'
-    }, ],
+    },],
     citys: [{
       cityName: 'A',
       cityPinYin: 'a',
@@ -1619,4 +1530,110 @@ Page({
       cityPY: 'zy'
     }]
   },
+  onShow:function(e){
+    var currcentCity = wx.getStorageSync('cityName');
+    this.setData({
+      currcentCity
+    })
+  },
+  onLoad: function(options) {
+    if (this.data.cityResults == null) {
+      this.setData({
+        cityResults: this.data.citys
+      })
+    }
+  },
+  bindAZ: function(e) {
+    var currentCityName = e.currentTarget.dataset.id
+    var that = this;
+    //放入A-Z的scrollTop参数
+    if (that.data.scrollAZ == null) {
+      wx.createSelectorQuery().selectAll('.city-item-A-Z').fields({
+        dataset: true,
+        size: true,
+        rect: true
+      }, function(res) {
+        res.forEach(function(re) {
+          if (currentCityName == re.dataset.cityname) {
+            wx.pageScrollTo({
+              scrollTop: re.top + that.data.scrollNow - 55.5,
+              duration: 0
+            })
+          }
+        })
+      }).exec();
+    } else {
+      this.data.scrollAZ.forEach(function(re) {
+        if (currentCityName == re.dataset.cityname) {
+          wx.pageScrollTo({
+            scrollTop: re.top + that.data.scrollNow - 55.5,
+            duration: 0
+          })
+        }
+      })
+    }
+  },
+  onPageScroll: function(e) { // 获取滚动条当前位置
+    this.setData({
+      scrollNow: e.scrollTop
+    });
+  },
+  onClick:function(e){//热门城市
+    var cityName = e.currentTarget.dataset.cityname;
+    // 存储
+    wx: wx.setStorageSync('cityName', cityName)
+    var currentIdex = e.currentTarget.dataset.index;
+    console.log(currentIdex)
+    this.setData({
+      currentIndex: currentIdex
+    })
+    wx.switchTab({
+      url: '../index/index'
+    })
+  },
+  citySelected: function(e) {
+    var cityName = e.currentTarget.dataset.cityname;
+    wx: wx.setStorageSync('cityName', cityName)
+    console.log(cityName)
+    wx.switchTab({
+      url: '../index/index?cityName=' + cityName
+    })
+  },
+  bindSarchInput: function(e) {
+    wx.pageScrollTo({
+      scrollTop: 0,
+      duration: 0
+    });
+    var inputVal = e.detail.value;
+    var cityResultsTemp = new Array()
+    var citys = this.data.citys;
+    if (inputVal == null || inputVal.trim() == '') {
+      this.setData({
+        cityResults: citys
+      })
+      return;
+    }
+    for (var i = 0; i < citys.length; i++) {
+      if (citys[i].cityName.indexOf(inputVal) == 0 || citys[i].cityPY.indexOf(inputVal.toLowerCase()) == 0 || citys[i].cityPinYin.indexOf(inputVal.toLowerCase()) == 0) {
+        //去除热门城市
+        if (citys[i].cityPY.indexOf("#") != -1) {
+          continue;
+        }
+        var ifHas = false;
+        for (var j = 0; j < cityResultsTemp.length; j++) {
+          if (cityResultsTemp[j] == citys[i]) {
+            ifHas = true;
+            break;
+          }
+        }
+        if (!ifHas) {
+          cityResultsTemp.push(citys[i]);
+        }
+      }
+    }
+    this.setData({
+      cityResults: cityResultsTemp
+    })
+  }
+
 });

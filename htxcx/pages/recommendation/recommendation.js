@@ -42,6 +42,7 @@ Page({
           sum.push(arr[index])
         })
         res.data.data.engineerList.forEach((item, index, arr) => {//按需查询数据
+          arr[index].addTime = arr[index].addTime.replace(/([^\s]+)\s.*/, "$1")//切割日期时间
           if (arr[index].gender == 1) {
             arr[index].gender = '男'
           }

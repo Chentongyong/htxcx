@@ -3,6 +3,11 @@
 const app = getApp()
 let page = 1;
 var publics = require('../../public/public.js');
+var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
+// 实例化API核心类
+var demo = new QQMapWX({
+  key: 'XYHBZ-Y67CX-EN64R-TVI7L-M4URH-KXBO3' // 必填
+});
 Page({
   data: {
     classList: [{
@@ -52,20 +57,15 @@ Page({
     sn: '活动风采', //判断跳转
   },
 
-  onLoad: function() {
+  onLoad: function(options) {
     var that = this;
-    app.editTabbar(); //引用底部导航
-    console.log('大家好才是真的好')
-  },
-  onShow: function() {
-    let that = this;
     wx.request({
       url: publics.ttpss().httpst + '/wx/home/index',
       data: {},
       header: {
         'content-type': 'application/json'
       },
-      success: function(res) {
+      success: function (res) {
         let list1 = [];
         let list2 = [];
         // let sum = [];
@@ -77,10 +77,12 @@ Page({
         that.qu(list1, totalPage1, res.data.data.facilitatorList)
         that.qu(list2, totalPage2, res.data.data.enginList)
 
-        let sy = res.data.data.bannerList;
-        // sy.forEach((item, index, arr) => {
-        //   sum.push(arr[index].url)
-        // })
+        res.data.data.activityList.forEach((item, index, arr) => {//切割日期时间
+          arr[index].addTime = arr[index].addTime.replace(/([^\s]+)\s.*/, "$1")
+        })
+        res.data.data.newsList.forEach((item, index, arr) => {//切割日期时间
+          arr[index].addTime = arr[index].addTime.replace(/([^\s]+)\s.*/, "$1")
+        })
         that.setData({
           movies1: list1,
           movies2: list2,
@@ -90,9 +92,56 @@ Page({
           msgList: res.data.data.announcementList
 
         })
-        console.log(res)
       }
     })
+    app.editTabbar(); //引用底部导航
+  },
+  onShow: function() {
+    let that = this;
+    var cityName = wx.getStorageSync('cityName');
+    // console.log(cityName)
+    if (cityName == '' || cityName == undefined || cityName == null) {
+      wx.getLocation({
+        type: 'gcj02',
+        success(res) {
+          // console.log(res)
+          // 调用接口转换成具体位置
+          demo.reverseGeocoder({
+            location: {
+              latitude: res.latitude,
+              longitude: res.longitude
+            },
+            success: function (res) {
+              // console.log(res.result);
+              // console.log(res.result.address_component.city)
+              wx: wx.setStorageSync('cityName', res.result.address_component.city)
+              that.setData({
+                cityName: res.result.address_component.city
+              })
+            },
+            fail: function (res) {
+              console.log(res);
+            },
+          })
+        }
+      })
+
+    } else {
+      that.setData({
+        cityName
+      })
+    }
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userInfo']) {
+          //console.log('未授权');
+          wx.redirectTo({
+            url: "../wxLogin/wxLogin"
+          })
+        }
+      }
+    })
+    // console.log(cityName)
   },
   qu: function(list2, sum, e) { //服务商、工程推荐
     let that = this;
