@@ -55,6 +55,7 @@ Page({
   onLoad: function() {
     var that = this;
     app.editTabbar(); //引用底部导航
+    console.log('大家好才是真的好')
   },
   onShow: function() {
     let that = this;
