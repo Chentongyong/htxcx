@@ -3,5 +3,6 @@
   "usingComponents": {},
   "navigationBarTitleText": "招标信息",
   "navigationBarBackgroundColor": "#2994E6",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true
 }

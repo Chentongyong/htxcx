@@ -2,6 +2,12 @@
 //获取应用实例
 const app = getApp()
 var publics = require('../../public/public.js');
+var QQMapWX = require('../../libs/qqmap-wx-jssdk.js');
+console.log(QQMapWX)
+// 实例化API核心类
+var demo = new QQMapWX({
+  key: 'XYHBZ-Y67CX-EN64R-TVI7L-M4URH-KXBO3' // 必填
+});
 Page({
   data: {
     classList: [{
@@ -80,9 +86,58 @@ Page({
     hr: true,
     sn: 0, //判断跳转
   },
+  onShow:function(){
+    var that = this;
+    var cityName = wx.getStorageSync('cityName');
+    console.log(cityName)
+    if (cityName == '' || cityName == undefined || cityName == null){
+      wx.getLocation({
+        type: 'gcj02',
+        success(res) {
+          console.log(res)
+          // 调用接口转换成具体位置
+          demo.reverseGeocoder({
+            location: {
+              latitude: res.latitude,
+              longitude: res.longitude
+            },
+            success: function (res) {
+              console.log(res.result);
+              console.log(res.result.address_component.city)
+              wx: wx.setStorageSync('cityName', res.result.address_component.city)
+              that.setData({
+                cityName: res.result.address_component.city
+              })
+            },
+            fail: function (res) {
+              console.log(res);
+            },
+          })
+        }
+      })
+
+    }else{
+      that.setData({
+        cityName
+      })
+    }
+    wx.getSetting({
+      success: res => {
+        if (!res.authSetting['scope.userInfo']) {
+          //console.log('未授权');
+          wx.redirectTo({
+            url: "../wxLogin/wxLogin"
+          })
+        }
+      }
+    })
+    console.log(cityName)
+  },
   onLoad: function() {
     var that = this;
     app.editTabbar(); //引用底部导航
+    var userInfo = wx.getStorageSync('userInfo')
+    console.log(userInfo)
 
   },
   hrxg: function(e) { //点击切换选中模块（活动风采、热点资讯）

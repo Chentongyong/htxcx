@@ -2,14 +2,17 @@
   <view class="bgPic">
     <image src="../../images/bgpic.png" style="width:100%;height:100%"></image>
     <view class="welcome">欢迎来到清洗吧!</view>
-    <image class="portrait" src="../../images/portrait.png"></image>
+    <!-- 登录后显示 -->
+    <!-- <image class="portrait" src="../../images/portrait.png"></image> -->
+    <image class="portrait" src="../../images/user.png"></image>
     <view class="set" bindtap='myset'>设置</view>
-    <view class='bos'>
+    <!-- 登录后显示 -->
+    <!-- <view class='bos'>
       <view class="phone">18023569542</view>
       <view class="type">{{grade}}</view>
-    </view>
+    </view> -->
     <!-- 没有登录时判断 -->
-    <!-- <view class="clickLogin">点击登录</view> -->
+    <view class="clickLogin">点击登录</view>
   </view>
   <!-- 可用金币 -->
   <view class="coin">

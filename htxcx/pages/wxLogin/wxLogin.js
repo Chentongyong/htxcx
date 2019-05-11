@@ -72,9 +72,15 @@ Page({
         console.log(data);
         wx.setStorageSync("userInfo", data);
         //用户已经授权过
-        wx.redirectTo({
-          url: '../index/index'
+        wx:wx.switchTab({
+          url: '../index/index',
+          success: function(res) {},
+          fail: function(res) {},
+          complete: function(res) {},
         })
+        // wx.redirectTo({
+          
+        // })
       }
     });
 

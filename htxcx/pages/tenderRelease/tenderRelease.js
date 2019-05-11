@@ -8,11 +8,11 @@ Page({
    */
   data: {
     title: '',
-    zbVal: "普通", //招标类型选择值
+    // zbVal: "普通", 
     msVal: "", //描述输入值,
     types: ['普通', '银钻', '金钻'],
     // sex: ['男', '女'],
-    clickIndex: 0,
+    // clickIndex: 0,
     region: ['广东省', '广州市'],
     customItem: '全部',
     isShow: true,
@@ -2401,41 +2401,53 @@ Page({
       "ageid": "0"
     }],
     // 工程类别
-    array: ['外墙清洗', '油烟清洗、维护','中央空调清洗、维护','保洁','物业管理'],
-    index:2
+    array: ['外墙清洗', '油烟清洗、维护', '中央空调清洗、维护', '保洁', '物业管理'],
+    index: 2
   },
-  btClick: function(e) {
+  btClick: function (e) {
     var that = this;
     that.setData({
-      btVal: e.detail.value,
-      isShow: false
+      title: e.detail.value,
     })
-    if (that.data.btVal != '') {
-      that.setData({
-        inputShowed: false
-      })
-    } else {
-      that.setData({
-        inputShowed: true
-      })
-    }
+  },
+  moneyInput: function (e) {
+    var that = this;
+    that.setData({
+      price: e.detail.value,
+    })
+  },
+  destail: function (e) {
+    var that = this;
+    that.setData({
+      destail: e.detail.value,
+    })
   },
   // 性别选择
-  sexClick: function(e) {
+  sexClick: function (e) {
     let that = this;
+    console.log(e.currentTarget.dataset.text)
     that.setData({
       clickIndex: e.currentTarget.dataset.index,
       zbVal: e.currentTarget.dataset.text,
       isShow: false
     })
   },
-  bindMultiPickerChange: function(e) {
+  bindMultiPickerChange: function (e) {
+    // console.log(e)
+    var provice = e.currentTarget.dataset.region[0][e.detail.value[0]];
+    var city = e.currentTarget.dataset.region[1][e.detail.value[1]];
+    console.log(provice)
+    console.log(city)
     that.setData({
       "multiIndex[0]": e.detail.value[0],
-      "multiIndex[1]": e.detail.value[1]
+      "multiIndex[1]": e.detail.value[1],
+      provice,
+      city
     })
   },
-  bindMultiPickerColumnChange: function(e) {
+  bindMultiPickerColumnChange: function (e) {
+    // console.log(e)
+    // console.log(e.detail.column)
     switch (e.detail.column) {
       case 0:
         list = []
@@ -2444,6 +2456,7 @@ Page({
             list.push(that.data.objectMultiArray[i].regname)
           }
         }
+        console.log(list)
         that.setData({
           "multiArray[1]": list,
           "multiIndex[0]": e.detail.value,
@@ -2453,21 +2466,24 @@ Page({
     }
   },
   // 默认排序
-  bindPickerChange: function(e) {
+  bindPickerChange: function (e) {
     console.log(e)
+    var projectTypeId = e.currentTarget.dataset.projecttype[e.detail.value];
+    console.log(projectTypeId)
     that.setData({
       index: e.detail.value,
+      projectTypeId
     })
   },
 
   // 照片上传方法
-  chooseimage: function() {
+  chooseimage: function () {
     var that = this;
     wx.chooseImage({
       count: 1,
       sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
       sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
-      success: function(res) {
+      success: function (res) {
         console.log(res)
         var tempPic = res.tempFilePaths;
         tempFilePaths.push(tempPic);
@@ -2476,7 +2492,7 @@ Page({
             photoBox: 'photoBox1',
             pic: tempFilePaths
           })
-          setTimeout(function() {
+          setTimeout(function () {
             // 隐藏加载框
             // wx.hideLoading();
           }, 1000)
@@ -2485,7 +2501,7 @@ Page({
           that.setData({
             pic: tempFilePaths
           })
-          setTimeout(function() {
+          setTimeout(function () {
             // 隐藏加载框
             // wx.hideLoading();
           }, 1000)
@@ -2497,7 +2513,7 @@ Page({
       }
     })
   },
-  zsClick: function(e) {
+  zsClick: function (e) {
     let that = this;
     that.setData({
       sh: e.currentTarget.dataset.index,
@@ -2505,59 +2521,123 @@ Page({
       isShow: false
     })
   },
+  formSubmit: function () {
+    var that = this;
+    var title = that.data.title;
+    var provice = that.data.provice;
+    var city = that.data.city;
+    var price = that.data.price;
+    var zbVal = that.data.zbVal;
+    console.log(zbVal)
+    var destail = that.data.destail;
+    var projectTypeId = that.data.projectTypeId;
+    console.log(projectTypeId)
+    var pic = that.data.pic;
+    if (title == '' || title == undefined || title == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请输入招标信息标题',
+        showCancel: false,
+      })
+    } else if (projectTypeId == '' || projectTypeId == undefined || projectTypeId == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请选择工程类别',
+        showCancel: false,
+      })
+    }
+    else if (provice == '' || provice == undefined || provice == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请选择地区',
+        showCancel: false,
+      })
+    } else if (price == '' || price == undefined || price == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请输入所需金额',
+        showCancel: false,
+      })
+    } else if (zbVal == '' || zbVal == undefined || zbVal == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请选择招标类型',
+        showCancel: false,
+      })
+    } else if (destail == '' || destail == undefined || destail == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请描述您的详细内容',
+        showCancel: false,
+      })
+    } else if (pic == '' || pic == undefined || pic == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请上传照片',
+        showCancel: false,
+      })
+    } else {
+      wx: wx.showToast({
+        title: '提交成功',
+        mask: true,
+      })
+    }
+    console.log(111)
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     that = this
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })

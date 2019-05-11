@@ -16,6 +16,7 @@ page {
   padding-right: 20rpx;
   height: 68rpx;
   align-items: center;
+  justify-content: space-around
 }
 
 .index-top .position {
@@ -31,7 +32,7 @@ page {
 }
 
 .index-top .position view {
-  width: 56rpx;
+  /* width: 116rpx; */
   font-size: 28rpx;
   font-family: PingFang SC;
   line-height: 56rpx;
@@ -40,8 +41,8 @@ page {
 }
 
 .index-top .search {
-  margin-left: 20rpx;
-  width: 516rpx;
+  margin-left: 10rpx;
+  width: 470rpx;
   height: 56rpx;
   border-radius: 8rpx;
   background: rgba(255, 255, 255, 1);

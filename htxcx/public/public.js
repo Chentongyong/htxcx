@@ -47,7 +47,9 @@ const ttpss = function () {
     gcq: '../grabSheet/grabSheet',//工程抢单
     px: '../training/training',//培训资料
     gg: '../advertising/advertising',//广告合作
-    pp: '../support/support'
+    pp: '../support/support',
+
+    httpst: 'http://192.168.1.193:8082'
   }
   // var zb = '../';//招标信息
   return listq

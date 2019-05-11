@@ -7,102 +7,119 @@ Page({
     //第一个选项相关
     orderIndex: 0,
     orderList: ['综合', '中央空调', '工业设备', '油烟机'],
+    currentIndex: 0,
+    selection: true,
     //第二个选项相关
     cateIndex: 0,
     cateList: ['汽车', '新闻', '热点', '电影'],
     //价格排序
     priceOrder: 1,
-    //筛选条件
-    where1Tips: [{
-        name: "条件 - 1",
-        value: 1,
-        checked: true
-      },
-      {
-        name: "条件 - 2",
-        value: 2
-      },
-      {
-        name: "条件 - 3",
-        value: 3
-      },
-      {
-        name: "条件 - 4",
-        value: 4
-      },
-      {
-        name: "条件 - 5",
-        value: 5
-      }
-    ],
-    where2Tips: [{
-        name: "条件 - 1",
-        value: 1
-      },
-      {
-        name: "条件 - 2",
-        value: 2,
-        checked: true
-      },
-      {
-        name: "条件 - 3",
-        value: 3
-      },
-      {
-        name: "条件 - 4",
-        value: 4
-      },
-      {
-        name: "条件 - 5",
-        value: 5
-      }
-    ],
+   
     region: ['区域', '区域', '区域'],
     customItem: '全部',
   },
-  changeOrder: function(e) {
+  changeOrder: function (e) {
     var tapIndex = e.target.dataset.itemid;
     this.setData({
       orderIndex: tapIndex
     });
     this.setData({
-      showingIndex: 0
+      showingIndex: 0,
+      cover: false
     });
     this.getList();
   },
-  showOptions1: function() {
-    if (this.data.showingIndex != 0) {
-      this.setData({
-        showingIndex: 0
-      });
-      return;
-    }
+  // 综合排序
+  showOptions1: function () {
+    // if (this.data.showingIndex != 0) {
+    //   this.setData({
+    //     showingIndex: 0
+    //   });
+    //   return;
+    // }
     this.setData({
       showingIndex: 1,
-
+      selection: true,
+      ordinary: false,
+      silver: false,
+      cover: true,
+      gold: false,
+      screen: false
     });
   },
-  showOptions2: function() {
-    if (this.data.showingIndex != 0) {
-      this.setData({
-        showingIndex: 0
-      });
-      return;
-    }
+  // 普通招标
+  showOptions2: function () {
+    // if (this.data.showingIndex != 0) {
+    //   this.setData({
+    //     showingIndex: 0
+    //   });
+    //   return;
+    // }
     this.setData({
-      showingIndex: 2
+      showingIndex: 2,
+      ordinary: true,
+      selection: false,
+      silver: false,
+      gold: false,
+      screen: false
     });
   },
-  showOptions99: function() {
-    if (this.data.showingIndex != 0) {
-      this.setData({
-        showingIndex: 0
-      });
-      return;
-    }
+  // 银砖招标
+  showOptions3: function () {
+    // if (this.data.showingIndex != 0) {
+    //   this.setData({
+    //     showingIndex: 0
+    //   });
+    //   return;
+    // }
     this.setData({
-      showingIndex: 99
+      showingIndex: 2,
+      ordinary: false,
+      selection: false,
+      silver: true,
+      gold: false,
+      screen: false
     });
+  },
+  // 金砖招标
+  showOptions4: function () {
+    // if (this.data.showingIndex != 0) {
+    //   this.setData({
+    //     showingIndex: 0
+    //   });
+    //   return;
+    // }
+    this.setData({
+      showingIndex: 2,
+      ordinary: false,
+      selection: false,
+      silver: false,
+      gold: true,
+      screen: false
+    });
+  },
+  showOptions99: function () {
+    // if (this.data.showingIndex != 0) {
+    //   this.setData({
+    //     showingIndex: 0
+    //   });
+    //   return;
+    // }
+    this.setData({
+      showingIndex: 99,
+      ordinary: false,
+      selection: false,
+      silver: false,
+      gold: false,
+      screen: true
+    });
+  },
+  selectMoney: function (e) {
+    console.log(e)
+    var index = e.currentTarget.dataset.index;
+    this.setData({
+      currentIndex: index
+    })
   },
   changeCate: function(e) {
     var tapIndex = e.target.dataset.itemid;
@@ -131,18 +148,17 @@ Page({
     });
     this.getList();
   },
-  onReady: function() {
+  onReady: function () {
     _self = this;
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         var windowHeight = res.windowHeight;
         //获取头部标题高度
         wx.createSelectorQuery().select('#grace-filter-header').fields({
           size: true,
-        }, function(res) {
+        }, function (res) {
           //计算得出滚动区域的高度
-          var sHeight = (windowHeight - res.height);
-          console.log(windowHeight)
+          var sHeight = 2 * (windowHeight - res.height - 58);
           _self.setData({
             filterHeight: sHeight
           });
@@ -210,6 +226,7 @@ Page({
   },
   //条件更新后执行统一函数（如重新读取数据等）
   getList: function() {
+
     console.log('条件更新后执行统一函数（如重新读取数据等）');
   },
   // 跳转详情
@@ -235,9 +252,9 @@ Page({
       fail: function(res) {},
       complete: function(res) {},
     })
-    wx: wx.navigateTo({//跳转详情
-      url: '../tenderDetails/tenderDetails?s=' + 1
-    })
+    // wx: wx.navigateTo({//跳转详情
+    //   url: '../tenderDetails/tenderDetails?type=' + 1
+    // })
   },
   // 地区
   // 区域事件

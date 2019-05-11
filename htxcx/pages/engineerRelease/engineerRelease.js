@@ -12,13 +12,16 @@ Page({
     msVal: "", //描述输入值,
     types: ['普通', '银钻', '金钻'],
     sex: ['男', '女'],
-    clickIndex: 0,
+    // clickIndex: 0,
     region: ['广东省', '广州市'],
     customItem: '全部',
     isShow: true,
     inputShowed: true,
     photoBox: 'photoBox',
     multiIndex: [0, 0],
+    // 服务类别
+    array: ['空调', '工业', '油烟', '其他'],
+    index: 2,
     multiArray:
       [['北京市', '安徽省', "福建省", "甘肃省", "广东省", "广西省", "贵州省", "海南省", "河北省", "河南省", "黑龙江省", "湖北省", "湖南省", "吉林省", "江苏省", "江西省", "辽宁省", "内蒙古自治区", "宁夏回族自治区", "青海省", "山东省", "山西省", "陕西省", "上海市", "四川省", "天津省", "西藏自治区", "新疆维吾尔自治区", "云南省", "浙江省", "重庆市", "香港", "澳门", "台湾"], ["北京市"]],
     objectMultiArray:
@@ -2404,34 +2407,64 @@ Page({
     var that = this;
     that.setData({
       btVal: e.detail.value,
-      isShow: false
     })
-    if (that.data.btVal != '') {
-      that.setData({
-        inputShowed: false
-      })
-    } else {
-      that.setData({
-        inputShowed: true
-      })
-    }
   },
   // 性别选择
   sexClick: function(e) {
+    console.log(e)
     let that = this;
     that.setData({
       clickIndex: e.currentTarget.dataset.index,
-      zbVal: e.currentTarget.dataset.text,
-      isShow: false
+      sexname: e.currentTarget.dataset.text,
+      
+    })
+  },
+  companyname:function(e){
+    var that = this;
+    that.setData({
+      companyname: e.detail.value,
+    })
+  },
+  // 服务类型
+  position:function(e){
+    var that = this;
+    that.setData({
+      position: e.detail.value,
+    })
+  },
+  // 服务类型
+  bindPickerChange: function (e) {
+    console.log(e)
+    var serverTypeId = e.currentTarget.dataset.servertype[e.detail.value];
+    console.log(serverTypeId)
+    that.setData({
+      index: e.detail.value,
+      serverTypeId
+    })
+  },
+  // 自我介绍
+  destail: function (e) {
+    var that = this;
+    that.setData({
+      destail: e.detail.value,
     })
   },
   bindMultiPickerChange: function (e) {
+    // console.log(e)
+    var provice = e.currentTarget.dataset.region[0][e.detail.value[0]];
+    var city = e.currentTarget.dataset.region[1][e.detail.value[1]];
+    console.log(provice)
+    console.log(city)
     that.setData({
       "multiIndex[0]": e.detail.value[0],
-      "multiIndex[1]": e.detail.value[1]
+      "multiIndex[1]": e.detail.value[1],
+      provice,
+      city
     })
   },
   bindMultiPickerColumnChange: function (e) {
+    // console.log(e)
+    // console.log(e.detail.column)
     switch (e.detail.column) {
       case 0:
         list = []
@@ -2440,6 +2473,7 @@ Page({
             list.push(that.data.objectMultiArray[i].regname)
           }
         }
+        console.log(list)
         that.setData({
           "multiArray[1]": list,
           "multiIndex[0]": e.detail.value,
@@ -2492,6 +2526,81 @@ Page({
       zbVal: e.currentTarget.dataset.text,
       isShow: false
     })
+  },
+  formSubmit: function () {
+    var that = this;
+    var name = that.data.btVal;
+    var provice = that.data.provice;
+    var city = that.data.city;
+    var price = that.data.price;
+    var sex = that.data.sexname;
+    console.log(sex)
+    var position = that.data.position;
+    var companyname = that.data.companyname;
+    var destail = that.data.destail;
+    var serverTypeId = that.data.serverTypeId;
+    var pic = that.data.pic;
+    if (name == '' || name == undefined || name == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请输入您的姓名',
+        showCancel: false,
+      })
+    } 
+    else if (sex == '' || sex == undefined || sex == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请选择性别',
+        showCancel: false,
+      })
+    } 
+    else if (companyname == '' || companyname == undefined || companyname == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请输入公司名称',
+        showCancel: false,
+      })
+    } else if (serverTypeId == '' || serverTypeId == undefined || serverTypeId == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请选择服务类型',
+        showCancel: false,
+      })
+    } else if (position == '' || position == undefined || position == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请输入所属职位',
+        showCancel: false,
+      })
+    }
+    else if (provice == '' || provice == undefined || provice == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请选择目前所在地',
+        showCancel: false,
+      })
+    } 
+    else if (pic == '' || pic == undefined || pic == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请上传个人照片',
+        showCancel: false,
+      })
+    } 
+    else if (destail == '' || destail == undefined || destail == null) {
+      wx: wx.showModal({
+        title: '',
+        content: '请描述您的详细内容',
+        showCancel: false,
+      })
+    } else {
+      wx: wx.showToast({
+        title: '提交成功',
+        mask: true,
+      })
+    }
+    console.log(111)
+
   },
   /**
    * 生命周期函数--监听页面加载

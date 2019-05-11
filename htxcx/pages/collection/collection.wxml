@@ -1,17 +1,17 @@
 <!--pages/tendering/tendering.wxml-->
 <scroll-view scroll-y="true" class="container">
   <view class="tender-top" wx:if="{{type==3}}">
-    <view class="active">购买记录</view>
-    <view>历史记录</view>
+    <view class="{{shopping?'active':''}}" bindtap='shopping'>购买记录</view>
+    <view bindtap='history' class="{{history?'active':''}}">历史记录</view>
   </view>
   <view class="tender-top" wx:if="{{type==2}}">
-    <view class="active">普通工程</view>
-    <view class="">银钻工程</view>
-    <view class="">金钻工程</view>
+    <view class="{{index == orderIndex?'active':''}}" bindtap='orderType' data-index="{{index}}" wx:for="{{orderType}}">{{item}}</view>
+    <!-- <view class="{{silver?'active':''}}">银钻工程</view>
+    <view class="{{gold?'active':''}}">金钻工程</view> -->
   </view>
   <view class="tender-top" wx:if="{{type==1}}">
-    <view class="active">招标信息</view>
-    <view class="">工程抢单</view>
+    <view class="{{index == tenderIndex?'active':''}}" wx:for="{{tenderType}}" data-index="{{index}}" bindtap='tenderType'>{{item}}</view>
+    <!-- <view class="">工程抢单</view> -->
   </view>
   <view class="{{type!=4?'tender-lists':''}}">
     <view class="tender-item" wx:for="{{10}}" wx:key="" bindtap='grabSheetDes'>

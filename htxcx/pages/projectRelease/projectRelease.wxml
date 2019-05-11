@@ -12,7 +12,7 @@
     <!-- 工程类别 -->
     <view class="issueZi">
       <view class='ziText'>工程类别</view>
-      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <picker bindchange="bindPickerChange" value="{{index}}" data-projectType="{{array}}" range="{{array}}">
         <view class="picker">
           <text>{{array[index]}}</text>
           <image src="../../images/more.png" style="width:32rpx;height:32rpx;"></image>
@@ -23,7 +23,7 @@
     <!-- 地区 -->
     <view class="issueZi">
       <view class='ziText'>地区</view>
-      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+      <picker mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" data-region="{{multiArray}}" value="{{multiIndex}}" range="{{multiArray}}">
         <view class="picker">
           {{multiArray[0][multiIndex[0]]}}{{multiArray[1][multiIndex[1]]}}
           <image src="../../images/more.png" style="width:32rpx;height:32rpx;"></image>
@@ -33,9 +33,10 @@
     <!-- 金额 -->
     <view class='issueZi'>
       <view class='ziText'>金额</view>
-      <view class='ziBox'>
-        <input placeholder='请输入所需金额' placeholder-style="color:#D2D2D2"></input>
+      <view class='ziBox' style="width:400rpx;">
+        <input placeholder='请输入所需金额' placeholder-style="color:#D2D2D2" type="number" bindinput='moneyInput'></input>
       </view>
+      万元
     </view>
     <!-- 招标类型 -->
     <view class='issueZi'>
@@ -47,7 +48,7 @@
     <view class='msBox'>
       <view class='ms_top'>描述</view>
       <view class='ms_cen'>
-        <textarea placeholder='请描述下您的详细内容' placeholder-style="color:#D2D2D2;" style="font-size:32rpx;"></textarea>
+        <textarea placeholder='请描述下您的详细内容' placeholder-style="color:#D2D2D2;" style="font-size:32rpx;" bindinput='destail'></textarea>
         <!-- <view bindinput='soen'>请描述下您的详细内容</view> -->
       </view>
     </view>
@@ -64,6 +65,7 @@
         </view>
       </view>
     </view>
+    <button class="tiBtn" form-type='submit'>提交发布</button>
   </form>
-  <view class="tiBtn">提交发布</view>
+
 </view>

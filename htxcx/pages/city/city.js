@@ -1,5 +1,11 @@
 const app = getApp()
 Page({
+  onShow:function(e){
+    var currcentCity = wx.getStorageSync('cityName');
+    this.setData({
+      currcentCity
+    })
+  },
   onLoad: function(options) {
     if (this.data.cityResults == null) {
       this.setData({
@@ -42,14 +48,24 @@ Page({
       scrollNow: e.scrollTop
     });
   },
-  onClick:function(){//热门城市
+  onClick:function(e){//热门城市
+  console.log(e)
     var cityName = e.currentTarget.dataset.cityname;
+    // 存储
+    wx: wx.setStorageSync('cityName', cityName)
+    var currentIdex = e.currentTarget.dataset.index;
+    console.log(currentIdex)
+    this.setData({
+      currentIndex: currentIdex
+    })
     wx.switchTab({
-      url: '../index/index?cityName=' + cityName
+      url: '../index/index?'
     })
   },
   citySelected: function(e) {
     var cityName = e.currentTarget.dataset.cityname;
+    wx: wx.setStorageSync('cityName', cityName)
+    console.log(cityName)
     wx.switchTab({
       url: '../index/index?cityName=' + cityName
     })
@@ -97,6 +113,7 @@ Page({
     scrollAZ: null,
     scrollNow: 0,
     cityResults: null,
+    // currentIndex:0,
     cityAZ: [{
       cityName: ''
     }, {

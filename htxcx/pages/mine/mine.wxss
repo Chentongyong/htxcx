@@ -60,6 +60,7 @@
 }
 .phone{
   font-size: 32rpx;
+  color:#FFF;
 }
 .bgPic .bos .type {
   padding: 0 10rpx;
@@ -69,6 +70,7 @@
   border-radius: 7px;
   font-size: 20rpx;
   margin-left: 16rpx;
+   color:#FFF;
 }
 
 /* 积分 */

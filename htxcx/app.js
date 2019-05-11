@@ -1,6 +1,13 @@
 //app.js
 var ququ = {};
 App({
+  data: {
+    serviceUrl: "http://192.168.1.193:8082",
+    // serviceUrl: "http://localhost:8080/domesticService",
+    // userInfo: null,
+    appId: 'wx2444ab0e2362ad5d',
+    openid: '',
+  },
   onLaunch: function() {
     //隐藏系统tabbar
     wx.hideTabBar({
@@ -15,13 +22,40 @@ App({
 
     // 登录
     wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
+      success: function (res) {
+        console.log(res)
+        if (res.code) {
+          //发起网络请求
+          wx.request({
+            url: getApp().data.serviceUrl + '/wx/wechatUser/getOpenid',
+            method: "GET",
+            header: {
+              'content-type': 'application/json'
+            },
+            data: {
+              js_code: res.code,
+              appId: getApp().data.appId
+            },
+            success: function (res) {
+              // var openId = res.mapList.openid
+              console.log(res)
+              try {
+                wx.setStorageSync('openid', res.data.mapList.openid);
+                wx.setStorageSync('spSession', res.data.mapList.spSession);
+              } catch (e) {
+                //console.log("set error");
+              }
+            }
+          });
+        } else {
+          //console.log('获取用户登录态失败！' + res.errMsg)
+        }
       }
-    })
+    });
     // 获取用户信息
     wx.getSetting({
       success: res => {
+        console.log(res)
         if (res.authSetting['scope.userInfo']) {
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({

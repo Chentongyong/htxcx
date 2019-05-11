@@ -3,10 +3,9 @@
 <view class="news-container">
   <view class="news-title">系统消息</view>
   <view class="date">
-    2019-03-27 10:25
+    {{date}}
   </view>
   <view class="content">
-尊敬的晓晓，欢迎您加入我们清洗吧，成为我们的一员，在这里你可以知道一些行业的咨询有不懂需要帮忙的地方可以随时联系我们的客服
-我们很高兴可以为您解答问题。
+{{content}}
   </view>
 </view>

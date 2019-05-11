@@ -4,7 +4,7 @@
   <view class="index-top">
     <view class="position" bindtap='mapClick'>
       <image src="../../images/position.png"></image>
-      <view>全国</view>
+      <view>{{cityName}}</view>
     </view>
     <view class="search" bindtap='ssClick'>
       <image src="../../images/ind_ss.png"></image>
