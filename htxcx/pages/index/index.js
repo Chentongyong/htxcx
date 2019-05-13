@@ -59,6 +59,38 @@ Page({
 
   onLoad: function(options) {
     var that = this;
+    // 获取用户信息
+    var userInfo = wx.getStorageSync('userInfo');
+    console.log(userInfo)
+    // 存储用户信息
+    wx.request({
+      url: getApp().data.serviceUrl + '/wx/wechatUser/getOpenid',
+      method: "GET",
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {
+        openid:'',
+        nickName: userInfo.nickName,
+        gender: userInfo.gender,
+        avatarUrl: userInfo.avatarUrl,
+        country: userInfo.country,
+        province: userInfo.province,
+        city: userInfo.city
+      },
+      success: function (res) {
+        console.log(res)
+       
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络断开，稍后重试',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
+    // 首页数据
     wx.request({
       url: publics.ttpss().httpst + '/wx/home/index',
       data: {},

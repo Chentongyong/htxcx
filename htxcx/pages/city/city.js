@@ -1535,6 +1535,7 @@ Page({
     this.setData({
       currcentCity
     })
+    console.log('city')
   },
   onLoad: function(options) {
     if (this.data.cityResults == null) {
@@ -1596,7 +1597,7 @@ Page({
     wx: wx.setStorageSync('cityName', cityName)
     console.log(cityName)
     wx.switchTab({
-      url: '../index/index?cityName=' + cityName
+      url: '../index/index'
     })
   },
   bindSarchInput: function(e) {
