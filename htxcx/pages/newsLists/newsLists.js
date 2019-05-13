@@ -4,6 +4,7 @@ let limit = 10;
 Page({
   data: {},
   onLoad: function() {
+    page = 1;
     this.datas()
   },
   newsDetails: function(e) {

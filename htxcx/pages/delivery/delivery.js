@@ -4,7 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    s: 0 //控制发布类型
+    s: 1 //控制发布类型
   },
   onClick: function(e){
     let text = e.currentTarget.dataset.text;

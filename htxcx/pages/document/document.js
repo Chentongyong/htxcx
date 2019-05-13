@@ -19,6 +19,9 @@ Page({
    */
   onLoad: function (options) {
     let that = this;
+    wx.showLoading({
+      title: '正在加载数据',
+    })
     wx:wx.request({
       url: publics.ttpss().httpst +'/wx/bidmake/list',
       data: '',
@@ -33,6 +36,10 @@ Page({
         that.setData({
           listBox: res.data.data.bidMakeList
         })
+        setTimeout(function () {
+          wx.hideLoading();
+          return false;
+        }, 1000)
       },
       fail: function(res) {},
       complete: function(res) {},

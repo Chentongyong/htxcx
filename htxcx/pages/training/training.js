@@ -23,6 +23,9 @@ Page({
   },
   onShow: function () {
     let that = this;
+    wx.showLoading({
+      title: '正在加载数据',
+    })
     wx:wx.request({
       url: publics.ttpss().httpst +'/wx/train/categorylist',
       data: '',
@@ -34,6 +37,10 @@ Page({
         that.setData({
           list: res.data.data
         })
+        setTimeout(function () {
+          wx.hideLoading();
+          return false;
+        }, 1000)
       },
       fail: function(res) {},
       complete: function(res) {},

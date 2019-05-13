@@ -287,6 +287,9 @@ Page({
         "title": that.data.title,
       },
     }
+    wx.showLoading({
+      title: '正在加载数据',
+    })
     // 请求数据
     wx.request({
       url: getApp().data.serviceUrl + '/wx/bid/list',
@@ -347,6 +350,10 @@ Page({
           total
         })
         that.regionFun(regionList[0].id)
+        setTimeout(function () {
+          wx.hideLoading();
+          return false;
+        }, 1000)
       },
       fail: function (e) {
         wx.showToast({

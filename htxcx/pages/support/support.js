@@ -97,7 +97,10 @@ Page({
             show: false
           })
         }
-        wx.hideLoading();
+        setTimeout(function () {
+          wx.hideLoading();
+          return false;
+        }, 1000)
       },
       fail: function(res) {},
       complete: function(res) {},

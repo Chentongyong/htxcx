@@ -40,8 +40,8 @@ App({
               // var openId = res.mapList.openid
               console.log(res)
               try {
-                wx.setStorageSync('openid', res.data.mapList.openid);
-                wx.setStorageSync('spSession', res.data.mapList.spSession);
+                wx.setStorageSync('openid', res.data.data.openid);
+                // wx.setStorageSync('spSession', res.data.mapList.spSession);
               } catch (e) {
                 //console.log("set error");
               }

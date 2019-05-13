@@ -49,6 +49,42 @@ Page({
       area: '',
       limit: 10,
     })
+    // 请求工程抢单类别
+    wx.request({
+      url: getApp().data.serviceUrl + '/wx/engincategory/list',
+      method: "GET",
+      header: {
+        'content-type': 'application/json'
+      },
+      data: {},
+      success: function (res) {
+        console.log(res)
+        var enginCategoryList = res.data.data.items;
+        var enginCategoryArray = [{
+          id: '',
+          name: '综合'
+        }];
+        for (var i = 0; i < enginCategoryList.length; i++) {
+          // console.log(enginCategoryList[i])
+          enginCategoryArray.push(enginCategoryList[i])
+        }
+        console.log(enginCategoryArray)
+        that.setData({
+          orderList: enginCategoryArray,
+        })
+        setTimeout(function () {
+          wx.hideLoading();
+          return false;
+        }, 1000)
+      },
+      fail: function (e) {
+        wx.showToast({
+          title: '网络断开，稍后重试',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
     this.getList();
     // setTimeout(function () {
     //   that.regionFun(that.data.regionList[0].id)
@@ -271,12 +307,15 @@ Page({
     })
   },
   //条件更新后执行统一函数（如重新读取数据等）
+  // 列表接口
   getList: function () {
     var that = this;
     var tenderObj = {
       "page": that.data.page,
       "userId": that.data.userId,
       "limit": that.data.limit,
+      "title":that.data.title,
+
       "bid": {
         "enginCategoryId": that.data.engin_category_id,
         "bidLevel": that.data.bid_level,
@@ -287,9 +326,12 @@ Page({
         "title": that.data.title,
       },
     }
+    // wx.showLoading({
+    //   title: '正在加载数据',
+    // })
     // 请求数据
     wx.request({
-      url: getApp().data.serviceUrl + '/wx/bid/list',
+      url: getApp().data.serviceUrl + '/wx/engingrab/list',
       method: "POST",
       header: {
         'content-type': 'application/json'
@@ -347,6 +389,10 @@ Page({
           total
         })
         that.regionFun(regionList[0].id)
+        setTimeout(function () {
+          wx.hideLoading();
+          return false;
+        }, 1000)
       },
       fail: function (e) {
         wx.showToast({

@@ -16,6 +16,9 @@ Page({
     let that = this;
     console.log(options)
     if (options.sum == '活动风采') {//活动风采详情
+      wx.showLoading({
+        title: '正在加载数据',
+      })
       wx: wx.request({
         url: publics.ttpss().httpst + '/wx/activity/detail',
         data: {
@@ -34,12 +37,19 @@ Page({
             datas:res.data.data,
             myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
           })
+          setTimeout(function () {
+            wx.hideLoading();
+            return false;
+          }, 1000)
         },
         fail: function(res) {},
       })
     }
     if (options.sum == '热点资讯') {//热点资讯详情
     console.log(111)
+      wx.showLoading({
+        title: '正在加载数据',
+      })
       wx: wx.request({
         url: publics.ttpss().httpst +'/wx/news/detail',
         data: {
@@ -60,11 +70,18 @@ Page({
             myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3"),
           })
           console.log(res)
+          setTimeout(function () {
+            wx.hideLoading();
+            return false;
+          }, 1000)
         },
         fail: function(res) {},
       })
     }
     if (options.sum == '清洗') { //培训资料详情
+      wx.showLoading({
+        title: '正在加载数据',
+      })
       wx: wx.request({
         url: publics.ttpss().httpst + '/wx/train/detail',
         data: {
@@ -86,6 +103,10 @@ Page({
             myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
           })
           console.log(res)
+          setTimeout(function () {
+            wx.hideLoading();
+            return false;
+          }, 1000)
         },
         fail: function(res) {},
         complete: function(res) {},

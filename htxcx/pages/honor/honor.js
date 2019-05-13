@@ -15,6 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '正在加载数据',
+    })
     wx: wx.request({
       url: publics.ttpss().httpst + '/wx/qualificationhonor/index',
       data: '',
@@ -30,6 +33,10 @@ Page({
           honor: res.data.data.qualificationList,
           listBox: res.data.data.qualificationHonorList
         })
+        setTimeout(function () {
+          wx.hideLoading();
+          return false;
+        }, 1000)
       },
       fail: function(res) {},
       complete: function(res) {},

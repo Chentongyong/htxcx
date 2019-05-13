@@ -61,17 +61,19 @@ Page({
     var that = this;
     // 获取用户信息
     var userInfo = wx.getStorageSync('userInfo');
+    var openid = wx.getStorageSync('openid');
+    console.log(openid)
     console.log(userInfo)
     // 存储用户信息
     wx.request({
       url: getApp().data.serviceUrl + '/wx/wechatUser/getOpenid',
-      method: "GET",
+      method: "POST",
       header: {
         'content-type': 'application/json'
       },
       data: {
-        openid:'',
-        nickName: userInfo.nickName,
+        openid: openid,
+        nickName: encodeURI(userInfo.nickName),
         gender: userInfo.gender,
         avatarUrl: userInfo.avatarUrl,
         country: userInfo.country,
