@@ -16,16 +16,6 @@ Page({
   onLoad: function(options) {
     app.editTabbar();
   },
-  login: function () {//跳转登陆
-    wx: wx.navigateTo({
-      url: '../login/login'
-    })
-  },
-  integral: function () {//跳转积分
-    wx: wx.navigateTo({
-      url: '../integral/integral'
-    })
-  },
   myset: function(){//跳转设置
     wx: wx.navigateTo({
       url: '../myset/myset'

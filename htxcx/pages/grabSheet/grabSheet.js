@@ -14,53 +14,53 @@ Page({
     priceOrder: 1,
     //筛选条件
     where1Tips: [{
-        name: "条件 - 1",
-        value: 1,
-        checked: true
-      },
-      {
-        name: "条件 - 2",
-        value: 2
-      },
-      {
-        name: "条件 - 3",
-        value: 3
-      },
-      {
-        name: "条件 - 4",
-        value: 4
-      },
-      {
-        name: "条件 - 5",
-        value: 5
-      }
+      name: "条件 - 1",
+      value: 1,
+      checked: true
+    },
+    {
+      name: "条件 - 2",
+      value: 2
+    },
+    {
+      name: "条件 - 3",
+      value: 3
+    },
+    {
+      name: "条件 - 4",
+      value: 4
+    },
+    {
+      name: "条件 - 5",
+      value: 5
+    }
     ],
     where2Tips: [{
-        name: "条件 - 1",
-        value: 1
-      },
-      {
-        name: "条件 - 2",
-        value: 2,
-        checked: true
-      },
-      {
-        name: "条件 - 3",
-        value: 3
-      },
-      {
-        name: "条件 - 4",
-        value: 4
-      },
-      {
-        name: "条件 - 5",
-        value: 5
-      }
+      name: "条件 - 1",
+      value: 1
+    },
+    {
+      name: "条件 - 2",
+      value: 2,
+      checked: true
+    },
+    {
+      name: "条件 - 3",
+      value: 3
+    },
+    {
+      name: "条件 - 4",
+      value: 4
+    },
+    {
+      name: "条件 - 5",
+      value: 5
+    }
     ],
     region: ['区域', '区域', '区域'],
     customItem: '全部',
   },
-  changeOrder: function(e) {
+  changeOrder: function (e) {
     var tapIndex = e.target.dataset.itemid;
     this.setData({
       orderIndex: tapIndex
@@ -70,7 +70,7 @@ Page({
     });
     this.getList();
   },
-  showOptions1: function() {
+  showOptions1: function () {
     if (this.data.showingIndex != 0) {
       this.setData({
         showingIndex: 0
@@ -82,7 +82,7 @@ Page({
 
     });
   },
-  showOptions2: function() {
+  showOptions2: function () {
     if (this.data.showingIndex != 0) {
       this.setData({
         showingIndex: 0
@@ -93,7 +93,7 @@ Page({
       showingIndex: 2
     });
   },
-  showOptions99: function() {
+  showOptions99: function () {
     if (this.data.showingIndex != 0) {
       this.setData({
         showingIndex: 0
@@ -104,7 +104,7 @@ Page({
       showingIndex: 99
     });
   },
-  changeCate: function(e) {
+  changeCate: function (e) {
     var tapIndex = e.target.dataset.itemid;
     this.setData({
       cateIndex: tapIndex
@@ -115,7 +115,7 @@ Page({
     this.getList();
   },
   //价格排序
-  changePriceOrder: function() {
+  changePriceOrder: function () {
     if (this.data.priceOrder == 1) {
       this.setData({
         priceOrder: 2
@@ -131,15 +131,15 @@ Page({
     });
     this.getList();
   },
-  onReady: function() {
+  onReady: function () {
     _self = this;
     wx.getSystemInfo({
-      success: function(res) {
+      success: function (res) {
         var windowHeight = res.windowHeight;
         //获取头部标题高度
         wx.createSelectorQuery().select('#grace-filter-header').fields({
           size: true,
-        }, function(res) {
+        }, function (res) {
           //计算得出滚动区域的高度
           var sHeight = (windowHeight - res.height);
           console.log(windowHeight)
@@ -151,7 +151,7 @@ Page({
     });
   },
   //提交条件
-  formsubmit: function(e) {
+  formsubmit: function (e) {
     console.log(e)
     wx.showModal({
       title: '请观察控制台',
@@ -163,7 +163,7 @@ Page({
     this.getList();
   },
   //重置表单
-  formReset: function() {
+  formReset: function () {
     for (var i = 0; i < _self.data.where1Tips.length; i++) {
       _self.data.where1Tips[i].checked = false;
     }
@@ -182,7 +182,7 @@ Page({
     this.getList();
   },
   //筛选页面js
-  changeFunc: function(e) {
+  changeFunc: function (e) {
     var checkVal = e.detail.value;
     for (var i = 0; i < this.data.where1Tips.length; i++) {
       if (checkVal.indexOf(this.data.where1Tips[i].value + '') != -1) {
@@ -195,7 +195,7 @@ Page({
       where1Tips: this.data.where1Tips
     });
   },
-  changeFunc2: function(e) {
+  changeFunc2: function (e) {
     var checkVal = e.detail.value;
     for (var i = 0; i < this.data.where2Tips.length; i++) {
       if (checkVal.indexOf(this.data.where2Tips[i].value + '') != -1) {
@@ -209,20 +209,20 @@ Page({
     });
   },
   //条件更新后执行统一函数（如重新读取数据等）
-  getList: function() {
+  getList: function () {
     console.log('条件更新后执行统一函数（如重新读取数据等）');
   },
   // 跳转详情
-  grabSheetDes: function(e) {
+  grabSheetDes: function (e) {
     wx: wx.showModal({
       title: '系统提示',
       content: '您需要消耗1金币或者10积分才能查看该信息',
       showCancel: true,
       cancelText: '金币',
       confirmText: '积分',
-      cancelColor:'#2994E6',
-      confirmColor:'#808080',
-      success: function(res) {
+      cancelColor: '#2994E6',
+      confirmColor: '#808080',
+      success: function (res) {
         if (res.confirm) {
           // wx: wx.navigateTo({
           //   url: '../login/login',
@@ -232,8 +232,8 @@ Page({
           // })
         }
       },
-      fail: function(res) {},
-      complete: function(res) {},
+      fail: function (res) { },
+      complete: function (res) { },
     })
     wx: wx.navigateTo({//跳转详情
       url: '../tenderDetails/tenderDetails?s=' + 1
@@ -241,7 +241,7 @@ Page({
   },
   // 地区
   // 区域事件
-  bindRegionChange: function(e) {
+  bindRegionChange: function (e) {
     var that = this
     var regionArray = e.detail.value;
     var province;

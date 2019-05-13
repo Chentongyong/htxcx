@@ -1,6 +1,13 @@
 //app.js
 var ququ = {};
 App({
+  data: {
+    serviceUrl: "http://192.168.1.193:8082",
+    // serviceUrl: "http://localhost:8080/domesticService",
+    // userInfo: null,
+    appId: 'wx2444ab0e2362ad5d',
+    openid: '',
+  },
   onLaunch: function() {
     //隐藏系统tabbar
     wx.hideTabBar({
