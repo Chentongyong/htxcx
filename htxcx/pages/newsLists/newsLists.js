@@ -20,6 +20,9 @@ Page({
   },
   datas:function(){
     var that = this;
+    wx.showLoading({
+      title: '正在加载数据',
+    })
     wx.request({
       url: publics.ttpss().httpst + '//wx/sysMessage/list',
       method: "GET",
@@ -41,6 +44,10 @@ Page({
             concentList: res.data.data.sysMessageList
           })
         }
+        setTimeout(function () {
+          wx.hideLoading();
+          return false;
+        }, 1000)
       },
       fail: function (e) {
         wx.showToast({

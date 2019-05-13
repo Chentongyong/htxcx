@@ -75,7 +75,7 @@ Page({
         indexes: true
       })
     }
-    // this.sea(e.detail.value)
+    this.sea(e.detail.value)
   },
   determine:function(){
     let that = this;
