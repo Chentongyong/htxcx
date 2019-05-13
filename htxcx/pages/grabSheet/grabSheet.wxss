@@ -62,7 +62,7 @@ page {
   width: 100%;
   background: #fff;
   position: fixed;
-  z-index: 9;
+  z-index: 999;
   left: 0;
   top: 110rpx;
   border-bottom: 1px solid #f2f3f4;
@@ -72,12 +72,38 @@ page {
 }
 
 .grace-filter .items {
+  width: 140rpx;
+  justify-content: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  overflow: hidden; /*超出部分隐藏*/
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  white-space: nowrap; /*规定段落中的文本不进行换行 */
+}
+
+.itemsA {
+  width: 140rpx;
+  justify-content: center;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  color: #2994e6;
+  overflow: hidden; /*超出部分隐藏*/
+  text-overflow: ellipsis; /* 超出部分显示省略号 */
+  white-space: nowrap; /*规定段落中的文本不进行换行 */
+}
+
+.itemsB {
   display: flex;
   flex-wrap: nowrap;
   width: 140rpx;
   justify-content: center;
   height: 80rpx;
   align-items: center;
+  color: #2994e6;
+  font-size: 32rpx;
+  border-bottom: 4px solid #2994e6;
 }
 
 .grace-filter .items:nth-child(1) {
@@ -86,6 +112,8 @@ page {
 
 .grace-filter .items:last-child {
   color: #9a9a9a;
+   display: flex;
+  align-items: center;
 }
 
 .grace-filter .items image {
@@ -100,7 +128,6 @@ page {
 
 .grace-filter-options {
   width: 100%;
-  height: 600rpx;
   position: absolute;
   z-index: 10;
   padding: 20rpx 0;
@@ -170,6 +197,7 @@ page {
   font-family: PingFang SC;
 }
 
+
 .block {
   width: 24rpx;
   height: 24rpx;
@@ -231,6 +259,15 @@ page {
   text-align: center;
   height: 52rpx;
   line-height: 52rpx;
+}
+
+.money-items .itemsM {
+  width: 160rpx;
+  text-align: center;
+  height: 52rpx;
+  line-height: 52rpx;
+  background: rgba(254, 75, 75, 0.2);
+  color: #fe4b4b;
 }
 
 .money-items .icon {
@@ -328,6 +365,26 @@ page {
   height: 28rpx;
   margin-right: 16rpx;
 }
+.hasMore{
+  width: 100%;
+  text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+}
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.colorDefult{
+  padding:8rpx 0;text-align:center;color:rgba(154,154,154,1);font-size:24rpx
+}
+.colorCurrent{
+  color:rgba(254,75,75,1);
+  padding:8rpx 0;text-align:center;font-size:28rpx
+}
+
 /* 遮罩层 */
 .cover{
   width: 100%;

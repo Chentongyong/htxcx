@@ -221,7 +221,8 @@ Page({
     //   content: '条件以表单形式提交 ^_^'
     // });
     _self.setData({
-      showingIndex: 0
+      showingIndex: 0,
+      cover: false
     });
     that.getList();
   },
@@ -236,7 +237,8 @@ Page({
       area: '',
       currentPIndex: 100,
       currentCIndex: 100,
-      currentIndex: 100
+      currentIndex: 100,
+      cover:false
     });
     this.getList();
   },
