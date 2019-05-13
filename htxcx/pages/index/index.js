@@ -305,9 +305,9 @@ Page({
       url: '../engineering/engineering'
     })
   },
-  gcxqClick: function() { //工程推荐详情
+  gcxqClick: function(e) { //工程推荐详情
     wx: wx.navigateTo({
-      url: '../engin_details/engin_details'
+      url: '../engin_details/engin_details?sid=' + e.currentTarget.dataset.id
     })
   },
   hrlbClick: function(e) { //活动风采、热点资讯列表

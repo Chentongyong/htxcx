@@ -4,7 +4,6 @@ page {
 
 .compon {
   background: rgba(238, 238, 238, 1);
-  height: 3336rpx;
 }
 
 /* 定位，搜索，消息 */
