@@ -1,28 +1,22 @@
+var publics = require('../../public/public.js');
+let page = 1;
+let limit = 10;
+let list = [];
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    lists: [
-      {
-        img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司',money: '100万', qy: '广东省广州市', clicks: '2222', itme:'2019-04-26' },
-      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' },
-      { img: '../../images/gctj.png', title: '广东宏泰节能环保工程有限公司', money: '100万', qy: '广东省广州市', clicks: '2222', itme: '2019-04-26' }
-    ]
+    lists: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    list=[];
+    this.datas()
   },
   onClick: function () {
     wx: wx.navigateTo({
@@ -42,35 +36,30 @@ Page({
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.datas()
   },
-
+  datas:function(){
+    wx:wx.request({
+      url: publics.ttpss().httpst + '/wx/engin/list',
+      data: {
+        // "page":page,
+        // "limit": limit
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: function(res) {
+        console.log(res)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   /**
    * 用户点击右上角分享
    */

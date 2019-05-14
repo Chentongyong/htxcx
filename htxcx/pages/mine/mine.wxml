@@ -32,8 +32,8 @@
   </view>
   <!-- 我的列表 -->
   <view class="mine-lists">
-    <view class="lists-item">
-      <view class="left" bindtap='memClick'>
+    <view class="lists-item" bindtap='memClick'>
+      <view class="left">
         <image src="../../images/member.png"></image>
         会员升级
       </view>

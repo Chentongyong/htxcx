@@ -5,7 +5,7 @@
   </view>
   <view class='mem_je'>
     <text>充值金额</text>
-    <input bindinput='inpClick' placeholder='请输入充值金额'></input>
+    <input bindinput='inpClick' placeholder='最低1元起'></input>
   </view>
   <view class='mem_ts'>现账户可用金币：{{money}}个</view>
   <view class='mem_logo'>
