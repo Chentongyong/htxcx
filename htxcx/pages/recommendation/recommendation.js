@@ -12,6 +12,24 @@ Page({
     ind: 0,
     sid: 1
   },
+  onLoad: function(){
+    wx:wx.request({
+      url: publics.ttpss().httpst + '/wx/engineer/categorylist',
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) =>{
+        this.setData({
+          listBox:res.data.data
+        })
+        console.log(res.data.data.length)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   onShow: function() {
     sum = [];
     const that = this;
@@ -37,11 +55,11 @@ Page({
       dataType: 'json',
       responseType: 'text',
       success: function(res) {
-        res.data.data.engineerCategoryList.forEach((item, index, arr) => {//分类
+        res.data.data.items.forEach((item, index, arr) => {//分类
           // arr[index].name = arr[index].name.substr(0, 2);
           sum.push(arr[index])
         })
-        res.data.data.engineerList.forEach((item, index, arr) => {//按需查询数据
+        res.data.data.items.forEach((item, index, arr) => {//按需查询数据
           arr[index].addTime = arr[index].addTime.replace(/([^\s]+)\s.*/, "$1")//切割日期时间
           if (arr[index].gender == 1) {
             arr[index].gender = '男'
@@ -51,11 +69,9 @@ Page({
           }
         })
         that.setData({
-          listBox: sum,
           sid: sum[0].id,
-          dataList: res.data.data.engineerList
+          dataList: sum
         })
-        // console.log(res)
       },
       fail: function(res) {},
     })

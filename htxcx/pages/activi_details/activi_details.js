@@ -101,7 +101,7 @@ Page({
           res.data.data.addTime = res.data.data.addTime.replace(/([^\s]+)\s.*/, "$1")
           that.setData({
             datas: res.data.data,
-            myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:600rpx;$3")
+            myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
           })
           setTimeout(function () {
             wx.hideLoading();

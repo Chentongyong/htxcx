@@ -19,7 +19,7 @@ Page({
     })
     let that = this;
     wx: wx.request({
-      url: publics.ttpss().httpst + '/wx/engineer/detail',
+      url: 'http://192.168.1.193:8082/wx/engineer/read',
       data: {
         "id": that.data.sid,
         // "userId":''
