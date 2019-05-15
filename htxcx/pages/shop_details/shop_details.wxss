@@ -1,5 +1,5 @@
 .swiper {
- height: 720rpx;
+ height:720rpx;
  width: 100%;
 }
 .swiper image {

@@ -1,23 +1,25 @@
 <view class='service'>
-  <view wx:for='{{lists}}' wx:key='index' class='service_top' bindtap='onClick'>
+  <view wx:for='{{lists}}' wx:key='index' data-id='{{item.id}}' class='service_top' bindtap='onClick'>
     <view>
-      <image src='{{item.img}}'></image>
+      <image src='{{item.path}}'></image>
     </view>
     <view style='width:100%'>
       <view class='servUp'>
-        <text class='text1'>{{item.title}}</text>
-        <text class='text2'>{{item.itme}}</text>
+        <text class='text1'>{{item.name}}</text>
+        <text class='text2'>{{item.addTime}}</text>
       </view>
       <view class='serv_cen'>
-      金额：<text>{{item.money}}</text>
+        金额：
+        <text>{{item.price}}</text>
       </view>
       <view class='serv_but'>
-        <view class='text1'>{{item.qy}}</view>
+        <view class='text1'>{{item.address}}</view>
         <view>
           <image src='../../images/yys.png'></image>
-          <text class='text2'>{{item.clicks}}</text>
+          <text class='text2'>{{item.pageView}}</text>
         </view>
       </view>
     </view>
   </view>
+  <view style='line-height:80rpx;text-align:center' wx:if='{{show}}'>没有更多数据了~~</view>
 </view>

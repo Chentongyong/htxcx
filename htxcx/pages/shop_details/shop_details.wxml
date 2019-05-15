@@ -1,33 +1,35 @@
 <view>
   <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
-    <block wx:for="{{dataBox.movies}}" wx:for-index="index" wx:key='index'>
+    <block wx:for="{{roller}}" wx:for-index="index" wx:key='index'>
       <swiper-item>
-        <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+        <image src="{{item}}" class="slide-image" mode="aspectFill" />
       </swiper-item>
     </block>
   </swiper>
 
   <view class='information'>
     <view class='inform_tit'>
-      <text>{{dataBox.title}}</text>
+      <text>{{dataBox.name}}</text>
     </view>
     <view class='inform_money'>
       <text>￥</text>
-      <text>{{dataBox.money}}</text>
+      <text>{{dataBox.counterPrice}}</text>
     </view>
     <view class='inform_map'>
-      <text>供货地址：</text>
-      <text>{{dataBox.map}}</text>
+      <text>供货单位：</text>
+      <text>{{dataBox.supplier}}</text>
     </view>
     <view class='inform_map'>
       <text>可发货地区：</text>
-      <text>{{dataBox.fhMap}}</text>
+      <text>{{dataBox.address}}</text>
     </view>
   </view>
 
   <view class='informCen'>
     <view class='cenTop'>商品详情</view>
-    <image src='{{dataBox.img}}'></image>
+    <view style='width:100%'>
+      <rich-text nodes="{{myrich}}"></rich-text>
+    </view>
   </view>
 
   <view class='informBut'>

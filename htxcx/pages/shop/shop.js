@@ -1,113 +1,124 @@
 // pages/mine/mine.js
 const app = getApp();
+const publics = require('../../public/public.js');
+let list = [];
+let page = 1;
+let limit = 15;
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    listEj:['电器设备','清洗设备','设备配件','防护用品'],
-    listSp:[
-      { imgUrl:'../../images/scsp.png',title:'高压清洗'},
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' },
-      { imgUrl: '../../images/scsp.png', title: '高压清洗' }
-    ],
+    listEj:[],
+    listSp:[],
     tabbar: {},
+    shopId:'',
     ind:0,
     qh:0
   },
   qhClick:function(e){
+    list = [];
+    page = 1;
     let that = this;
     if (e.currentTarget.dataset.text==='商品'){
       that.setData({
-        qh:0
+        qh:0,
+        listSp:[]
       })
     }
     if (e.currentTarget.dataset.text==='设备租凭'){
       that.setData({
-        qh: 1
+        qh: 1,
+        listSp: []
       })
     }
+    that.shopType()
   },
-  details:function (){
+  details:function (e){
     wx.navigateTo({
-      url: '../shop_details/shop_details',
+      url: '../shop_details/shop_details?sid=' + e.currentTarget.dataset.id,
     })
   },
   xzClick:function(e){
+    list=[];
+    page=1;
     let that = this;
     that.setData({
-      ind: e.currentTarget.dataset.index
+      ind: e.currentTarget.dataset.index,
+      shopId: e.currentTarget.dataset.id
     })
+    that.datas();
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     app.editTabbar();
+    this.shopType()
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
   onShow: function () {
 
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  shopType:function(){
+    wx: wx.request({
+      url: publics.ttpss().httpst + '/wx/devicecategory/list',
+      data: '',
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) => {
+        this.setData({
+          listEj: res.data.data.list,
+          shopId: res.data.data.list[0].id
+        })
+        this.datas()
+      },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  datas:function(){
+    let that = this;
+    wx:wx.request({
+      url: publics.ttpss().httpst + '/wx/goods/list',
+      data: {
+        "deviceCategoryId": that.data.shopId,
+        "page": page,
+        "limit": limit
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) =>{
+        if (res.data.data.totalPages > page) {
+          res.data.data.deviceList.forEach((item,index,arr)=>{
+            list.push(arr[index])
+          })
+          this.setData({
+            listSp: list
+          })
+        }else{
+          res.data.data.deviceList.forEach((item, index, arr) => {
+            list.push(arr[index])
+          })
+          this.setData({
+            show: true,
+            listSp: list
+          })
+        }
+        console.log(res.data.data.deviceList)
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.datas()
   },
 
   /**

@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "工程推荐"
+  "navigationBarTitleText": "工程推荐",
+  "onReachBottomDistance": 10
 }

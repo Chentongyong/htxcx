@@ -15,14 +15,15 @@
 
   <view class='shop_center'>
     <view class='cen_left'>
-      <view wx:for='{{listEj}}' wx:key='index' data-index='{{index}}' class="leftBox {{index==ind?'left_sty':''}}" bindtap='xzClick'>
-        {{item}}</view>
+      <view wx:for='{{listEj}}' wx:key='index' data-index='{{index}}' data-id="{{item.id}}" class="leftBox {{index==ind?'left_sty':''}}" bindtap='xzClick'>
+        {{item.name}}</view>
     </view>
     <view class='cen_right'>
-      <view class='rightBox' wx:for='{{listSp}}' wx:key='index' bindtap='details'>
-        <image src='{{item.imgUrl}}'></image>
-        <view class='box_right'>{{item.title}}</view>
+      <view class='rightBox' wx:for='{{listSp}}' wx:key='index' data-id='{{item.id}}' bindtap='details'>
+        <image src='{{item.picUrl}}'></image>
+        <view class='box_right'>{{item.name}}</view>
       </view>
+      <view style='width:100%;line-height:80rpx;text-align:center;border-top:#eee' wx:if='{{show}}'>没有更多数据了~~</view>
     </view>
   </view>
 

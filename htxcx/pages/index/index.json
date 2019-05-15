@@ -1,4 +1,4 @@
-{
+  {
   "usingComponents": {
     "rotation": "/components/rotation/rotation",
     "tabbar": "../../tabbarComponent/tabbar"

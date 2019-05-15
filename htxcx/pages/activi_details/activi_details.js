@@ -79,6 +79,7 @@ Page({
       })
     }
     if (options.sum == '清洗') { //培训资料详情
+    console.log(123)
       wx.showLoading({
         title: '正在加载数据',
       })
@@ -96,13 +97,12 @@ Page({
           var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi");//匹配所有带style 的<img src=''/>标签
           res.data.data.detail = res.data.data.detail.replace(regex1, "$2 style=\"\"$3");//给没有带style的<img src='' />添加 style
           var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi");//
-
+          res.data.data.detail = res.data.data.detail.replace(/<p>/gi, "<div>")
           res.data.data.addTime = res.data.data.addTime.replace(/([^\s]+)\s.*/, "$1")
           that.setData({
             datas: res.data.data,
-            myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
+            myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:600rpx;$3")
           })
-          console.log(res)
           setTimeout(function () {
             wx.hideLoading();
             return false;

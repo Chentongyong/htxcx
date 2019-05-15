@@ -50,6 +50,7 @@
     "pages/mineEngineer/mineEngineer",
     "pages/city/city"
   ],
+
   "subPackages": [
     {
       "root": "packageTab1",

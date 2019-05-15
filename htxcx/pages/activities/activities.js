@@ -54,7 +54,7 @@ Page({
         dataType: 'json',
         responseType: 'text',
         success: function(res) {
-          if (page < res.data.data.totalPages) {
+          if (res.data.data.totalPages >page) {
             page = page + 1;
             res.data.data.activityList.forEach((item, index, arr) => {
               sums.push(arr[index])
@@ -64,6 +64,9 @@ Page({
               listBox: sums
             })
           } else {
+            res.data.data.activityList.forEach((item, index, arr) => {
+              sums.push(arr[index])
+            })
             that.setData({
               show: true
             })

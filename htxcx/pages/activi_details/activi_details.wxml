@@ -12,7 +12,7 @@
       </view>
     </view>
   </view>
-  <view class='activ_but' style='overflow: hidden'>
+  <view class='activ_but'>
     <view style='width:100%'>
       <rich-text nodes="{{myrich}}"></rich-text>
     </view>
