@@ -1,16 +1,16 @@
 <view class='service'>
-  <view wx:for='{{lists}}' wx:key='index' class='service_top' bindtap='onClick'>
+  <view wx:for='{{lists}}' wx:key='index' data-id='{{item.id}}' class='service_top' bindtap='onClick'>
     <view>
-      <image src='{{item.img}}'></image>
+      <image src='{{item.avatar}}'></image>
     </view>
     <view style='width:100%'>
-      <view class='servUp'>{{item.title}}</view>
-      <view class='serv_cen'>{{item.types}}</view>
+      <view class='servUp'>{{item.companyName}}</view>
+      <view class='serv_cen'>{{item.category}}</view>
       <view class='serv_but'>
-        <view class='text1'>{{item.qy}}</view>
+        <view class='text1'>{{item.address}}</view>
         <view>
           <image src='../../images/yys.png'></image>
-          <text class='text2'>{{item.clicks}}</text>
+          <text class='text2'>{{item.addTime}}</text>
         </view>
       </view>
     </view>

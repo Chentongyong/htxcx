@@ -1,79 +1,75 @@
+const publics = require('../../public/public.js');
+let list = [];
+let page = 1;
+let limit = 10;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    lists:[
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' },
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' },
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' },
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' },
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' },
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' },
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' },
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' },
-      { img: '../../images/ind_ppfc.png', title: '广东宏泰节能环保工程有限公司', types: '工业、空调清洗', qy: '广东省广州市', clicks: '2222' }
-    ]
+    lists: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    
+  onLoad: function(options) {
+    list = [];
+    page = 1;
+    this.datas()
   },
-  onClick:function(){
-    wx:wx.navigateTo({
-      url: '../service_details/service_details'
+  onClick: function(e) {
+    wx: wx.navigateTo({
+      url: '../service_details/service_details?sid='+ e.currentTarget.dataset.id
     })
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
-    
-  },
+  onShow: function() {
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
+  datas: function() {
+    console.log(page)
+    console.log(limit)
+    wx: wx.request({
+      url: publics.ttpss().httpst + '/wx/service/list',
+      data: {
+        "page": page,
+        "limit": limit
+      },
+      header: {},
+      method: 'GET',
+      dataType: 'json',
+      responseType: 'text',
+      success: (res) =>{
+        console.log(res.data.data.userList)
+        if(res.data.data.totalPages>=page){
+          page = page + 1;
+          res.data.data.userList.forEach((item,index,arr)=>{
+            arr[index].addTime = arr[index].addTime.replace(/([^\s]+)\s.*/, "$1");
+            list.push(arr[index]);
+          })
+          this.setData({
+            lists: list
+          })
+        }else{
+        }
+      },
+      fail: function(res) {},
+      complete: function(res) {},
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
+  onReachBottom: function() {
+    this.datas()
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-    
+  onShareAppMessage: function() {
+
   }
 })

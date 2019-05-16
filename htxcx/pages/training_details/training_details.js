@@ -124,6 +124,32 @@ Page({
         complete: function (res) { },
       })
     }
+    if(options.sum=='服务商'){
+      wx:wx.request({
+        url: publics.ttpss().httpst + '/wx/service/casedetail',
+        data: {
+          "id":options.sid
+        },
+        header: {},
+        method: 'GET',
+        dataType: 'json',
+        responseType: 'text',
+        success: function(res) {
+          console.log(res)
+          var regex1 = new RegExp("(i?)(\<img)(?!(.*?style=['\"](.*)['\"])[^\>]+\>)", "gmi"); //匹配所有带style 的<img src=''/>标签
+          res.data.data.detail = res.data.data.detail.replace(regex1, "$2 style=\"\"$3"); //给没有带style的<img src='' />添加 style
+          var regex2 = new RegExp("(i?)(\<img.*?style=['\"])([^\>]+\>)", "gmi"); //
+          res.data.data.addTime = res.data.data.addTime.replace(/([^\s]+)\s.*/, "$1")
+          that.setData({
+            datas: res.data.data,
+            title: res.data.data.title,
+            myrich: res.data.data.detail.replace(regex2, "$2display:block;width:100%;height:auto;$3")
+          })
+        },
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
   },
 
   phoneCall: function(e) { //电话咨询

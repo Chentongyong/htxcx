@@ -5,18 +5,18 @@
       <text>服务商简介</text>
     </view>
     <view class='det_cen'>
-      <text>广东宏泰节能环保工程有限公司</text>
+      <text>{{datas.companyName}}</text>
       <view class='cenBox'>
         <text class='text1'>企业地址：</text>
-        <text class='text2'>广州市天河区大观中路95号科汇园A115</text>
+        <text class='text2'>{{datas.address}}</text>
       </view>
       <view class='cenBox'>
         <text class='text1'>联系方式：</text>
-        <text class='text2'>020-82960135</text>
+        <text class='text2'>{{datas.mobile}}</text>
       </view>
       <view class='cenBox'>
         <text class='text1'>主营业务：</text>
-        <text class='text2'>清洗加盟，工业设备清洗，工业清洗，外 墙石材养护，锅炉清洗</text>
+        <text class='text2'>{{datas.category}}</text>
       </view>
     </view>
   </view>
@@ -26,14 +26,14 @@
       <image src='../../images/gcnls.png'></image>
       <text>工程案例</text>
     </view>
-    <view class='hot_but' wx:for='{{listBox}}' wx:key="index" bindtap='xqClick'>
-      <image class='imgs1' src='{{item.imgUrl}}'></image>
+    <view class='hot_but' wx:for='{{listBox}}' wx:key="index" data-id='{{item.id}}' bindtap='xqClick'>
+      <image class='imgs1' src='{{item.path}}'></image>
       <view class='butBox'>
         <view class='boxZi'>
           <view class='ziSty'>{{item.title}}</view>
-          <view class='sty_co'>{{item.ms}}</view>
+          <view class='sty_co'>{{item.content}}</view>
           <view class='ziFu'>
-            <text>{{item.sj}}</text>
+            <text>{{item.addTime}}</text>
             <image src='../../images/jt.png'></image>
           </view>
         </view>

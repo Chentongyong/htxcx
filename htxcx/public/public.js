@@ -9,6 +9,7 @@ wx.getStorage({
     st['userUid'] = res.data.userUid;
   }
 })
+console.log(wx.getStorage)
 
 const requestPromise = function (myUrl,data) {
   // 返回一个Promise实例对象

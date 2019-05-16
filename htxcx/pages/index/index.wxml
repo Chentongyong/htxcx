@@ -59,7 +59,7 @@
       <swiper class="swiper" indicator-dots="true" indicator-color="#ccc" indicator-active-color="#2994E6">
         <block wx:for="{{movies1}}" wx:for-index="index" wx:key='index'>
           <swiper-item>
-            <view class='itemBox' bindtap='yzxqClick' wx:for='{{item.movList}}' wx:key='index' data-id='{{index}}'>
+            <view class='itemBox' bindtap='yzxqClick' wx:for='{{item.movList}}' wx:key='index' data-id='{{item.id}}'>
               <image src="{{item.avatar}}" class="slide-image" mode="aspectFill" />
               <view class='text'>{{item.username}}</view>
             </view>

@@ -295,9 +295,9 @@ Page({
       url: '../service/service',
     })
   },
-  yzxqClick: function() { //跳转优质服务详情
+  yzxqClick: function(e) { //跳转优质服务详情
     wx: wx.navigateTo({
-      url: '../service_details/service_details',
+      url: '../service_details/service_details?sid=' + e.currentTarget.dataset.id,
     })
   },
   gclbClick: function() { //工程推荐列表
